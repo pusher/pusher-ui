@@ -31,9 +31,16 @@ In a React entry file (as a simple example):
 
 ```javascript
 import { render } from 'react-dom';
-import { Button } from '@pusherapp/pusher-ui';
+import { ThemeProvider } from 'styled-components';
+import { Button, theme } from '@pusherapp/pusher-ui';
 
-render(<Button>Hello!</Button>, document.getElementById('container'));
+render((
+  <ThemeProvider theme={theme}>
+    <Button primary>Hello!</Button>
+  </ThemeProvider>
+), document.getElementById('container'));
 ```
 
-You should see a button rendered in the container.
+You should now see a button rendered in the container.
+Note that in a real scenario, the `<ThemeProvider>` component would wrap your
+application as one of the outermost containers.
