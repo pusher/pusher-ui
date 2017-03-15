@@ -1,5 +1,5 @@
 {
-  "name": "pusher-ui",
+  "name": "@pusherapp/pusher-ui",
   "version": "0.0.1",
   "main": "build/pusher-ui.js",
   "author": "Haukur Páll Hallvarðsson <hph@hph.is>",
@@ -18,6 +18,6 @@
   },
   "peerDependencies": {
     "react": "^15.4.2",
-    "styled-components": "^1.4.4"
+    "styled-components": "2.0.0-7"
   }
 }
