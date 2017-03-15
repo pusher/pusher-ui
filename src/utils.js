@@ -8,3 +8,9 @@ export function hexToRgba (hex, alpha) {
   const b = parseInt(hexTmp.substring(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+export function getVariant (props) {
+  const variants = ['primary', 'success', 'warning', 'danger'];
+  const variant = variants.find(variant => !!props[variant]);
+  return props.theme[variant];
+}
