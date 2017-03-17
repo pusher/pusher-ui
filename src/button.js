@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { hexToRgba, getVariant } from './utils';
@@ -10,7 +9,7 @@ const Button = styled.button`
   padding: ${props => ({
     small: '.4em .8em',
     large: '.6em 1.2em',
-  })[props.size] || '.5em 1em'};
+  })[props.size] || '.5em 1em'};
   font-size: 1em;
   font-family: ${props => props.theme.fontFamily};
   user-select: none;

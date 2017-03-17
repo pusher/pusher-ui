@@ -11,6 +11,5 @@ export function hexToRgba (hex, alpha) {
 
 export function getVariant (props) {
   const variants = ['primary', 'success', 'warning', 'danger'];
-  const variant = variants.find(variant => !!props[variant]);
-  return props.theme[variant];
+  return props.theme[variants.find(variant => !!props[variant])];
 }
