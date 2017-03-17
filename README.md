@@ -6,14 +6,14 @@
 
 As per usual (you can also use NPM):
 
-    yarn add @pusherapp/pusher-ui
+    yarn add pusher-ui
 
 You may need to add the project's peer dependencies as well:
 
     yarn add react styled-components
 
-Note: You must be logged in to the `pusherapp` NPM account in order to install
-the project.
+These dependencies are required by the project but are expected to be provided
+in your project for deduplication.
 
 ### Install for development
 
@@ -32,7 +32,7 @@ In a React entry file (as a simple example):
 ```javascript
 import { render } from 'react-dom';
 import { ThemeProvider } from 'styled-components';
-import { Button, theme } from '@pusherapp/pusher-ui';
+import { Button, theme } from 'pusher-ui';
 
 render((
   <ThemeProvider theme={theme}>
