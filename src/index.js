@@ -1,2 +1,2 @@
-export Button from './button';
+export Button from './components/button';
 export theme from './theme';

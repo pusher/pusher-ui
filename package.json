@@ -5,8 +5,9 @@
   "author": "Haukur Páll Hallvarðsson <hph@hph.is>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack -p --config=config/webpack.config.js",
-    "lint": "eslint -c=config/eslint.json --ignore-path=.gitignore --format=codeframe ."
+    "build": "webpack -p --config=config/webpack.config.library.js",
+    "lint": "eslint -c=config/eslint.json --ignore-path=.gitignore --format=codeframe .",
+    "start": "webpack-dev-server --config=config/webpack.config.demos.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -20,10 +21,14 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
-    "webpack": "^2.2.1"
+    "html-webpack-plugin": "^2.28.0",
+    "stateful-react-container-webpack-plugin": "^0.1.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "peerDependencies": {
     "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "styled-components": "2.0.0-7"
   }
 }

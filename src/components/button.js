@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { hexToRgba, getVariant } from './utils';
-import { transitionShort, transitionLong } from './transitions';
+import { hexToRgba, getVariant } from '../utils';
+import { transitionShort, transitionLong } from '../transitions';
 
 
 const Button = styled.button`
