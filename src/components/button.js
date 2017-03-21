@@ -1,10 +1,26 @@
+import { PropTypes, createElement } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router';
 
 import { hexToRgba, getVariant } from '../utils';
 import { transitionShort, transitionLong } from '../transitions';
 
 
-const Button = styled.button`
+const styledButtonOrLink = styled((props) => {
+  const tag = props.to ? Link : 'button';
+  const {
+    primary,
+    success,
+    warning,
+    danger,
+    large,
+    small,
+    ...allowedProps,
+  } = props;
+  return createElement(tag, allowedProps, props.children);
+});
+
+const Button = styledButtonOrLink`
   display: inline-block;
   padding: ${props => ({
     small: '.4em .8em',
@@ -45,6 +61,20 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
+
+Button.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.string,
+  ]),
+  to: PropTypes.string,
+  primary: PropTypes.bool,
+  success: PropTypes.bool,
+  warning: PropTypes.bool,
+  danger: PropTypes.bool,
+  small: PropTypes.bool,
+  large: PropTypes.bool,
+};
 
 
 export default Button;

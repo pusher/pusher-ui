@@ -40,5 +40,11 @@ module.exports = {
       amd: 'styled-components',
       root: 'styledComponents',
     },
+    'react-router': {
+      commonjs: 'react-router',
+      commonjs2: 'react-router',
+      amd: 'react-router',
+      root: 'reactRouter',
+    }
   },
 };

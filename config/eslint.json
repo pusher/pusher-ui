@@ -14,6 +14,7 @@
   },
   "rules": {
     "arrow-body-style": 0,
+    "comma-dangle": [2, "only-multiline"],
     "consistent-return": 0,
     "import/extensions": 0,
     "import/no-unresolved": [2, { "ignore": ["react", "styled-components"] }],
