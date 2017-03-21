@@ -17,6 +17,7 @@
     "comma-dangle": [2, "only-multiline"],
     "consistent-return": 0,
     "import/extensions": 0,
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
     "import/no-unresolved": [2, { "ignore": ["react", "styled-components"] }],
     "jsx-a11y/no-static-element-interactions": 0,
     "jsx-quotes": [2, "prefer-double"],
