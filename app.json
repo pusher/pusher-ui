@@ -1,15 +1,11 @@
 {
   "name": "pusher-ui",
-  "scripts": {
-  },
+  "scripts": {},
   "env": {
+    "HEROKU": {},
+    "NPM_CONFIG_PRODUCTION": {}
   },
-  "formation": {
-  },
-  "addons": [
-
-  ],
-  "buildpacks": [
-
-  ]
+  "formation": {},
+  "addons": [],
+  "buildpacks": []
 }

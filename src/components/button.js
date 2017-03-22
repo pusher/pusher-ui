@@ -22,12 +22,12 @@ const styledButtonOrLink = styled((props) => {
 
 const Button = styledButtonOrLink`
   display: inline-block;
-  padding: ${props => ({
-    small: '.4em .8em',
-    large: '.6em 1.2em',
-  })[props.size] || '.5em 1em'};
-  font-size: 1em;
+  padding: .5em 1em;
   font-family: ${props => props.theme.fontFamily};
+  font-size: ${props => ({
+    small: '0.8em',
+    large: '1.2em',
+  })[props.size] || '1em'};
   user-select: none;
   text-decoration: none;
   border: 1px solid;
@@ -57,8 +57,13 @@ const Button = styledButtonOrLink`
   &[disabled] {
     border-color: ${props => props.theme.darkGrey};
     background-color: ${props => props.theme.darkGrey};
-    color: ${props => props.theme.black};
+    color: ${props => hexToRgba(props.theme.black, 0.5)};
     cursor: not-allowed;
+  }
+
+  &[disabled]:hover {
+    background-color: ${props => props.theme.darkGrey};
+    filter: none;
   }
 `;
 
