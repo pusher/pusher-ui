@@ -32,8 +32,9 @@ storiesOf('Button', module)
   ))
   .add('as a React Router anchor', () => (
     <Section>
+      <p>Note: as React Router is not set up here the href attribute is missing.</p>
       <CodeWrapper name="Button">
-        <Button primary>Go home!</Button>
+        <Button to="/home" primary>Go home!</Button>
       </CodeWrapper>
     </Section>
   ));
