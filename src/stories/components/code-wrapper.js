@@ -17,8 +17,8 @@ function CodeWrapper (props) {
   const items = Array.isArray(props.children) ? props.children : [props.children];
   return (
     <div>
-      {items.map(child => (
-        <CodeContainer>
+      {items.map((child, index) => (
+        <CodeContainer key={index}>
           <div>{child}</div>
           <pre>{renderJsx(child, props.name)}</pre>
         </CodeContainer>

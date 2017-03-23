@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { icons } from './icon-set';
 
 
-const StyledSVG = styled.svg`
+const SVG = styled.svg`
   fill: currentcolor;
   vertical-align: middle;
   color: ${props => props.color};
@@ -18,7 +18,7 @@ function Icon (props) {
   if (icons.indexOf(name) === -1) {
     // eslint-disable-next-line no-console
     console.warn(`${name} not found in iconset; no-op`);
-    return undefined;
+    return null;
   }
 
   let width = size;
@@ -29,7 +29,7 @@ function Icon (props) {
 
   const useTag = `<use xlink:href="#icon:${name}" />`;
   return (
-    <StyledSVG
+    <SVG
       {...other}
       width={width}
       height={height}
