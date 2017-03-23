@@ -19,6 +19,7 @@ export default {
   black: '#1e1e1e',
   darkGrey: '#d6d6d6',
   darkDarkGrey: '#989898',
+  lightGrey: '#e7ebf3',
   primary: '#549eff',
   success: '#319a31',
   warning: '#ffaf1c',

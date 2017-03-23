@@ -13,3 +13,29 @@ export function getVariant (props) {
   const variants = ['primary', 'success', 'warning', 'danger'];
   return props.theme[variants.find(variant => !!props[variant])];
 }
+
+export function copyToClipboard (text) {
+  const { scrollTop } = document.body;
+  const textarea = document.createElement('textarea');
+  document.body.appendChild(textarea);
+  textarea.value = text;
+  textarea.focus();
+  textarea.select();
+  document.execCommand('copy');
+  textarea.remove();
+
+  // Reset the scroll position to the initial value, since appending to the
+  // document may change the scroll position.
+  window.scrollTo(0, scrollTop);
+}
+
+export function download (text, filename) {
+  const element = document.createElement('a');
+  const content = encodeURIComponent(text);
+  element.setAttribute('href', `data:text/plain;charset=utf-8,${content}`);
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
