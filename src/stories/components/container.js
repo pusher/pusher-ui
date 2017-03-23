@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 
-import { theme } from '../../index';
+import { IconSet, theme } from '../../index';
 
 
 class Container extends Component {
@@ -27,7 +27,14 @@ class Container extends Component {
   }
 
   render () {
-    return <ThemeProvider theme={theme}>{this.props.children}</ThemeProvider>;
+    return (
+      <ThemeProvider theme={theme}>
+        <div>
+          {this.props.children}
+          <IconSet />
+        </div>
+      </ThemeProvider>
+    );
   }
 
 }

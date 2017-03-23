@@ -9,9 +9,8 @@ const CodeContainer = styled.div`
 `;
 
 function renderJsx (component, name) {
-  return reactElementToJSXString(component, {
-    displayName: () => name,
-  });
+  const displayName = name && (() => name);
+  return reactElementToJSXString(component, { displayName });
 }
 
 function CodeWrapper (props) {
@@ -30,7 +29,7 @@ function CodeWrapper (props) {
 
 CodeWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string, // eslint-disable-line react/require-default-props
 };
 
 
