@@ -9,17 +9,16 @@ const CodeContainer = styled.div`
 `;
 
 function renderJsx (component, name) {
-  return reactElementToJSXString(component, {
-    displayName: () => name,
-  });
+  const displayName = name && (() => name);
+  return reactElementToJSXString(component, { displayName });
 }
 
 function CodeWrapper (props) {
   const items = Array.isArray(props.children) ? props.children : [props.children];
   return (
     <div>
-      {items.map(child => (
-        <CodeContainer>
+      {items.map((child, index) => (
+        <CodeContainer key={index}>
           <div>{child}</div>
           <pre>{renderJsx(child, props.name)}</pre>
         </CodeContainer>
@@ -30,7 +29,7 @@ function CodeWrapper (props) {
 
 CodeWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string, // eslint-disable-line react/require-default-props
 };
 
 
