@@ -11,9 +11,10 @@ const CodeContainer = styled.div`
 `;
 
 function renderJsx (component, name, filterProps) {
+  const displayName = name && (() => name);
   return reactElementToJSXString(component, {
     filterProps,
-    displayName: () => name,
+    displayName,
   });
 }
 
@@ -23,7 +24,7 @@ function CodeWrapper (props) {
   const { children, name } = props;
   return (
     <div>
-      {items.map((child, index) => (
+      {castArray(children).map((child, index) => (
         <CodeContainer key={index}>
           <div>{child}</div>
           <Code language="javascript">{renderJsx(child, name, props.filter)}</Code>
