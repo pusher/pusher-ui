@@ -32,6 +32,7 @@ const Button = styledButtonOrLink`
   text-decoration: none;
   border: 1px solid;
   border-radius: 3px;
+  white-space: nowrap;
   color: ${props => hexToRgba(getVariant(props) ? props.theme.white : props.theme.black, 0.8)};
   border-color: ${props => getVariant(props) || props.theme.darkDarkGrey};
   background-color: ${props => getVariant(props) || props.theme.white};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { Button, Icon, Tooltip } from '../index';
+import { Button, Code, Icon, Tooltip } from '../index';
 import { icons } from '../components/icon-set';
 import { CodeWrapper, Container, Section } from './components';
 
@@ -36,6 +36,32 @@ storiesOf('Button', module)
       <p>Note: as React Router is not set up here the href attribute is missing.</p>
       <CodeWrapper name="Button">
         <Button to="/home" primary>Go home!</Button>
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Code', module)
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('default', () => (
+    <Section>
+      <CodeWrapper name="Code" filter={['style']}>
+        <Code language="javascript">{'const foo = "bar";'}</Code>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with a menu', () => (
+    <Section>
+      <CodeWrapper name="Code" filter={['style']}>
+        <Code language="javascript" menu>{'const foo = "bar";'}</Code>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with line numbers', () => (
+    <Section>
+      <CodeWrapper name="Code" filter={['style']}>
+        <Code language="javascript" menu showLineNumbers>{'const foo = "bar";'}</Code>
       </CodeWrapper>
     </Section>
   ));

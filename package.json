@@ -24,12 +24,14 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
+    "highlight.js": "^9.10.0",
     "if-env": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-element-to-jsx-string": "^6.3.0",
     "react-motion": "^0.4.7",
     "react-router": "^3.0.0",
+    "react-syntax-highlighter": "^5.1.2",
     "styled-components": "2.0.0-7",
     "webpack": "^2.2.1"
   },
@@ -37,6 +39,7 @@
     "react": "^15.4.2",
     "react-motion": "^0.4.7",
     "react-router": "^3.0.0",
+    "react-syntax-highlighter": "^5.1.2",
     "styled-components": "2.0.0-7"
   }
 }
