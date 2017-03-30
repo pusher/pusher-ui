@@ -1,9 +1,12 @@
+const { resolve } = require('path');
+
+
 module.exports = {
   entry: {
     'pusher-ui': './src',
   },
   output: {
-    path: './build',
+    path: resolve('./build'),
     filename: '[name].js',
     library: 'pusher-ui',
     libraryTarget: 'umd',
@@ -25,7 +28,7 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: ['./node_modules/', './src/'],
+    modules: ['./node_modules/', './src'],
   },
   externals: {
     react: {
@@ -45,6 +48,24 @@ module.exports = {
       commonjs2: 'react-router',
       amd: 'react-router',
       root: 'reactRouter',
+    },
+    'react-motion': {
+      commonjs: 'react-motion',
+      commonjs2: 'react-motion',
+      amd: 'react-motion',
+      root: 'reactMotion',
+    },
+    'react-syntax-highlighter': {
+      commonjs: 'react-syntax-highlighter',
+      commonjs2: 'react-syntax-highlighter',
+      amd: 'react-syntax-highlighter',
+      root: 'reactSyntaxHighlighter',
+    },
+    'highlight.js': {
+      commonjs: 'highlight.js',
+      commonjs2: 'highlight.js',
+      amd: 'highlight.js',
+      root: 'highlightJs',
     }
   },
 };
