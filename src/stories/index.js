@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { Alert, Button, Code, Icon, Tooltip } from '../index';
+import { Alert, Button, Code, Icon, Toast, Tooltip } from '../index';
 import { icons } from '../components/icon-set';
 import { CodeWrapper, Container, Section } from './components';
 
@@ -157,6 +157,42 @@ storiesOf('Icon', module)
     <Section>
       <CodeWrapper>
         <Icon name="account" style={{ opacity: 0.5, color: '#ff00ff' }} />
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Toast', module)
+  .addDecorator(getSTory => (
+    <Container>{getSTory()}</Container>
+  ))
+  .add('without a parent container', () => (
+    <Section>
+      <p>
+        Try switching back and forth to this tab to see how the toasts are
+        rendered.
+      </p>
+      <p>
+        Note: these toasts will slide in when rendered, however, you must take
+        care of rendering them yourself. This can be done by creating an
+        external container element (to position it as a layer on top of the
+        main page content) and append items via Redux actions.
+      </p>
+      <CodeWrapper>
+        <Toast text="Hello, world!" />
+        <Toast text="Very good stuff" primary />
+        <Toast text="Great job!" success />
+        <Toast text="Careful!" warning />
+        <Toast text="Oh no, danger!" danger />
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with timeouts', () => (
+    <Section>
+      <p>Toasts disappear after a timeout if so configured.</p>
+      <CodeWrapper>
+        <Toast text="2 seconds" primary timeout={2000} />
+        <Toast text="5 seconds" success timeout={5000} />
+        <Toast text="10 seconds" danger timeout={10000} />
       </CodeWrapper>
     </Section>
   ));
