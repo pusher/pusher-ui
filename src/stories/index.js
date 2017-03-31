@@ -1,10 +1,60 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { Button, Code, Icon, Tooltip } from '../index';
+import { Alert, Button, Code, Icon, Tooltip } from '../index';
 import { icons } from '../components/icon-set';
 import { CodeWrapper, Container, Section } from './components';
 
+
+storiesOf('Alert', module)
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('color variants', () => (
+    <Section>
+      <CodeWrapper>
+        <Alert title="Default">This is the default alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Primary" primary>This is a primary alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Success" success>This is a success alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Warning" warning>This is a warning alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Danger" danger>This is a danger alert.</Alert>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('filled color variants', () => (
+    <Section>
+      <CodeWrapper>
+        <Alert title="Default" filled>This is the default alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Primary" primary filled>This is a primary alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Success" success filled>This is a success alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Warning" warning filled>This is a warning alert.</Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert title="Danger" danger filled>This is a danger alert.</Alert>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with a dismiss button', () => (
+    <Section>
+      <CodeWrapper>
+        <Alert title="Primary" primary dismiss>This is a primary alert.</Alert>
+      </CodeWrapper>
+    </Section>
+  ));
 
 storiesOf('Button', module)
   .addDecorator(getStory => (

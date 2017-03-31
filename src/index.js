@@ -1,3 +1,4 @@
+export Alert from './components/alert';
 export Button from './components/button';
 export Code from './components/code';
 export Icon from './components/icon';

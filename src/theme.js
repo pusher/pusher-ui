@@ -17,6 +17,7 @@ export default {
   fontFamily: fontFamilies,
   white: '#fff',
   black: '#1e1e1e',
+  grey: '#e7ebf3',
   darkGrey: '#d6d6d6',
   darkDarkGrey: '#989898',
   lightGrey: '#e7ebf3',
