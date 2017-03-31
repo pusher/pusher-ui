@@ -19,6 +19,7 @@ class Container extends Component {
         width: 100%;
         min-height: 100vh;
         font-family: ${theme.fontFamily};
+        font-size: 14px;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
