@@ -1,7 +1,16 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import { Alert, Button, Code, Icon, Toast, Tooltip } from '../index';
+import {
+  Alert,
+  Button,
+  Code,
+  Icon,
+  Modal,
+  Portal,
+  Toast,
+  Tooltip
+} from '../index';
 import { icons } from '../components/icon-set';
 import { CodeWrapper, Container, Section } from './components';
 
@@ -193,6 +202,37 @@ storiesOf('Toast', module)
         <Toast text="2 seconds" primary timeout={2000} />
         <Toast text="5 seconds" success timeout={5000} />
         <Toast text="10 seconds" danger timeout={10000} />
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Portal', module)
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('basic portal', () => (
+    <Section>
+      <CodeWrapper>
+        <Portal isOpen>
+          <div style={{ flex: 1, opacity: 0.5, color: '#fff', backgroundColor: 'rgb(187, 49, 49)' }}>
+            This is rendered in an outside DOM node: outside the app, but still
+            within the StoryBook iframe. See the Modal component for a usage example.
+          </div>
+        </Portal>
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Modal')
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('basic modal', () => (
+    <Section>
+      <CodeWrapper>
+        <Modal isOpen>
+          This is the default, unstyled modal.
+        </Modal>
       </CodeWrapper>
     </Section>
   ));

@@ -24,7 +24,7 @@ const TooltipBubble = styled.div`
   font-size: 0.9rem;
   text-align: center;
   white-space: nowrap;
-  z-index: 1;
+  z-index: ${props => props.theme.zIndex1};
   opacity: ${props => props.visible ? 1 : 0};
   transition: opacity .18s;
 

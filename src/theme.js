@@ -25,4 +25,6 @@ export default {
   success: '#319a31',
   warning: '#ffaf1c',
   danger: '#ca0808',
+  zIndex1: 1,
+  zIndex2: 2,
 };
