@@ -8,6 +8,7 @@ import {
   Icon,
   Modal,
   Portal,
+  TextField,
   Toast,
   Tooltip
 } from '../index';
@@ -233,6 +234,25 @@ storiesOf('Modal')
         <Modal isOpen>
           This is the default, unstyled modal.
         </Modal>
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('TextField')
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('as an input', () => (
+    <Section>
+      <CodeWrapper>
+        <TextField name="myField" value="Hello, world!" />
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('as a textarea', () => (
+    <Section>
+      <CodeWrapper>
+        <TextField name="myField" value="Hello, world!" multi />
       </CodeWrapper>
     </Section>
   ));
