@@ -13,7 +13,13 @@ import {
   Tooltip
 } from '../index';
 import { icons } from '../components/icon-set';
-import { CodeWrapper, Container, Section } from './components';
+import {
+  CodeWrapper,
+  Container,
+  Section,
+  LayoutItem,
+  LayoutWrapper,
+} from './components';
 
 
 storiesOf('Alert', module)
@@ -74,10 +80,20 @@ storiesOf('Button', module)
     <Section>
       <CodeWrapper name="Button">
         <Button onClick={action('click default')}>Default button</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button onClick={action('click primary')} primary>Primary button</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button onClick={action('click success')} success>Success button</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button onClick={action('click warning')} warning>Warning button</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button onClick={action('click danger')} danger>Danger button</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button onClick={action('click disabled')} disabled>Disabled button</Button>
       </CodeWrapper>
     </Section>
@@ -86,7 +102,11 @@ storiesOf('Button', module)
     <Section>
       <CodeWrapper name="Button">
         <Button primary size="small">Small</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button primary>Normal</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button primary size="large">Large</Button>
       </CodeWrapper>
     </Section>
@@ -171,6 +191,81 @@ storiesOf('Icon', module)
     </Section>
   ));
 
+storiesOf('Layout', module)
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('basic examples', () => (
+    <Section>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper>
+          <LayoutItem block>Default horizontal</LayoutItem>
+          <LayoutItem block>Layout</LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper vertical>
+          <LayoutItem block>Vertical</LayoutItem>
+          <LayoutItem block>Layout</LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper>
+          <LayoutItem flex={1}>Flex 1</LayoutItem>
+          <LayoutItem flex={2}>Flex 2</LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper>
+          <LayoutItem flex>
+            This container is flexible in both directions.
+          </LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper centerJustified>
+          <LayoutItem>
+            This item is centered horizontally.
+          </LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper center>
+          <LayoutItem>
+            This item is centered vertically.
+          </LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper centerCenter>
+          <LayoutItem>
+            This item is centered.
+          </LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper justified>
+          <LayoutItem>
+            These items
+          </LayoutItem>
+          <LayoutItem>
+            Are justified
+          </LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper aroundJustified>
+          <LayoutItem>
+            Around
+          </LayoutItem>
+          <LayoutItem>
+            justified
+          </LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+    </Section>
+  ));
+
 storiesOf('Toast', module)
   .addDecorator(getSTory => (
     <Container>{getSTory()}</Container>
@@ -189,9 +284,17 @@ storiesOf('Toast', module)
       </p>
       <CodeWrapper>
         <Toast text="Hello, world!" />
+      </CodeWrapper>
+      <CodeWrapper>
         <Toast text="Very good stuff" primary />
+      </CodeWrapper>
+      <CodeWrapper>
         <Toast text="Great job!" success />
+      </CodeWrapper>
+      <CodeWrapper>
         <Toast text="Careful!" warning />
+      </CodeWrapper>
+      <CodeWrapper>
         <Toast text="Oh no, danger!" danger />
       </CodeWrapper>
     </Section>
@@ -201,7 +304,11 @@ storiesOf('Toast', module)
       <p>Toasts disappear after a timeout if so configured.</p>
       <CodeWrapper>
         <Toast text="2 seconds" primary timeout={2000} />
+      </CodeWrapper>
+      <CodeWrapper>
         <Toast text="5 seconds" success timeout={5000} />
+      </CodeWrapper>
+      <CodeWrapper>
         <Toast text="10 seconds" danger timeout={10000} />
       </CodeWrapper>
     </Section>
@@ -271,8 +378,14 @@ storiesOf('Tooltip', module)
       </p>
       <CodeWrapper>
         <Tooltip position="top" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+      </CodeWrapper>
+      <CodeWrapper>
         <Tooltip position="right" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+      </CodeWrapper>
+      <CodeWrapper>
         <Tooltip position="bottom" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+      </CodeWrapper>
+      <CodeWrapper>
         <Tooltip position="left" text="Hello, world!"><Button>Hover me</Button></Tooltip>
       </CodeWrapper>
     </Section>
@@ -282,8 +395,14 @@ storiesOf('Tooltip', module)
       <p>Each of the following has a different color:</p>
       <CodeWrapper>
         <Tooltip position="right" text="Primary color" primary><Button>Hover me</Button></Tooltip>
+      </CodeWrapper>
+      <CodeWrapper>
         <Tooltip position="right" text="Success!" success><Button>Hover me</Button></Tooltip>
+      </CodeWrapper>
+      <CodeWrapper>
         <Tooltip position="right" text="Warning!" warning><Button>Hover me</Button></Tooltip>
+      </CodeWrapper>
+      <CodeWrapper>
         <Tooltip position="right" text="Danger!" danger><Button>Hover me</Button></Tooltip>
       </CodeWrapper>
     </Section>

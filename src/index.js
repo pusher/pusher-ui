@@ -3,6 +3,7 @@ export Button from './components/button';
 export Code from './components/code';
 export Icon from './components/icon';
 export IconSet from './components/icon-set';
+export Layout from './components/layout';
 export Modal from './components/modal';
 export Portal from './components/portal';
 export TextField from './components/text-field';

@@ -2,13 +2,8 @@ import React, { PropTypes } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled from 'styled-components';
 
-import { Code } from '../../index';
+import { Code, Layout } from '../../index';
 
-
-const CodeContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
 
 function renderJsx (component, name, filterProps) {
   const displayName = name && (() => name);
@@ -18,19 +13,26 @@ function renderJsx (component, name, filterProps) {
   });
 }
 
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  border-bottom: 1px solid ${props => props.theme.grey};
+`;
+
 const castArray = items => Array.isArray(items) ? items : [items];
 
 function CodeWrapper (props) {
   const { children, name } = props;
   return (
-    <div>
+    <Layout flex>
       {castArray(children).map((child, index) => (
-        <CodeContainer key={index}>
-          <div>{child}</div>
+        <Row key={index}>
+          <Layout block>{children}</Layout>
           <Code language="javascript">{renderJsx(child, name, props.filter)}</Code>
-        </CodeContainer>
+        </Row>
       ))}
-    </div>
+    </Layout>
   );
 }
 

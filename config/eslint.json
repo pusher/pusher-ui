@@ -24,6 +24,7 @@
     "no-confusing-arrow": 0,
     "no-mixed-operators": [2, { "allowSamePrecedence": true }],
     "no-return-assign": 0,
+    "no-unused-expressions": 0,
     "quotes": [2, "single"],
     "react/jsx-filename-extension": [1, { "extensions": ["js"] }],
     "react/no-array-index-key": 1,
