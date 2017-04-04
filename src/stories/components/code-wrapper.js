@@ -29,7 +29,9 @@ function CodeWrapper (props) {
       {castArray(children).map((child, index) => (
         <Row key={index}>
           <Layout block>{children}</Layout>
-          <Code language="javascript">{renderJsx(child, name, props.filter)}</Code>
+          <Layout block>
+            <Code language="javascript">{renderJsx(child, name, props.filter)}</Code>
+          </Layout>
         </Row>
       ))}
     </Layout>
