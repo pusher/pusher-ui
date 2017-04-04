@@ -20,7 +20,7 @@ module.exports = {
   output: {
     path: resolve('./build'),
     filename: '[name].js',
-    library: 'pusher-ui',
+    library: 'PusherUI',
     libraryTarget: 'umd',
   },
   module: {
