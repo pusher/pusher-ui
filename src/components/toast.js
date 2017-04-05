@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Motion, spring } from 'react-motion';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
+import { black, grey, white } from '../theme';
 import { getVariant, hexToRgba } from '../utils';
 
 
@@ -11,20 +12,17 @@ const Container = styled.div`
   padding: 1em 1.4em;
   line-height: 1.5em;
   pointer-events: auto;
-  background-color: ${props => props.theme.white};
+  background-color: ${white};
   border-radius: 3px;
-  box-shadow: 0 2px 5px ${props => hexToRgba(props.theme.black, 0.1)};
+  box-shadow: 0 2px 5px ${hexToRgba(black, 0.1)};
   font-weight: 500;
-  ${props => css`
-    color: ${getVariant(props) ? props.theme.white : props.theme.black};
-    border: 1px solid ${getVariant(props) || props.theme.grey};
+  cursor: pointer;
+  ${props => `
+    color: ${getVariant(props) ? white : black};
+    border: 1px solid ${getVariant(props) || grey};
     background-color: ${getVariant(props)};
-    box-shadow: 0 2px 5px ${hexToRgba(props.theme.black, 0.2)};
+    box-shadow: 0 2px 5px ${hexToRgba(black, 0.2)};
   `}
-
-  :hover {
-    cursor: pointer;
-  }
 `;
 
 class Toast extends Component {

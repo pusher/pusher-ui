@@ -1,30 +1,29 @@
 import React, { Component, PropTypes } from 'react';
 import { Motion, spring } from 'react-motion';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { getVariant } from '../utils';
+import { white, primary, zIndex1 } from '../theme';
 
 
 const TooltipWrapper = styled.div`
   position: relative;
 `;
 
-const WrappedComponent = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
+const ComponentWrapper = styled.div`
+  cursor: pointer;
 `;
 
 const TooltipBubble = styled.div`
   position: absolute;
   padding: 5px 8px;
   border-radius: 2px;
-  background-color: ${props => getVariant(props) || props.theme.primary};
-  color: ${props => props.theme.white};
+  background-color: ${props => getVariant(props) || primary};
+  color: ${white};
   font-size: 0.9rem;
   text-align: center;
   white-space: nowrap;
-  z-index: ${props => props.theme.zIndex1};
+  z-index: ${zIndex1};
   opacity: ${props => props.visible ? 1 : 0};
   transition: opacity .18s;
 
@@ -35,35 +34,35 @@ const TooltipBubble = styled.div`
     height: 0;
     border: solid 5px transparent;
 
-    ${props => props.position === 'top' && css`
+    ${props => props.position === 'top' && `
       top: 100%;
       left: 50%;
       margin-left: -5px;
-      border-top: solid 5px ${getVariant(props) || props.theme.primary};
+      border-top: solid 5px ${getVariant(props) || primary};
       border-bottom: none;
     `}
 
-    ${props => props.position === 'right' && css`
+    ${props => props.position === 'right' && `
       top: 50%;
       left: -5px;
       margin-top: -5px;
-      border-right: solid 5px ${getVariant(props) || props.theme.primary};
+      border-right: solid 5px ${getVariant(props) || primary};
       border-left: none;
     `}
 
-    ${props => props.position === 'bottom' && css`
+    ${props => props.position === 'bottom' && `
       top: -5px;
       left: 50%;
       margin-left: -5px;
-      border-bottom: solid 5px ${getVariant(props) || props.theme.primary};
+      border-bottom: solid 5px ${getVariant(props) || primary};
       border-top: none;
     `}
 
-    ${props => props.position === 'left' && css`
+    ${props => props.position === 'left' && `
       top: 50%;
       left: 100%;
       margin-top: -5px;
-      border-left: solid 5px ${getVariant(props) || props.theme.primary};
+      border-left: solid 5px ${getVariant(props) || primary};
       border-right: none;
     `}
   }
@@ -188,13 +187,13 @@ class Tooltip extends Component {
             </TooltipBubble>
           )}
         </Motion>
-        <WrappedComponent
+        <ComponentWrapper
           innerRef={c => this.child = c}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
         >
           {this.props.children}
-        </WrappedComponent>
+        </ComponentWrapper>
       </TooltipWrapper>
     );
   }

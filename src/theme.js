@@ -12,19 +12,32 @@ const fontFamilies = [
   'sans-serif',
 ].map(name => `"${name}"`).join(', ');
 
+
+export const fontFamily = fontFamilies;
+export const white = '#fff';
+export const black = '#1e1e1e';
+export const grey = '#e7ebf3';
+export const darkGrey = '#d6d6d6';
+export const darkDarkGrey = '#989898';
+export const lightGrey = '#e7ebf3';
+export const primary = '#549eff';
+export const success = '#319a31';
+export const warning = '#ffaf1c';
+export const danger = '#ca0808';
+export const zIndex1 = 1;
+export const zIndex2 = 2;
 export default {
-  fontSize: '16px',
-  fontFamily: fontFamilies,
-  white: '#fff',
-  black: '#1e1e1e',
-  grey: '#e7ebf3',
-  darkGrey: '#d6d6d6',
-  darkDarkGrey: '#989898',
-  lightGrey: '#e7ebf3',
-  primary: '#549eff',
-  success: '#319a31',
-  warning: '#ffaf1c',
-  danger: '#ca0808',
-  zIndex1: 1,
-  zIndex2: 2,
+  fontFamily,
+  white,
+  black,
+  grey,
+  darkGrey,
+  darkDarkGrey,
+  lightGrey,
+  primary,
+  success,
+  warning,
+  danger,
+  zIndex1,
+  zIndex2,
 };

@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import Icon from './icon';
-import { transitionShort } from '../transitions';
+import { opacityHoverEffect } from '../transitions';
 import { getVariant, hexToRgba } from '../utils';
+import { black, grey, white } from '../theme';
 
 
 const Container = styled.div`
@@ -13,11 +14,11 @@ const Container = styled.div`
   padding: 1em;
   color: ${props => getVariant(props) || 'inherit'};
   border-radius: 3px;
-  border: 1px solid ${props => props.theme.grey};
-  border-color: ${props => hexToRgba(getVariant(props) || props.theme.grey, 0.8)};
-  box-shadow: 0 2px 5px ${props => hexToRgba(getVariant(props) || props.theme.black, 0.1)};
-  ${props => props.filled && css`
-    background-color: ${hexToRgba(getVariant(props) || props.theme.white, 0.1)};
+  border: 1px solid ${grey};
+  border-color: ${props => hexToRgba(getVariant(props) || grey, 0.8)};
+  box-shadow: 0 2px 5px ${props => hexToRgba(getVariant(props) || black, 0.1)};
+  ${props => props.filled && `
+    background-color: ${hexToRgba(getVariant(props) || white, 0.1)};
   `}
 
   > h4 {
@@ -35,13 +36,7 @@ const DismissIcon = styled(Icon)`
   top: 5px;
   right: 5px;
   color: inherit;
-  opacity: .7;
-  transition: opacity ${transitionShort};
-
-  :hover {
-    opacity: 1;
-    cursor: pointer;
-  }
+  ${opacityHoverEffect};
 `;
 
 class Alert extends Component {
@@ -74,7 +69,7 @@ class Alert extends Component {
     const { children, dismiss, title, ...other } = this.props;
     return (
       <Container {...other}>
-        {title ? <h4>{title}</h4> : null}
+        {title && <h4>{title}</h4>}
         {children}
         {dismiss && (
           <DismissIcon

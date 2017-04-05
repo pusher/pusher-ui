@@ -46,8 +46,8 @@ const Layout = styled.div`
   }};
 
   flex: ${props => do {
-    if (typeof props.flex === 'boolean') {
-      !!props.flex;
+    if (props.flex === true) {
+      '1';
     } else if (props.flex) {
       props.flex;
     } else {

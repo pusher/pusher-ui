@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 
 import { Portal } from '../index';
+import { white } from '../theme';
 
 
 const Root = styled.div`
@@ -17,7 +18,7 @@ const Container = styled.div`
   position: relative;
   padding: 10px;
   border-radius: 2px;
-  background-color: ${props => props.theme.white};
+  background-color: ${white};
   box-shadow:
     0 16px 24px 2px rgba(0, 0, 0, .14),
     0  6px 30px 5px rgba(0, 0, 0, .12),

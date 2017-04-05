@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import { hexToRgba, getVariant } from '../utils';
 import { transitionShort, transitionLong } from '../transitions';
+import { fontFamily, black, darkGrey, darkDarkGrey, white } from '../theme';
 
 
 const styledButtonOrLink = styled((props) => {
@@ -23,7 +24,7 @@ const styledButtonOrLink = styled((props) => {
 const Button = styledButtonOrLink`
   display: inline-block;
   padding: .5em 1em;
-  font-family: ${props => props.theme.fontFamily};
+  font-family: ${fontFamily};
   font-size: ${props => ({
     small: '0.8em',
     large: '1.2em',
@@ -33,16 +34,16 @@ const Button = styledButtonOrLink`
   border: 1px solid;
   border-radius: 3px;
   white-space: nowrap;
-  color: ${props => hexToRgba(getVariant(props) ? props.theme.white : props.theme.black, 0.8)};
-  border-color: ${props => getVariant(props) || props.theme.darkDarkGrey};
-  background-color: ${props => getVariant(props) || props.theme.white};
+  color: ${props => hexToRgba(getVariant(props) ? white : black, 0.8)};
+  border-color: ${props => getVariant(props) || darkDarkGrey};
+  background-color: ${props => getVariant(props) || white};
   transition:
     color ${transitionLong} ease,
     filter ${transitionShort} ease;
 
   &:hover {
     cursor: pointer;
-    color: ${props => getVariant(props) ? props.theme.white : props.theme.black};
+    color: ${props => getVariant(props) ? white : black};
     filter: brightness(105%);
   }
 
@@ -56,14 +57,14 @@ const Button = styledButtonOrLink`
   }
 
   &[disabled] {
-    border-color: ${props => props.theme.darkGrey};
-    background-color: ${props => props.theme.darkGrey};
-    color: ${props => hexToRgba(props.theme.black, 0.5)};
+    border-color: ${darkGrey};
+    background-color: ${darkGrey};
+    color: ${hexToRgba(black, 0.5)};
     cursor: not-allowed;
   }
 
   &[disabled]:hover {
-    background-color: ${props => props.theme.darkGrey};
+    background-color: ${darkGrey};
     filter: none;
   }
 `;

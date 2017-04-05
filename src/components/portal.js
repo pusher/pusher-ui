@@ -4,6 +4,8 @@ import {
   unmountComponentAtNode,
 } from 'react-dom';
 import styled, { css } from 'styled-components';
+
+import { zIndex2 } from '../theme';
 import { transitionShort } from '../transitions';
 
 
@@ -15,7 +17,7 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   opacity: 0;
-  z-index: ${props => props.theme.zIndex2};
+  z-index: ${zIndex2};
   transition: opacity ease-out ${transitionShort};
   ${props => props.withBackdrop && css`
     background-color: rgba(0, 0, 0, .2);

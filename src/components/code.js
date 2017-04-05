@@ -7,6 +7,8 @@ import xml from 'highlight.js/lib/languages/xml';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import styled from 'styled-components';
 
+import { lightGrey } from '../theme';
+
 
 registerLanguage('html', xml);
 registerLanguage('java', java);
@@ -14,7 +16,7 @@ registerLanguage('javascript', javascript);
 registerLanguage('swift', swift);
 
 const CodeContainer = styled.div`
-  border: 1px solid ${props => props.theme.lightGrey};
+  border: 1px solid ${lightGrey};
   box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
 
   & pre {
@@ -29,8 +31,8 @@ const CodeContainer = styled.div`
 
 const LanguageMenu = styled.div`
   padding: .3em .5em;
-  background-color: ${props => props.theme.lightGrey};
-  border-bottom: 1px solid ${props => props.theme.lightGrey};
+  background-color: ${lightGrey};
+  border-bottom: 1px solid ${lightGrey};
   font-size: .8em;
   user-select: none;
 `;

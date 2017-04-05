@@ -38,16 +38,31 @@ function Icon (props) {
   );
 }
 
+const stringOrNumber = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.number,
+]);
+
+SVG.propTypes = {
+  color: PropTypes.string.isRequired,
+  width: stringOrNumber.isRequired,
+  height: stringOrNumber.isRequired,
+};
+
+SVG.defaultProps = {
+  color: 'inherit',
+  width: 24,
+  height: 24,
+};
+
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  color: PropTypes.string, // eslint-disable-line react/require-default-props
+  color: PropTypes.string,
+  size: stringOrNumber,
 };
 
 Icon.defaultProps = {
+  color: 'inherit',
   size: 24,
 };
 
