@@ -6,6 +6,7 @@ import {
   Button,
   Code,
   Icon,
+  Layout,
   Modal,
   Portal,
   TextField,
@@ -213,6 +214,17 @@ storiesOf('Layout', module)
         <LayoutWrapper>
           <LayoutItem flex={1}>Flex 1</LayoutItem>
           <LayoutItem flex={2}>Flex 2</LayoutItem>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
+        <LayoutWrapper gutter={15}>
+          <LayoutItem>With</LayoutItem>
+          <LayoutItem>a</LayoutItem>
+          <LayoutItem>gutter</LayoutItem>
+          <Layout gutter={15} flex vertical>
+            <LayoutItem flex>between</LayoutItem>
+            <LayoutItem>items</LayoutItem>
+          </Layout>
         </LayoutWrapper>
       </CodeWrapper>
       <CodeWrapper name="Layout">

@@ -54,6 +54,12 @@ const Layout = styled.div`
       'none';
     }
   }};
+
+  ${props => props.gutter && `
+    > :not(:last-child) {
+      margin-${props.vertical ? 'bottom' : 'right'}: ${props.gutter}px;
+    }
+  `}
 `;
 
 Layout.propTypes = {
@@ -70,6 +76,7 @@ Layout.propTypes = {
     PropTypes.bool,
     PropTypes.number,
   ]),
+  gutter: PropTypes.number,
 };
 
 Layout.defaultProps = {
@@ -83,6 +90,7 @@ Layout.defaultProps = {
   aroundJustified: false,
   reverse: false,
   flex: false,
+  gutter: 0,
 };
 
 
