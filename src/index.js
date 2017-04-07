@@ -10,4 +10,4 @@ export TextField from './components/text-field';
 export Toast from './components/toast';
 export Tooltip from './components/tooltip';
 export theme from './theme';
-export transitions from './transitions';
+export * as transitions from './transitions';
