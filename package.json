@@ -8,7 +8,7 @@
     "build": "webpack -p --config=config/webpack.config.babel.js",
     "build:storybook": "build-storybook --config-dir=config/storybook -o build",
     "lint": "eslint -c=config/eslint.json --ignore-path=.gitignore --format=codeframe .",
-    "start": "start-storybook -p ${PORT:=8080} --config-dir=config/storybook",
+    "start": "start-storybook -p ${PORT:=8081} --config-dir=config/storybook",
     "postinstall": "if-env HEROKU=true && yarn build:storybook || :"
   },
   "devDependencies": {
