@@ -63,7 +63,7 @@ function IconSet () {
       </symbol>
       <symbol id="icon:documentation" viewBox="0 0 24 24">
         <g>
-          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M0 0h24v24H0z" fill="none" />
           <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
         </g>
       </symbol>
@@ -94,8 +94,8 @@ function IconSet () {
       </symbol>
       <symbol id="icon:support" viewBox="0 0 24 24">
         <g>
-          <path d="M0 0h24v24H0z" fill="none"/>
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
         </g>
       </symbol>
     </svg>
