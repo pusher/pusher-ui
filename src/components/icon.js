@@ -27,14 +27,14 @@ function Icon (props) {
     [width, height] = size.split('x');
   }
 
-  const useTag = `<use xlink:href="#icon:${name}" />`;
   return (
     <SVG
       {...other}
       width={width}
       height={height}
-      dangerouslySetInnerHTML={{ __html: useTag }}
-    />
+    >
+      <use xlinkHref={`#icon:${name}`} />
+    </SVG>
   );
 }
 
