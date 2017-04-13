@@ -10,6 +10,9 @@ import styled from 'styled-components';
 import { lightGrey } from '../theme';
 
 
+// Note: All imported languages from highlight.js and syntax themes
+// should be listed as externals in the build configuration.
+
 registerLanguage('html', xml);
 registerLanguage('java', java);
 registerLanguage('javascript', javascript);

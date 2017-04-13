@@ -1,19 +1,15 @@
-const { resolve } = require('path');
+import { resolve } from 'path';
 
 
-function createExternal (name, globalName) {
-  return {
-    [name]: {
-      commonjs: name,
-      commonjs2: name,
-      amd: name,
-      root: globalName,
-    },
-  };
+function createExternals (names) {
+  return names.reduce((accumulator, name) => {
+    accumulator[name] = name; // eslint-disable-line no-param-reassign
+    return accumulator;
+  }, {});
 }
 
 
-module.exports = {
+export default {
   entry: {
     'pusher-ui': './src',
   },
@@ -47,13 +43,17 @@ module.exports = {
   resolve: {
     modules: ['./node_modules/', './src'],
   },
-  externals: {
-    ...createExternal('react', 'React'),
-    ...createExternal('react-dom', 'ReactDOM'),
-    ...createExternal('react-router', 'ReactRouter'),
-    ...createExternal('react-motion', 'ReactMotion'),
-    ...createExternal('react-syntax-highlighter/dist/light', 'ReactSyntaxHighlighterLight'),
-    ...createExternal('styled-components', 'StyledComponents'),
-    ...createExternal('highlight.js', 'HighlightJS'),
-  },
+  externals: createExternals([
+    'highlight.js/lib/languages/java',
+    'highlight.js/lib/languages/javascript',
+    'highlight.js/lib/languages/swift',
+    'highlight.js/lib/languages/xml',
+    'react',
+    'react-dom',
+    'react-motion',
+    'react-router',
+    'react-syntax-highlighter/dist/light',
+    'react-syntax-highlighter/dist/styles/github-gist',
+    'styled-components',
+  ]),
 };
