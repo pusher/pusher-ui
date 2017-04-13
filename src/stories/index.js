@@ -5,6 +5,7 @@ import {
   Alert,
   Button,
   Code,
+  Dropdown,
   Icon,
   Layout,
   Modal,
@@ -144,6 +145,18 @@ storiesOf('Code', module)
       <CodeWrapper name="Code" filter={['style']}>
         <Code language="javascript" menu showLineNumbers>{'const foo = "bar";'}</Code>
       </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Dropdown', module)
+  .addDecorator(getStory => (
+    <Container>{getStory()}</Container>
+  ))
+  .add('simple dropdown', () => (
+    <Section>
+      <Dropdown render={() => <div>Hello!</div>}>
+        <Button primary>Press to toggle</Button>
+      </Dropdown>
     </Section>
   ));
 
