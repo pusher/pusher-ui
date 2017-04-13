@@ -33,7 +33,10 @@ const Container = styled.div`
 class Portal extends Component {
 
   static propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.func,
+    ]).isRequired,
     clickThrough: PropTypes.bool,
     dismissOnClickInside: PropTypes.bool,
     isInstant: PropTypes.bool,
@@ -115,7 +118,7 @@ class Portal extends Component {
         isInstant={isInstant}
         withBackdrop={withBackdrop}
       >
-        {this.props.children}
+        {typeof this.props.children === 'function' ? this.props.children() : this.props.children}
       </Container>
     );
   };

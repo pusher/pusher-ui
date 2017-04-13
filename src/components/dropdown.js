@@ -48,7 +48,7 @@ class Dropdown extends Component {
           dismissOnClickInside
           isInstant
         >
-          {this.props.render()}
+          {this.props.render}
         </Portal>
       </DropdownWrapper>
     );
