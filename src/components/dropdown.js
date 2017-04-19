@@ -8,7 +8,7 @@ import { opacityHoverEffect } from '../transitions';
 const DropdownWrapper = styled.div`
   position: relative;
   cursor: pointer;
-  ${opacityHoverEffect};
+  ${props => !props.noOpacityEffect && opacityHoverEffect};
 `;
 
 class Dropdown extends Component {
@@ -16,11 +16,13 @@ class Dropdown extends Component {
   static propTypes = {
     isOpen: PropTypes.bool,
     children: PropTypes.node.isRequired,
+    noOpacityEffect: PropTypes.bool,
     render: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     isOpen: false,
+    noOpacityEffect: false,
   };
 
   constructor (props) {
@@ -40,7 +42,7 @@ class Dropdown extends Component {
 
   render () {
     return (
-      <DropdownWrapper onClick={this.toggle}>
+      <DropdownWrapper onClick={this.toggle} noOpacityEffect={this.props.noOpacityEffect}>
         {this.props.children}
         <Portal
           isOpen={this.state.isOpen}
