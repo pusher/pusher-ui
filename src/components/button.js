@@ -27,6 +27,7 @@ const Button = styledButtonOrLink`
   font-family: ${fontFamily};
   font-size: ${props => ({ small: '0.8em', large: '1.2em' }[props.size] || '1em')};
   user-select: none;
+  text-align: center;
   text-decoration: none;
   border: 1px solid;
   border-radius: 3px;
