@@ -48,6 +48,7 @@ export default {
     'highlight.js/lib/languages/javascript',
     'highlight.js/lib/languages/swift',
     'highlight.js/lib/languages/xml',
+    'prop-types',
     'react',
     'react-dom',
     'react-motion',

@@ -2,6 +2,7 @@
   "name": "pusher-ui",
   "version": "0.0.15",
   "main": "build/pusher-ui.js",
+  "module": "src/index.js",
   "author": "Haukur Páll Hallvarðsson <hph@hph.is>",
   "license": "MIT",
   "scripts": {
@@ -27,8 +28,8 @@
     "eslint-plugin-react": "^6.10.0",
     "highlight.js": "^9.10.0",
     "if-env": "^1.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-element-to-jsx-string": "^6.3.0",
     "react-motion": "^0.4.7",
     "react-router": "^3.0.0",
@@ -37,8 +38,9 @@
     "webpack": "^2.2.1"
   },
   "peerDependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-motion": "^0.4.7",
     "react-router": "^3.0.0",
     "react-syntax-highlighter": "^5.1.2",
