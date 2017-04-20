@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components';
 
-import { grey, lightGrey } from '../theme';
+import { darkDarkGrey, grey, lightGrey } from '../theme';
 
 
 const shared = css`
@@ -25,17 +25,38 @@ const Textarea = styled.textarea`
   border: 1px solid ${grey};
 `;
 
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  color: ${darkDarkGrey};
+  text-transform: uppercase;
+  font-size: 0.8em;
+`;
+
 function TextField (props) {
-  const { multi, ...other } = props;
-  return multi ? <Textarea {...other} /> : <Input {...other} />;
+  const { multi, label, ...other } = props;
+  const component = multi ? <Textarea {...other} /> : <Input {...other} />;
+
+  if (label) {
+    return (
+      <Label>
+        {label}
+        {component}
+      </Label>
+    );
+  }
+
+  return component;
 }
 
 TextField.propTypes = {
   multi: PropTypes.bool,
+  label: PropTypes.string,
 };
 
 TextField.defaultProps = {
   multi: false,
+  label: '',
 };
 
 

@@ -387,6 +387,20 @@ storiesOf('TextField')
         <TextField name="myField" value="Hello, world!" multi />
       </CodeWrapper>
     </Section>
+  ))
+  .add('with a placeholder', () => (
+    <Section>
+      <CodeWrapper>
+        <TextField name="myField" placeholder="Name" />
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with a label', () => (
+    <Section>
+      <CodeWrapper>
+        <TextField name="myField" label="Your name" placeholder="Name" />
+      </CodeWrapper>
+    </Section>
   ));
 
 storiesOf('Tooltip', module)
