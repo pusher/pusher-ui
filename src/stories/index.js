@@ -157,9 +157,20 @@ storiesOf('Dropdown', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('simple dropdown', () => (
     <Section>
-      <Dropdown render={() => <div>Hello!</div>}>
-        <Button primary>Press to toggle</Button>
-      </Dropdown>
+      <CodeWrapper>
+        <Dropdown render={() => <div>Hello!</div>}>
+          <Button primary>Press to toggle</Button>
+        </Dropdown>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('shown on hover', () => (
+    <Section>
+      <CodeWrapper>
+        <Dropdown showOnHover render={() => <div>Hello!</div>}>
+          <Button primary>Hover me</Button>
+        </Dropdown>
+      </CodeWrapper>
     </Section>
   ));
 

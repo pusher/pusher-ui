@@ -17,11 +17,13 @@ class Dropdown extends Component {
     children: PropTypes.node.isRequired,
     noOpacityEffect: PropTypes.bool,
     render: PropTypes.func.isRequired,
+    showOnHover: PropTypes.bool,
   };
 
   static defaultProps = {
     isOpen: false,
     noOpacityEffect: false,
+    showOnHover: false,
   };
 
   constructor(props) {
@@ -35,14 +37,25 @@ class Dropdown extends Component {
     this.setState({ isOpen: false });
   };
 
+  open = () => {
+    this.setState({ isOpen: true });
+  };
+
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
+  onMouseEnter = () => {
+    if (this.props.showOnHover) {
+      this.open();
+    }
+  }
 
   render() {
     return (
       <DropdownWrapper
         onClick={this.toggle}
+        onMouseEnter={this.onMouseEnter}
         noOpacityEffect={this.props.noOpacityEffect}
       >
         {this.props.children}
