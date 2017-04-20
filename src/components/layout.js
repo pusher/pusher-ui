@@ -1,57 +1,56 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-
 const Layout = styled.div`
   display: ${props => do {
     if (props.block) {
-      'block';
+      ('block');
     } else if (props.inline) {
-      'inline-flex';
+      ('inline-flex');
     } else {
-      'flex';
+      ('flex');
     }
   }};
 
   flex-direction: ${props => do {
     if (props.vertical && props.reverse) {
-      'column-reverse';
+      ('column-reverse');
     } else if (props.vertical) {
-      'column';
+      ('column');
     } else if (props.horizontal && props.reverse) {
-      'row-reverse';
+      ('row-reverse');
     } else {
-      'row';
+      ('row');
     }
   }};
 
   align-items: ${props => do {
     if (props.center || props.centerCenter) {
-      'center';
+      ('center');
     } else {
-      'normal';
+      ('normal');
     }
   }};
 
   justify-content: ${props => do {
     if (props.centerCenter || props.centerJustified) {
-      'center';
+      ('center');
     } else if (props.justified) {
-      'space-between';
+      ('space-between');
     } else if (props.aroundJustified) {
-      'space-around';
+      ('space-around');
     } else {
-      'normal';
+      ('normal');
     }
   }};
 
   flex: ${props => do {
     if (props.flex === true) {
-      '1';
+      ('1');
     } else if (props.flex) {
       props.flex;
     } else {
-      'none';
+      ('none');
     }
   }};
 
@@ -72,10 +71,7 @@ Layout.propTypes = {
   centerJustified: PropTypes.bool,
   aroundJustified: PropTypes.bool,
   reverse: PropTypes.bool,
-  flex: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.number,
-  ]),
+  flex: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   gutter: PropTypes.number,
 };
 
@@ -92,6 +88,5 @@ Layout.defaultProps = {
   flex: false,
   gutter: 0,
 };
-
 
 export default Layout;

@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { getVariant } from '../utils';
 import { white, primary, zIndex1 } from '../theme';
 
-
 const TooltipWrapper = styled.div`
   position: relative;
 `;
@@ -25,7 +24,7 @@ const TooltipBubble = styled.div`
   text-align: center;
   white-space: nowrap;
   z-index: ${zIndex1};
-  opacity: ${props => props.visible ? 1 : 0};
+  opacity: ${props => (props.visible ? 1 : 0)};
   transition: opacity .18s;
 
   &::after {
@@ -81,9 +80,7 @@ TooltipBubble.propTypes = {
   visible: PropTypes.bool,
 };
 
-
 class Tooltip extends Component {
-
   static propTypes = {
     ...sharedPropTypes,
     children: PropTypes.node.isRequired,
@@ -98,14 +95,14 @@ class Tooltip extends Component {
     isOpen: false,
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       isOpen: props.isOpen,
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const offsets = this.calculateOffsets();
     offsets.offsetLeft += offsets.x;
     offsets.offsetTop += offsets.y;
@@ -130,37 +127,42 @@ class Tooltip extends Component {
 
   calculateOffsets = () => {
     const offsetWidth = (this.child.offsetWidth - this.tooltip.offsetWidth) / 2;
-    const offsetHeight = (this.child.offsetHeight - this.tooltip.offsetHeight) / 2;
+    const offsetHeight =
+      (this.child.offsetHeight - this.tooltip.offsetHeight) / 2;
 
     switch (this.props.position) {
-      case 'right': return {
-        x: 10,
-        y: 0,
-        offsetLeft: this.child.offsetWidth,
-        offsetTop: offsetHeight,
-      };
-      case 'bottom': return {
-        x: 0,
-        y: 10,
-        offsetLeft: offsetWidth,
-        offsetTop: this.child.offsetHeight,
-      };
-      case 'left': return {
-        x: -10,
-        y: 0,
-        offsetLeft: -this.tooltip.offsetWidth,
-        offsetTop: offsetHeight,
-      };
-      default: return {
-        x: 0,
-        y: -10,
-        offsetLeft: offsetWidth,
-        offsetTop: -this.tooltip.offsetHeight,
-      };
+      case 'right':
+        return {
+          x: 10,
+          y: 0,
+          offsetLeft: this.child.offsetWidth,
+          offsetTop: offsetHeight,
+        };
+      case 'bottom':
+        return {
+          x: 0,
+          y: 10,
+          offsetLeft: offsetWidth,
+          offsetTop: this.child.offsetHeight,
+        };
+      case 'left':
+        return {
+          x: -10,
+          y: 0,
+          offsetLeft: -this.tooltip.offsetWidth,
+          offsetTop: offsetHeight,
+        };
+      default:
+        return {
+          x: 0,
+          y: -10,
+          offsetLeft: offsetWidth,
+          offsetTop: -this.tooltip.offsetHeight,
+        };
     }
   };
 
-  render () {
+  render() {
     return (
       <TooltipWrapper>
         <Motion
@@ -171,7 +173,7 @@ class Tooltip extends Component {
         >
           {({ x, y }) => (
             <TooltipBubble
-              innerRef={c => this.tooltip = c}
+              innerRef={c => (this.tooltip = c)}
               position={this.props.position}
               visible={this.state.isOpen || this.props.isOpen}
               success={this.props.success}
@@ -189,7 +191,7 @@ class Tooltip extends Component {
           )}
         </Motion>
         <ComponentWrapper
-          innerRef={c => this.child = c}
+          innerRef={c => (this.child = c)}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
         >
@@ -198,8 +200,6 @@ class Tooltip extends Component {
       </TooltipWrapper>
     );
   }
-
 }
-
 
 export default Tooltip;

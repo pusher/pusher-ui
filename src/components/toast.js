@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { black, grey, white } from '../theme';
 import { getVariant, hexToRgba } from '../utils';
 
-
 const Container = styled.div`
   max-width: 300px;
   margin: 5px;
@@ -27,7 +26,6 @@ const Container = styled.div`
 `;
 
 class Toast extends Component {
-
   static propTypes = {
     id: PropTypes.number, // eslint-disable-line react/require-default-props
     dismiss: PropTypes.func, // eslint-disable-line react/require-default-props
@@ -51,9 +49,9 @@ class Toast extends Component {
     isOpen: false,
     x: 100,
     opacity: 0,
-  }
+  };
 
-  componentDidMount () {
+  componentDidMount() {
     // Show the toast by sliding it in and making it visible.
     this.setState({ isOpen: true, x: 0, opacity: 1 });
     if (this.props.timeout) {
@@ -61,13 +59,13 @@ class Toast extends Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.timeouts.forEach(clearTimeout);
   }
 
   timeouts = [];
 
-  dismiss = (event) => {
+  dismiss = event => {
     this.timeouts.forEach(clearTimeout);
 
     this.setState({
@@ -78,13 +76,15 @@ class Toast extends Component {
     // Remove the toast from the DOM after animating for subsequent toasts to
     // appear in the initial position or when multiple toasts are visible.
     if (this.props.dismiss) {
-      this.timeouts.push(setTimeout(() => {
-        this.props.dismiss({ id: this.props.id });
-      }, 600));
+      this.timeouts.push(
+        setTimeout(() => {
+          this.props.dismiss({ id: this.props.id });
+        }, 600),
+      );
     }
   };
 
-  render () {
+  render() {
     const { text, ...other } = this.props;
     return (
       <Motion
@@ -109,8 +109,6 @@ class Toast extends Component {
       </Motion>
     );
   }
-
 }
-
 
 export default Toast;

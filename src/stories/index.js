@@ -12,7 +12,7 @@ import {
   Portal,
   TextField,
   Toast,
-  Tooltip
+  Tooltip,
 } from '../index';
 import { icons } from '../components/icon-set';
 import {
@@ -23,11 +23,8 @@ import {
   LayoutWrapper,
 } from './components';
 
-
 storiesOf('Alert', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('color variants', () => (
     <Section>
       <CodeWrapper>
@@ -75,28 +72,34 @@ storiesOf('Alert', module)
   ));
 
 storiesOf('Button', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('with the default theme', () => (
     <Section>
       <CodeWrapper name="Button">
         <Button onClick={action('click default')}>Default button</Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
-        <Button onClick={action('click primary')} primary>Primary button</Button>
+        <Button onClick={action('click primary')} primary>
+          Primary button
+        </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
-        <Button onClick={action('click success')} success>Success button</Button>
+        <Button onClick={action('click success')} success>
+          Success button
+        </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
-        <Button onClick={action('click warning')} warning>Warning button</Button>
+        <Button onClick={action('click warning')} warning>
+          Warning button
+        </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
         <Button onClick={action('click danger')} danger>Danger button</Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
-        <Button onClick={action('click disabled')} disabled>Disabled button</Button>
+        <Button onClick={action('click disabled')} disabled>
+          Disabled button
+        </Button>
       </CodeWrapper>
     </Section>
   ))
@@ -115,7 +118,9 @@ storiesOf('Button', module)
   ))
   .add('as a React Router anchor', () => (
     <Section>
-      <p>Note: as React Router is not set up here the href attribute is missing.</p>
+      <p>
+        Note: as React Router is not set up here the href attribute is missing.
+      </p>
       <CodeWrapper name="Button">
         <Button to="/home" primary>Go home!</Button>
       </CodeWrapper>
@@ -123,9 +128,7 @@ storiesOf('Button', module)
   ));
 
 storiesOf('Code', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('default', () => (
     <Section>
       <CodeWrapper name="Code" filter={['style']}>
@@ -143,15 +146,15 @@ storiesOf('Code', module)
   .add('with line numbers', () => (
     <Section>
       <CodeWrapper name="Code" filter={['style']}>
-        <Code language="javascript" menu showLineNumbers>{'const foo = "bar";'}</Code>
+        <Code language="javascript" menu showLineNumbers>
+          {'const foo = "bar";'}
+        </Code>
       </CodeWrapper>
     </Section>
   ));
 
 storiesOf('Dropdown', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('simple dropdown', () => (
     <Section>
       <Dropdown render={() => <div>Hello!</div>}>
@@ -161,12 +164,12 @@ storiesOf('Dropdown', module)
   ));
 
 storiesOf('Icon', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('all icons in the their default size', () => (
     <Section>
-      <p>Note: you must also include the “IconSet” component in the root of your app.</p>
+      <p>
+        Note: you must also include the “IconSet” component in the root of your app.
+      </p>
       {icons.map(icon => (
         <CodeWrapper key={icon}>
           <Icon name={icon} />
@@ -206,9 +209,7 @@ storiesOf('Icon', module)
   ));
 
 storiesOf('Layout', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('basic examples', () => (
     <Section>
       <CodeWrapper name="Layout">
@@ -292,9 +293,7 @@ storiesOf('Layout', module)
   ));
 
 storiesOf('Toast', module)
-  .addDecorator(getSTory => (
-    <Container>{getSTory()}</Container>
-  ))
+  .addDecorator(getSTory => <Container>{getSTory()}</Container>)
   .add('without a parent container', () => (
     <Section>
       <p>
@@ -340,14 +339,19 @@ storiesOf('Toast', module)
   ));
 
 storiesOf('Portal', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('basic portal', () => (
     <Section>
       <CodeWrapper>
         <Portal isOpen>
-          <div style={{ flex: 1, opacity: 0.5, color: '#fff', backgroundColor: 'rgb(187, 49, 49)' }}>
+          <div
+            style={{
+              flex: 1,
+              opacity: 0.5,
+              color: '#fff',
+              backgroundColor: 'rgb(187, 49, 49)',
+            }}
+          >
             This is rendered in an outside DOM node: outside the app, but still
             within the StoryBook iframe. See the Modal component for a usage example.
           </div>
@@ -357,9 +361,7 @@ storiesOf('Portal', module)
   ));
 
 storiesOf('Modal')
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('basic modal', () => (
     <Section>
       <CodeWrapper>
@@ -371,9 +373,7 @@ storiesOf('Modal')
   ));
 
 storiesOf('TextField')
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('as an input', () => (
     <Section>
       <CodeWrapper>
@@ -404,9 +404,7 @@ storiesOf('TextField')
   ));
 
 storiesOf('Tooltip', module)
-  .addDecorator(getStory => (
-    <Container>{getStory()}</Container>
-  ))
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('four different positions', () => (
     <Section>
       <p>
@@ -416,16 +414,24 @@ storiesOf('Tooltip', module)
         Tooltip below) and it does not render the Tooltip as a “modal”.
       </p>
       <CodeWrapper>
-        <Tooltip position="top" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+        <Tooltip position="top" text="Hello, world!">
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
       <CodeWrapper>
-        <Tooltip position="right" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+        <Tooltip position="right" text="Hello, world!">
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
       <CodeWrapper>
-        <Tooltip position="bottom" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+        <Tooltip position="bottom" text="Hello, world!">
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
       <CodeWrapper>
-        <Tooltip position="left" text="Hello, world!"><Button>Hover me</Button></Tooltip>
+        <Tooltip position="left" text="Hello, world!">
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
     </Section>
   ))
@@ -433,23 +439,33 @@ storiesOf('Tooltip', module)
     <Section>
       <p>Each of the following has a different color:</p>
       <CodeWrapper>
-        <Tooltip position="right" text="Primary color" primary><Button>Hover me</Button></Tooltip>
+        <Tooltip position="right" text="Primary color" primary>
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
       <CodeWrapper>
-        <Tooltip position="right" text="Success!" success><Button>Hover me</Button></Tooltip>
+        <Tooltip position="right" text="Success!" success>
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
       <CodeWrapper>
-        <Tooltip position="right" text="Warning!" warning><Button>Hover me</Button></Tooltip>
+        <Tooltip position="right" text="Warning!" warning>
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
       <CodeWrapper>
-        <Tooltip position="right" text="Danger!" danger><Button>Hover me</Button></Tooltip>
+        <Tooltip position="right" text="Danger!" danger>
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
     </Section>
   ))
   .add('visibility by prop', () => (
     <Section>
       <CodeWrapper>
-        <Tooltip position="bottom" text="Pusher is hiring!" isOpen><Button>Hover me</Button></Tooltip>
+        <Tooltip position="bottom" text="Pusher is hiring!" isOpen>
+          <Button>Hover me</Button>
+        </Tooltip>
       </CodeWrapper>
     </Section>
   ));

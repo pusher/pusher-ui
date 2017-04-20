@@ -9,7 +9,6 @@ import styled, { css } from 'styled-components';
 import { zIndex2 } from '../theme';
 import { transitionShort } from '../transitions';
 
-
 const Container = styled.div`
   display: flex;
   position: absolute;
@@ -32,19 +31,15 @@ const Container = styled.div`
 `;
 
 class Portal extends Component {
-
   static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.func,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     clickThrough: PropTypes.bool,
     dismissOnClickInside: PropTypes.bool,
     isInstant: PropTypes.bool,
     isOpen: PropTypes.bool,
     withBackdrop: PropTypes.bool,
     onClickOutside: PropTypes.func, // eslint-disable-line react/require-default-props
-    uniqueId: PropTypes.string,     // eslint-disable-line react/require-default-props
+    uniqueId: PropTypes.string, // eslint-disable-line react/require-default-props
   };
 
   static defaultProps = {
@@ -55,11 +50,11 @@ class Portal extends Component {
     withBackdrop: false,
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.renderPortal();
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     if (!this.dismissing) {
       if (this.props.isOpen) {
         this.renderPortal();
@@ -69,19 +64,22 @@ class Portal extends Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     // Tear down the portal if the parent component stops rendering it.
     // This can be made configurable if a persistent modal is required.
     this.unrenderPortal();
   }
 
-  onClick = (event) => {
+  onClick = event => {
     // True when clicking on the portal and not on the rendered children.
     if (event.currentTarget.children[0] === event.target) {
       this.unrenderPortal();
     }
 
-    if (this.props.dismissOnClickInside && event.currentTarget.contains(event.target)) {
+    if (
+      this.props.dismissOnClickInside &&
+      event.currentTarget.contains(event.target)
+    ) {
       this.unrenderPortal();
     }
   };
@@ -114,12 +112,14 @@ class Portal extends Component {
     const { withBackdrop, isInstant, clickThrough } = this.props;
     return (
       <Container
-        innerRef={c => this.container = c}
+        innerRef={c => (this.container = c)}
         clickThrough={clickThrough}
         isInstant={isInstant}
         withBackdrop={withBackdrop}
       >
-        {typeof this.props.children === 'function' ? this.props.children() : this.props.children}
+        {typeof this.props.children === 'function'
+          ? this.props.children()
+          : this.props.children}
       </Container>
     );
   };
@@ -130,7 +130,11 @@ class Portal extends Component {
     }
 
     if (this.rootContainer) {
-      return renderIntoContainer(this, this.renderContainer(), this.rootContainer);
+      return renderIntoContainer(
+        this,
+        this.renderContainer(),
+        this.rootContainer,
+      );
     }
 
     if (this.props.uniqueId && document.getElementById(this.props.uniqueId)) {
@@ -148,7 +152,7 @@ class Portal extends Component {
 
     if (!this.props.isInstant) {
       // Apply opacity to the modal to trigger a transition.
-      setTimeout(() => this.container.style.opacity = 1, 50);
+      setTimeout(() => (this.container.style.opacity = 1), 50);
     }
 
     if (this.props.children) {
@@ -160,11 +164,9 @@ class Portal extends Component {
     }
   };
 
-  render () {
+  render() {
     return null;
   }
-
 }
-
 
 export default Portal;

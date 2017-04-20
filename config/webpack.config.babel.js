@@ -1,13 +1,11 @@
 import { resolve } from 'path';
 
-
-function createExternals (names) {
+function createExternals(names) {
   return names.reduce((accumulator, name) => {
     accumulator[name] = name; // eslint-disable-line no-param-reassign
     return accumulator;
   }, {});
 }
-
 
 export default {
   entry: {
@@ -26,15 +24,14 @@ export default {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: [
-            ['es2015', { modules: false }],
-            'stage-0',
-            'react',
-          ],
+          presets: [['es2015', { modules: false }], 'stage-0', 'react'],
           plugins: [
-            ['styled-components', {
-              minify: true,
-            }],
+            [
+              'styled-components',
+              {
+                minify: true,
+              },
+            ],
           ],
         },
       },

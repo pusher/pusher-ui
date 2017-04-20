@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { icons } from './icon-set';
 
-
 const SVG = styled.svg`
   fill: currentcolor;
   vertical-align: middle;
@@ -13,7 +12,7 @@ const SVG = styled.svg`
   height: ${props => props.height}px;
 `;
 
-function Icon (props) {
+function Icon(props) {
   const { name, size, ...other } = props;
 
   if (icons.indexOf(name) === -1) {
@@ -29,11 +28,7 @@ function Icon (props) {
   }
 
   return (
-    <SVG
-      {...other}
-      width={width}
-      height={height}
-    >
+    <SVG {...other} width={width} height={height}>
       <use xlinkHref={`#icon:${name}`} />
     </SVG>
   );
@@ -66,6 +61,5 @@ Icon.defaultProps = {
   color: 'inherit',
   size: 24,
 };
-
 
 export default Icon;

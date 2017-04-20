@@ -7,8 +7,7 @@ import { hexToRgba, getVariant } from '../utils';
 import { transitionShort, transitionLong } from '../transitions';
 import { fontFamily, black, darkGrey, darkDarkGrey, white } from '../theme';
 
-
-const styledButtonOrLink = styled((props) => {
+const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
   const {
     primary,
@@ -17,7 +16,7 @@ const styledButtonOrLink = styled((props) => {
     danger,
     large,
     small,
-    ...allowedProps,
+    ...allowedProps
   } = props;
   return createElement(tag, allowedProps, props.children);
 });
@@ -26,10 +25,7 @@ const Button = styledButtonOrLink`
   display: inline-block;
   padding: .5em 1em;
   font-family: ${fontFamily};
-  font-size: ${props => ({
-    small: '0.8em',
-    large: '1.2em',
-  })[props.size] || '1em'};
+  font-size: ${props => ({ small: '0.8em', large: '1.2em' }[props.size] || '1em')};
   user-select: none;
   text-decoration: none;
   border: 1px solid;
@@ -44,7 +40,7 @@ const Button = styledButtonOrLink`
 
   &:hover {
     cursor: pointer;
-    color: ${props => getVariant(props) ? white : black};
+    color: ${props => (getVariant(props) ? white : black)};
     filter: brightness(105%);
   }
 
@@ -83,6 +79,5 @@ Button.propTypes = {
   small: PropTypes.bool,
   large: PropTypes.bool,
 };
-
 
 export default Button;

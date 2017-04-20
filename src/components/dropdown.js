@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Portal from './portal';
 import { opacityHoverEffect } from '../transitions';
 
-
 const DropdownWrapper = styled.div`
   position: relative;
   cursor: pointer;
@@ -13,7 +12,6 @@ const DropdownWrapper = styled.div`
 `;
 
 class Dropdown extends Component {
-
   static propTypes = {
     isOpen: PropTypes.bool,
     children: PropTypes.node.isRequired,
@@ -26,7 +24,7 @@ class Dropdown extends Component {
     noOpacityEffect: false,
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       isOpen: props.isOpen,
@@ -41,9 +39,12 @@ class Dropdown extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
-  render () {
+  render() {
     return (
-      <DropdownWrapper onClick={this.toggle} noOpacityEffect={this.props.noOpacityEffect}>
+      <DropdownWrapper
+        onClick={this.toggle}
+        noOpacityEffect={this.props.noOpacityEffect}
+      >
         {this.props.children}
         <Portal
           isOpen={this.state.isOpen}
@@ -56,8 +57,6 @@ class Dropdown extends Component {
       </DropdownWrapper>
     );
   }
-
 }
-
 
 export default Dropdown;

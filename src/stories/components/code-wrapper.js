@@ -5,8 +5,7 @@ import styled from 'styled-components';
 
 import { Code, Layout } from '../../index';
 
-
-function renderJsx (component, name, filterProps) {
+function renderJsx(component, name, filterProps) {
   const displayName = name && (() => name);
   return reactElementToJSXString(component, {
     filterProps,
@@ -21,9 +20,9 @@ const Row = styled.div`
   border-bottom: 1px solid ${props => props.theme.grey};
 `;
 
-const castArray = items => Array.isArray(items) ? items : [items];
+const castArray = items => (Array.isArray(items) ? items : [items]);
 
-function CodeWrapper (props) {
+function CodeWrapper(props) {
   const { children, name } = props;
   return (
     <Layout flex>
@@ -31,7 +30,9 @@ function CodeWrapper (props) {
         <Row key={index}>
           <Layout block>{children}</Layout>
           <Layout block>
-            <Code language="javascript">{renderJsx(child, name, props.filter)}</Code>
+            <Code language="javascript">
+              {renderJsx(child, name, props.filter)}
+            </Code>
           </Layout>
         </Row>
       ))}
@@ -48,6 +49,5 @@ CodeWrapper.propTypes = {
 CodeWrapper.defaultProps = {
   filter: [],
 };
-
 
 export default CodeWrapper;

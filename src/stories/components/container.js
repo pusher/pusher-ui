@@ -4,14 +4,12 @@ import { ThemeProvider, injectGlobal } from 'styled-components';
 
 import { IconSet, theme } from '../../index';
 
-
 class Container extends Component {
-
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     // eslint-disable-next-line no-unused-expressions
     injectGlobal`
@@ -28,7 +26,7 @@ class Container extends Component {
     `;
   }
 
-  render () {
+  render() {
     return (
       <ThemeProvider theme={theme}>
         <div>
@@ -38,8 +36,6 @@ class Container extends Component {
       </ThemeProvider>
     );
   }
-
 }
-
 
 export default Container;

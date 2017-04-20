@@ -7,7 +7,6 @@ import { opacityHoverEffect } from '../transitions';
 import { getVariant, hexToRgba } from '../utils';
 import { black, grey, white } from '../theme';
 
-
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -41,7 +40,6 @@ const DismissIcon = styled(Icon)`
 `;
 
 class Alert extends Component {
-
   static propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
@@ -56,13 +54,13 @@ class Alert extends Component {
 
   state = {
     dismissed: false,
-  }
+  };
 
   dismiss = () => {
     this.setState({ dismissed: true });
   };
 
-  render () {
+  render() {
     if (this.state.dismissed) {
       return null;
     }
@@ -72,18 +70,11 @@ class Alert extends Component {
       <Container {...other}>
         {title && <h4>{title}</h4>}
         {children}
-        {dismiss && (
-          <DismissIcon
-            name="close"
-            size="16"
-            onClick={this.dismiss}
-          />
-        )}
+        {dismiss &&
+          <DismissIcon name="close" size="16" onClick={this.dismiss} />}
       </Container>
     );
   }
-
 }
-
 
 export default Alert;

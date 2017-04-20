@@ -1,4 +1,4 @@
-export function hexToRgba (hex, alpha) {
+export function hexToRgba(hex, alpha) {
   let hexTmp = hex.replace('#', '');
   if (hexTmp.length === 3) {
     hexTmp = hexTmp.split('').map(char => `${char}${char}`).join('');
@@ -9,12 +9,12 @@ export function hexToRgba (hex, alpha) {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-export function getVariant (props) {
+export function getVariant(props) {
   const variants = ['primary', 'success', 'warning', 'danger'];
   return props.theme[variants.find(variant => !!props[variant])];
 }
 
-export function copyToClipboard (text) {
+export function copyToClipboard(text) {
   const { scrollTop } = document.body;
   const textarea = document.createElement('textarea');
   document.body.appendChild(textarea);
@@ -29,7 +29,7 @@ export function copyToClipboard (text) {
   window.scrollTo(0, scrollTop);
 }
 
-export function download (text, filename) {
+export function download(text, filename) {
   const element = document.createElement('a');
   const content = encodeURIComponent(text);
   element.setAttribute('href', `data:text/plain;charset=utf-8,${content}`);

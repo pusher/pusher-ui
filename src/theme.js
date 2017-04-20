@@ -10,8 +10,9 @@ const fontFamilies = [
   'Droid Sans',
   'Helvetica Neue',
   'sans-serif',
-].map(name => `"${name}"`).join(', ');
-
+]
+  .map(name => `"${name}"`)
+  .join(', ');
 
 export const fontFamily = fontFamilies;
 export const white = '#fff';

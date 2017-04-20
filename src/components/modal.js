@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { Portal } from '../index';
 import { white } from '../theme';
 
-
 const Root = styled.div`
   display: flex;
   justify-content: center;
@@ -27,7 +26,6 @@ const Container = styled.div`
 `;
 
 class Modal extends Component {
-
   static propTypes = {
     children: PropTypes.node.isRequired,
     isOpen: PropTypes.bool,
@@ -42,7 +40,7 @@ class Modal extends Component {
     dismissOnClickInside: false,
   };
 
-  render () {
+  render() {
     const { children, ...props } = this.props;
     return (
       <Portal {...props}>
@@ -54,8 +52,6 @@ class Modal extends Component {
       </Portal>
     );
   }
-
 }
-
 
 export default Modal;

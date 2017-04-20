@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const icons = [
   'account',
   'account-outline',
@@ -16,17 +15,21 @@ export const icons = [
   'plus',
   'pusher-logo',
   'search',
-  'support'
+  'support',
 ];
 
-function IconSet () {
+function IconSet() {
   return (
     <svg style={{ display: 'none' }}>
       <symbol id="icon:account" viewBox="0 0 24 24">
-        <g><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></g>
+        <g>
+          <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+        </g>
       </symbol>
       <symbol id="icon:account-outline" viewBox="0 0 24 24">
-        <g><path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M16.5,16.25C16.5,14.75 13.5,14 12,14C10.5,14 7.5,14.75 7.5,16.25V17H16.5M12,12.25A2.25,2.25 0 0,0 14.25,10A2.25,2.25 0 0,0 12,7.75A2.25,2.25 0 0,0 9.75,10A2.25,2.25 0 0,0 12,12.25Z" /></g>
+        <g>
+          <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M16.5,16.25C16.5,14.75 13.5,14 12,14C10.5,14 7.5,14.75 7.5,16.25V17H16.5M12,12.25A2.25,2.25 0 0,0 14.25,10A2.25,2.25 0 0,0 12,7.75A2.25,2.25 0 0,0 9.75,10A2.25,2.25 0 0,0 12,12.25Z" />
+        </g>
       </symbol>
       <symbol id="icon:caret-left" viewBox="0 0 24 24">
         <g>
@@ -53,7 +56,9 @@ function IconSet () {
         </g>
       </symbol>
       <symbol id="icon:close" viewBox="0 0 24 24">
-        <g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></g>
+        <g>
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+        </g>
       </symbol>
       <symbol id="icon:copy" viewBox="0 0 24 24">
         <g>
@@ -74,7 +79,9 @@ function IconSet () {
         </g>
       </symbol>
       <symbol id="icon:expand" viewBox="0 0 24 24">
-        <g><path d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" /></g>
+        <g>
+          <path d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" />
+        </g>
       </symbol>
       <symbol id="icon:plus" viewBox="0 0 12 16">
         <g><path d="M12 9H7v5H5V9H0V7h5V2h2v5h5z" /></g>
@@ -101,6 +108,5 @@ function IconSet () {
     </svg>
   );
 }
-
 
 export default IconSet;

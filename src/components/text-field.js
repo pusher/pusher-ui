@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 
 import { darkDarkGrey, grey, lightGrey } from '../theme';
 
-
 const shared = css`
   font-size: 14px;
   outline: none;
@@ -34,7 +33,7 @@ const Label = styled.label`
   font-size: 0.8em;
 `;
 
-function TextField (props) {
+function TextField(props) {
   const { multi, label, ...other } = props;
   const component = multi ? <Textarea {...other} /> : <Input {...other} />;
 
@@ -59,6 +58,5 @@ TextField.defaultProps = {
   multi: false,
   label: '',
 };
-
 
 export default TextField;

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
+import SyntaxHighlighter, {
+  registerLanguage,
+} from 'react-syntax-highlighter/dist/light';
 import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
 import swift from 'highlight.js/lib/languages/swift';
@@ -9,7 +11,6 @@ import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import styled from 'styled-components';
 
 import { lightGrey } from '../theme';
-
 
 // Note: All imported languages from highlight.js and syntax themes
 // should be listed as externals in the build configuration.
@@ -48,13 +49,11 @@ const languageMap = {
   swift: 'Swift',
 };
 
-function Code (props) {
+function Code(props) {
   const { language, menu, ...other } = props;
   return (
     <CodeContainer>
-      {menu && (
-        <LanguageMenu>{languageMap[language]}</LanguageMenu>
-      )}
+      {menu && <LanguageMenu>{languageMap[language]}</LanguageMenu>}
       <SyntaxHighlighter {...other} />
     </CodeContainer>
   );
@@ -62,12 +61,7 @@ function Code (props) {
 
 Code.propTypes = {
   children: PropTypes.string.isRequired,
-  language: PropTypes.oneOf([
-    'html',
-    'java',
-    'javascript',
-    'swift',
-  ]).isRequired,
+  language: PropTypes.oneOf(['html', 'java', 'javascript', 'swift']).isRequired,
   menu: PropTypes.bool,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
@@ -76,6 +70,5 @@ Code.defaultProps = {
   style: githubGist,
   menu: false,
 };
-
 
 export default Code;
