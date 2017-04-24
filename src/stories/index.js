@@ -4,6 +4,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import {
   Alert,
   Button,
+  Card,
   Code,
   Dropdown,
   Icon,
@@ -123,6 +124,37 @@ storiesOf('Button', module)
       </p>
       <CodeWrapper name="Button">
         <Button to="/home" primary>Go home!</Button>
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Card', module)
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('deafult', () => (
+    <Section>
+      <CodeWrapper name="Card">
+        <Card>
+          Hello, world! This is a card element, for text and other things.
+        </Card>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with a hover effect', () => (
+    <Section>
+      <CodeWrapper name="Card">
+        <Card withHoverEffect>
+          <div>First row</div>
+          <div>Second row</div>
+        </Card>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('as a link', () => (
+    <Section>
+      <CodeWrapper name="Card">
+        <Card to="/" withHoverEffect>
+          Go home!
+        </Card>
       </CodeWrapper>
     </Section>
   ));

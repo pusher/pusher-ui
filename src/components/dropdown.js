@@ -49,7 +49,7 @@ class Dropdown extends Component {
     if (this.props.showOnHover) {
       this.open();
     }
-  }
+  };
 
   render() {
     return (

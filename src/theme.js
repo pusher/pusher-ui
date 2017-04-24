@@ -27,10 +27,14 @@ export const warning = '#ffaf1c';
 export const danger = '#ca0808';
 export const zIndex1 = 1;
 export const zIndex2 = 2;
+export const boxShadow = '0 1px 5px rgba(0, 0, 0, 0.1)';
+export const boxShadowDark = '0 3px 5px rgba(0, 0, 0, 0.15)';
 export default {
   fontFamily,
   white,
   black,
+  boxShadow,
+  boxShadowDark,
   grey,
   darkGrey,
   darkDarkGrey,

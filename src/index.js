@@ -1,5 +1,6 @@
 export Alert from './components/alert';
 export Button from './components/button';
+export Card from './components/card';
 export Code from './components/code';
 export Dropdown from './components/dropdown';
 export Icon from './components/icon';

@@ -6,7 +6,22 @@ import styled from 'styled-components';
 import { Code, Layout } from '../../index';
 
 function renderJsx(component, name, filterProps) {
-  const displayName = name && (() => name);
+  const displayName = component => {
+    const { type } = component;
+
+    if (typeof type === 'string') {
+      return type;
+    } else if (typeof type === 'function') {
+      if (name && type.name === 'StyledComponent') {
+        return name;
+      } else {
+        return type.name;
+      }
+    } else {
+      return component.type.displayName;
+    }
+  };
+
   return reactElementToJSXString(component, {
     filterProps,
     displayName,
