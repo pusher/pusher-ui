@@ -33,8 +33,10 @@ class Dropdown extends Component {
     };
   }
 
-  close = () => {
-    this.setState({ isOpen: false });
+  onMouseEnter = () => {
+    if (this.props.showOnHover) {
+      this.open();
+    }
   };
 
   open = () => {
@@ -45,10 +47,8 @@ class Dropdown extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
-  onMouseEnter = () => {
-    if (this.props.showOnHover) {
-      this.open();
-    }
+  close = () => {
+    this.setState({ isOpen: false });
   };
 
   render() {
