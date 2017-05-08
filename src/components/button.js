@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 import { hexToRgba, getVariant } from '../utils';
 import { transitionShort, transitionLong } from '../transitions';
-import { fontFamily, black, darkGrey, darkDarkGrey, white } from '../theme';
+import { black, darkGrey, darkDarkGrey, white } from '../theme';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
@@ -24,7 +24,7 @@ const styledButtonOrLink = styled(props => {
 const Button = styledButtonOrLink`
   display: inline-block;
   padding: .5em 1em;
-  font-family: ${fontFamily};
+  font-family: ${props => props.theme.fontFamily};
   font-size: ${props => ({ small: '0.8em', large: '1.2em' }[props.size] || '1em')};
   user-select: none;
   text-align: center;
