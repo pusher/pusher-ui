@@ -14,3 +14,4 @@ export Toast from './components/toast';
 export Tooltip from './components/tooltip';
 export theme from './theme';
 export * as transitions from './transitions';
+export * as utils from './utils';
