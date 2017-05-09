@@ -35,18 +35,11 @@ const Button = styledButtonOrLink`
   color: ${props => hexToRgba(getVariant(props) ? white : black, 0.8)};
   border-color: ${props => getVariant(props) || darkDarkGrey};
   background-color: ${props => getVariant(props) || white};
-  transition:
-    color ${transitionLong} ease,
-    filter ${transitionShort} ease;
+  transition: color ${transitionLong} ease;
 
   &:hover {
     cursor: pointer;
     color: ${props => (getVariant(props) ? white : black)};
-    filter: brightness(105%);
-  }
-
-  &:active {
-    filter: brightness(95%);
   }
 
   &:active,
@@ -63,7 +56,6 @@ const Button = styledButtonOrLink`
 
   &[disabled]:hover {
     background-color: ${darkGrey};
-    filter: none;
   }
 `;
 
