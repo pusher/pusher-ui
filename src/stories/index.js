@@ -9,6 +9,7 @@ import {
   Dropdown,
   Icon,
   Layout,
+  Link,
   Modal,
   Portal,
   TextField,
@@ -442,6 +443,16 @@ storiesOf('TextField')
     <Section>
       <CodeWrapper>
         <TextField name="myField" label="Your name" placeholder="Name" />
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Link', module)
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('with the primary color by default', () => (
+    <Section>
+      <CodeWrapper>
+        <Link to="/">Go home!</Link>
       </CodeWrapper>
     </Section>
   ));
