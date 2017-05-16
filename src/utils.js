@@ -14,6 +14,10 @@ export function getVariant(props) {
   return props.theme[variants.find(variant => !!props[variant])];
 }
 
+export function colorVariant(defaultColorFunc) {
+  return props => (props.error ? props.theme.negativeColor : defaultColorFunc(props));
+}
+
 export function copyToClipboard(text) {
   const { scrollTop } = document.body;
   const textarea = document.createElement('textarea');
@@ -38,4 +42,8 @@ export function download(text, filename) {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
+}
+
+export function pxToRem(pixels) {
+  return props => `${pixels / props.theme.fontSize}rem`;
 }

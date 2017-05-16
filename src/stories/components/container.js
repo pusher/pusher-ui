@@ -17,8 +17,8 @@ class Container extends Component {
         margin: 0;
         width: 100%;
         min-height: 100vh;
-        font-family: ${theme.fontFamily};
-        font-size: 14px;
+        font-family: Roboto;
+        font-size: ${theme.fontSize}px;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -30,6 +30,7 @@ class Container extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
           {this.props.children}
           <IconSet />
         </div>

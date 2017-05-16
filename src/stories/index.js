@@ -7,12 +7,13 @@ import {
   Card,
   Code,
   Dropdown,
+  Input,
   Icon,
   Layout,
   Link,
   Modal,
   Portal,
-  TextField,
+  Textarea,
   Toast,
   Tooltip,
 } from '../index';
@@ -416,33 +417,67 @@ storiesOf('Modal')
     </Section>
   ));
 
-storiesOf('TextField')
+storiesOf('Input')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('as an input', () => (
+  .add('various states', () => (
     <Section>
       <CodeWrapper>
-        <TextField name="myField" value="Hello, world!" />
+        <Input name="myField" defaultValue="Hello, world!" />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Input name="myField" defaultValue="Hello, world!" label="My label" />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Input
+          name="myField"
+          defaultValue="Hello, world!"
+          label="My label"
+          error
+        />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Input
+          name="myField"
+          defaultValue="Hello, world!"
+          label="My label"
+          disabled
+        />
       </CodeWrapper>
     </Section>
-  ))
-  .add('as a textarea', () => (
+  ));
+
+storiesOf('Textarea')
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('various states', () => (
     <Section>
       <CodeWrapper>
-        <TextField name="myField" value="Hello, world!" multi />
+        <Textarea name="myField" defaultValue="Hello, world!" multi />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with a placeholder', () => (
-    <Section>
       <CodeWrapper>
-        <TextField name="myField" placeholder="Name" />
+        <Textarea
+          name="myField"
+          defaultValue="Hello, world!"
+          label="Textarea"
+          multi
+        />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with a label', () => (
-    <Section>
       <CodeWrapper>
-        <TextField name="myField" label="Your name" placeholder="Name" />
+        <Textarea
+          name="myField"
+          defaultValue="Hello, world!"
+          label="Textarea"
+          error
+          multi
+        />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Textarea
+          name="myField"
+          defaultValue="Hello, world!"
+          label="Textarea"
+          disabled
+          multi
+        />
       </CodeWrapper>
     </Section>
   ));

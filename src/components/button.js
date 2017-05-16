@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router';
 
 import { hexToRgba, getVariant } from '../utils';
-import { transitionShort, transitionLong } from '../transitions';
+import { transitionLong } from '../transitions';
 import { black, darkGrey, darkDarkGrey, white } from '../theme';
 
 const styledButtonOrLink = styled(props => {

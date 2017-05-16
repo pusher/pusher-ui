@@ -14,6 +14,7 @@ const fontFamilies = [
   .map(name => `"${name}"`)
   .join(', ');
 
+export const fontSize = 16;
 export const fontFamily = fontFamilies;
 export const white = '#fff';
 export const black = '#1e1e1e';
@@ -29,20 +30,10 @@ export const zIndex1 = 1;
 export const zIndex2 = 2;
 export const boxShadow = '0 1px 5px rgba(0, 0, 0, 0.1)';
 export const boxShadowDark = '0 3px 5px rgba(0, 0, 0, 0.15)';
-export default {
-  fontFamily,
-  white,
-  black,
-  boxShadow,
-  boxShadowDark,
-  grey,
-  darkGrey,
-  darkDarkGrey,
-  lightGrey,
-  primary,
-  success,
-  warning,
-  danger,
-  zIndex1,
-  zIndex2,
-};
+
+export const primaryTextColor = '#2b303b';
+export const secondaryTextColor = '#60646c';
+export const tertiaryTextColor = '#95979d';
+export const borderColor = '#cacbce';
+export const primaryColor = '#006eff';
+export const negativeColor = '#ff455c';
