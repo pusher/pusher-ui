@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack -p --config=config/webpack.config.babel.js",
     "build:storybook": "build-storybook --config-dir=config/storybook -o build",
-    "format": "prettier --single-quote --trailing-comma all --write src/**/*.js config/**/*.js",
+    "format": "prettier --single-quote --trailing-comma all --write src/*.js src/**/*.js config/**/*.js",
     "lint": "eslint . --ignore-path=.gitignore -c config/eslint.json",
     "start": "start-storybook -p ${PORT:=8081} --config-dir=config/storybook",
     "postinstall": "if-env HEROKU=true && yarn build:storybook || :"
