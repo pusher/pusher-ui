@@ -87,35 +87,14 @@ storiesOf('Button', module)
         </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
-        <Button onClick={action('click success')} success>
-          Success button
+        <Button onClick={action('click secondary')} secondary>
+          Secondary button
         </Button>
-      </CodeWrapper>
-      <CodeWrapper name="Button">
-        <Button onClick={action('click warning')} warning>
-          Warning button
-        </Button>
-      </CodeWrapper>
-      <CodeWrapper name="Button">
-        <Button onClick={action('click danger')} danger>Danger button</Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
         <Button onClick={action('click disabled')} disabled>
           Disabled button
         </Button>
-      </CodeWrapper>
-    </Section>
-  ))
-  .add('of different sizes', () => (
-    <Section>
-      <CodeWrapper name="Button">
-        <Button primary size="small">Small</Button>
-      </CodeWrapper>
-      <CodeWrapper name="Button">
-        <Button primary>Normal</Button>
-      </CodeWrapper>
-      <CodeWrapper name="Button">
-        <Button primary size="large">Large</Button>
       </CodeWrapper>
     </Section>
   ))

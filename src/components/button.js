@@ -1,45 +1,46 @@
 import { createElement } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router';
 
-import { hexToRgba, getVariant } from '../utils';
-import { transitionLong } from '../transitions';
-import { black, darkGrey, darkDarkGrey, white } from '../theme';
+import { pxToRem } from '../utils';
+import { transitionShort } from '../transitions';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
-  const {
-    primary,
-    success,
-    warning,
-    danger,
-    large,
-    small,
-    ...allowedProps
-  } = props;
+  const { primary, secondary, ...allowedProps } = props;
   return createElement(tag, allowedProps, props.children);
 });
 
 const Button = styledButtonOrLink`
   display: inline-block;
-  padding: .5em 1em;
-  font-family: ${props => props.theme.fontFamily};
-  font-size: ${props => ({ small: '0.8em', large: '1.2em' }[props.size] || '1em')};
+  padding: ${pxToRem(12)} ${pxToRem(18)};
+  font-family: inherit;
+  font-size: inherit;
+  line-height: ${pxToRem(16)};
   user-select: none;
   text-align: center;
   text-decoration: none;
-  border: 1px solid;
-  border-radius: 3px;
+  border: none;
+  border-radius: 2px;
   white-space: nowrap;
-  color: ${props => hexToRgba(getVariant(props) ? white : black, 0.8)};
-  border-color: ${props => getVariant(props) || darkDarkGrey};
-  background-color: ${props => getVariant(props) || white};
-  transition: color ${transitionLong} ease;
+  color: ${props => props.theme.primaryColor};
+  background-color: transparent;
+  border-color: ${props => props.theme.primaryColor};
+  transition:
+    color ${transitionShort} ease,
+    background-color ${transitionShort} ease,
+    border-color ${transitionShort} ease,
+    opacity ${transitionShort} ease;
 
   &:hover {
     cursor: pointer;
-    color: ${props => (getVariant(props) ? white : black)};
+    color: #fff;
+    background-color: ${props => props.theme.primaryColor};
+  }
+
+  &:active {
+    opacity: .85;
   }
 
   &:active,
@@ -48,15 +49,35 @@ const Button = styledButtonOrLink`
   }
 
   &[disabled] {
-    border-color: ${darkGrey};
-    background-color: ${darkGrey};
-    color: ${hexToRgba(black, 0.5)};
+    background-color: ${props => props.theme.borderColor};
+    border: 1px solid ${props => props.theme.borderColor};
+    color: ${props => props.theme.tertiaryTextColor};
     cursor: not-allowed;
   }
 
   &[disabled]:hover {
-    background-color: ${darkGrey};
+    opacity: 1;
   }
+
+  ${props => (props.primary || props.secondary) && css`
+    padding: ${pxToRem(11)(props)} ${pxToRem(17)(props)};
+    border: 1px solid;
+    border-color: ${props.theme.primaryColor};
+  `}
+
+  ${props => props.primary && css`
+    color: #fff;
+    background-color: ${props.theme.primaryColor};
+
+    &:hover {
+      color: ${props.theme.primaryColor};
+      background-color: #fff;
+    }
+  `}
+
+  ${props => props.secondary && css`
+    background-color: #fff;
+  `}
 `;
 
 Button.propTypes = {
@@ -66,11 +87,7 @@ Button.propTypes = {
   ]),
   to: PropTypes.string,
   primary: PropTypes.bool,
-  success: PropTypes.bool,
-  warning: PropTypes.bool,
-  danger: PropTypes.bool,
-  small: PropTypes.bool,
-  large: PropTypes.bool,
+  secondary: PropTypes.bool,
 };
 
 export default Button;

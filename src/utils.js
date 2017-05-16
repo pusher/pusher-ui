@@ -15,7 +15,8 @@ export function getVariant(props) {
 }
 
 export function colorVariant(defaultColorFunc) {
-  return props => (props.error ? props.theme.negativeColor : defaultColorFunc(props));
+  return props =>
+    (props.error ? props.theme.negativeColor : defaultColorFunc(props));
 }
 
 export function copyToClipboard(text) {
