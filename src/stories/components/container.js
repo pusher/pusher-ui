@@ -19,6 +19,7 @@ class Container extends Component {
         min-height: 100vh;
         font-family: Roboto;
         font-size: ${theme.fontSize}px;
+        color: ${theme.primaryTextColor};
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

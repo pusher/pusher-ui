@@ -31,9 +31,17 @@ export const zIndex2 = 2;
 export const boxShadow = '0 1px 5px rgba(0, 0, 0, 0.1)';
 export const boxShadowDark = '0 3px 5px rgba(0, 0, 0, 0.15)';
 
+export const transitionShort = '0.18s';
+export const transitionLong = '0.36s';
 export const primaryTextColor = '#2b303b';
 export const secondaryTextColor = '#60646c';
 export const tertiaryTextColor = '#95979d';
 export const borderColor = '#cacbce';
 export const primaryColor = '#006eff';
 export const negativeColor = '#ff455c';
+export const boxShadow1 = '0 1px 2px 0 rgba(50, 52, 58, 0.15)';
+export const boxShadow2 = '0 1px 4px 0 rgba(50, 52, 58, 0.14)';
+export const boxShadow3 = '0 1px 4px 1px rgba(50, 52, 58, 0.13)';
+export const borderRadius1 = 2;
+export const borderRadius2 = 4;
+export const containerWidth = 960;
