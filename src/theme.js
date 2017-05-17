@@ -1,4 +1,4 @@
-const fontFamilies = [
+const systemFontFamilies = [
   '-apple-system',
   'BlinkMacSystemFont',
   'Segoe UI',
@@ -14,8 +14,7 @@ const fontFamilies = [
   .map(name => `"${name}"`)
   .join(', ');
 
-export const fontSize = 16;
-export const fontFamily = fontFamilies;
+// Deprecated variables & values
 export const white = '#fff';
 export const black = '#1e1e1e';
 export const grey = '#e7ebf3';
@@ -26,11 +25,9 @@ export const primary = '#549eff';
 export const success = '#319a31';
 export const warning = '#ffaf1c';
 export const danger = '#ca0808';
-export const zIndex1 = 1;
-export const zIndex2 = 2;
-export const boxShadow = '0 1px 5px rgba(0, 0, 0, 0.1)';
-export const boxShadowDark = '0 3px 5px rgba(0, 0, 0, 0.15)';
 
+export const fontSize = 16;
+export const fontFamily = systemFontFamilies;
 export const transitionShort = '0.18s';
 export const transitionLong = '0.36s';
 export const primaryTextColor = '#2b303b';
@@ -45,3 +42,5 @@ export const boxShadow3 = '0 1px 4px 1px rgba(50, 52, 58, 0.13)';
 export const borderRadius1 = 2;
 export const borderRadius2 = 4;
 export const containerWidth = 960;
+export const zIndex1 = 1;
+export const zIndex2 = 2;
