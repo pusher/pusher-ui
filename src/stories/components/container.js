@@ -20,6 +20,7 @@ class Container extends Component {
         font-family: Roboto;
         font-size: ${theme.fontSize}px;
         color: ${theme.primaryTextColor};
+        background-color: ${theme.backgroundColor1};
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

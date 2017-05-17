@@ -13,6 +13,7 @@ import {
   Link,
   Modal,
   Portal,
+  Select,
   Textarea,
   Toast,
   Tooltip,
@@ -25,6 +26,8 @@ import {
   LayoutItem,
   LayoutWrapper,
 } from './components';
+
+/* eslint-disable no-alert */
 
 storiesOf('Alert', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
@@ -111,7 +114,7 @@ storiesOf('Button', module)
 
 storiesOf('Card', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('deafult', () => (
+  .add('default', () => (
     <Section>
       <CodeWrapper name="Card">
         <Card>
@@ -384,6 +387,30 @@ storiesOf('Portal', module)
     </Section>
   ));
 
+storiesOf('Select')
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('basic static', () => (
+    <Section>
+      <CodeWrapper>
+        <Select
+          options={['a', 'b', 'c']}
+          onSelect={(opts, index) => alert(opts[index])}
+        />
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('with a selected item', () => (
+    <Section>
+      <CodeWrapper>
+        <Select
+          options={['a', 'b', 'c']}
+          selectedIndex={1}
+          onSelect={(opts, index) => alert(opts[index])}
+        />
+      </CodeWrapper>
+    </Section>
+  ));
+
 storiesOf('Modal')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('basic modal', () => (
@@ -537,3 +564,5 @@ storiesOf('Tooltip', module)
       </CodeWrapper>
     </Section>
   ));
+
+/* eslint-enable no-alert */

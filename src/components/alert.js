@@ -13,6 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   padding: 1em;
   color: ${props => getVariant(props) || 'inherit'};
+  background-color: #fff;
   border-radius: 3px;
   border: 1px solid ${grey};
   border-color: ${props => hexToRgba(getVariant(props) || grey, 0.8)};

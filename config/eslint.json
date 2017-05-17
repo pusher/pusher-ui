@@ -23,7 +23,7 @@
     "jsx-a11y/no-static-element-interactions": 0,
     "jsx-quotes": [2, "prefer-double"],
     "no-confusing-arrow": 0,
-    "no-mixed-operators": [2, { "allowSamePrecedence": true }],
+    "no-mixed-operators": [1, { "allowSamePrecedence": true }],
     "no-return-assign": 0,
     "no-unused-expressions": 0,
     "quotes": [2, "single"],

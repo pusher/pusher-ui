@@ -11,6 +11,7 @@ export Layout from './components/layout';
 export Link from './components/link';
 export Modal from './components/modal';
 export Portal from './components/portal';
+export Select from './components/select';
 export Textarea from './components/textarea';
 export Toast from './components/toast';
 export Tooltip from './components/tooltip';

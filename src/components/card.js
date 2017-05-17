@@ -15,6 +15,7 @@ const Card = styledDivOrLink`
   flex-direction: column;
   text-decoration: none;
   padding: ${pxToRem(20)};
+  background-color: #fff;
   box-shadow: ${props => props.theme.boxShadow1};
   border-radius: ${props => props.theme.borderRadius1}px;
 
