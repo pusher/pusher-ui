@@ -30,7 +30,7 @@
     "react-motion": "^0.4.7",
     "react-router": "^3.0.0",
     "react-syntax-highlighter": "^5.1.2",
-    "styled-components": "2.0.0-7",
+    "styled-components": "2.0.0-17",
     "webpack": "^2.2.1"
   },
   "peerDependencies": {

@@ -392,10 +392,7 @@ storiesOf('Select')
   .add('basic static', () => (
     <Section>
       <CodeWrapper>
-        <Select
-          options={['a', 'b', 'c']}
-          onSelect={(opts, index) => alert(opts[index])}
-        />
+        <Select options={['a', 'b', 'c']} onSelect={action('selected item')} />
       </CodeWrapper>
     </Section>
   ))
@@ -405,7 +402,18 @@ storiesOf('Select')
         <Select
           options={['a', 'b', 'c']}
           selectedIndex={1}
-          onSelect={(opts, index) => alert(opts[index])}
+          onSelect={action('selected item')}
+        />
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('filterable', () => (
+    <Section>
+      <CodeWrapper>
+        <Select
+          options={['a', 'b', 'c']}
+          onSelect={action('selected item')}
+          filter
         />
       </CodeWrapper>
     </Section>

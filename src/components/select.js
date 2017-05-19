@@ -1,50 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Motion, spring } from 'react-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Icon from './icon';
 import Layout from './layout';
 import { pxToRem } from '../utils';
 
 const Container = styled(Layout).attrs({
-  center: true,
+  vertical: true,
   justified: true,
 })`
-  position: relative;
-  box-sizing: border-box;
-  height: ${pxToRem(40)};
   min-width: ${pxToRem(180)};
-  padding: ${pxToRem(12)} ${pxToRem(18)};
-  border: 1px solid ${props => props.theme.borderColor};
-  border-radius: ${props => props.theme.borderRadius1}px;
-  color: ${props => (props.selectedIndex ? props.theme.primaryTextColor : props.theme.secondaryTextColor)};
+  color: ${props => props.theme.primaryTextColor};
   background-color: #fff;
-  cursor: pointer;
+  border-radius: ${props => props.theme.borderRadius1}px;
+  box-shadow: ${props => props.theme.boxShadow1};
+  outline: none;
 
-  & > svg {
-    margin-right: -5px;
+  &:hover {
+    cursor: ${props => (props.isOpen ? 'default' : 'pointer')};
   }
 `;
 
-const DropdownList = styled.div`
-  display: ${props => (props.visible ? 'block' : 'none')};
-  position: absolute;
-  min-width: 100%;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  max-height: ${pxToRem(420)};
-  overflow: auto;
+const Items = styled(Layout).attrs({
+  vertical: true,
+})`
+  display: ${props => (props.visible ? 'flex' : 'none')};
 `;
 
-const DropdownItem = styled(Layout).attrs({
-  center: true,
-})`
+const sizing = css`
   box-sizing: border-box;
-  height: ${pxToRem(40)};
+  max-height: ${pxToRem(40)};
   padding: ${pxToRem(12)} ${pxToRem(18)};
+`;
+
+const Item = styled.div`
+  ${sizing}
+  user-select: none;
   background-color: ${props => (props.selected ? props.theme.backgroundColor1 : '#fff')};
 
   &:hover {
@@ -53,83 +45,147 @@ const DropdownItem = styled(Layout).attrs({
   }
 `;
 
+const BorderlessInput = styled.input`
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  max-width: ${pxToRem(120)};
+`;
+
+const SelectedItem = styled(Layout).attrs({
+  center: true,
+  justified: true,
+})`
+  ${sizing}
+
+  & > svg {
+    margin-right: -5px;
+  }
+`;
+
 class Select extends Component {
   static propTypes = {
-    options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-    selectedIndex: PropTypes.number, // eslint-disable-line react/require-default-props
+    filter: PropTypes.bool,
     onSelect: PropTypes.func, // eslint-disable-line react/require-default-props
-    label: PropTypes.string,
+    options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+    placeholder: PropTypes.string,
+    selectedIndex: PropTypes.number, // eslint-disable-line react/require-default-props
   };
 
   static defaultProps = {
-    label: 'Select one',
+    filter: false,
+    options: [],
+    placeholder: 'Select one',
   };
 
   constructor(props) {
     super(props);
     this.state = {
       id: Math.random().toString(),
-      visible: false,
-      dropdownX: 0,
-      dropdownY: 0,
+      isOpen: false,
       selectedIndex: props.selectedIndex,
     };
   }
 
-  componentDidMount() {
-    this.setState({ dropdownY: this.el.offsetHeight - 10 });
+  componentWillUpdate(nextProps, nextState) {
+    if (!this.state.isOpen && nextState.isOpen) {
+      document.body.addEventListener('click', this.onOutsideClick);
+    } else if (this.state.isOpen && !nextState.isOpen) {
+      document.body.removeEventListener('click', this.onOutsideClick);
+    }
   }
 
-  toggleVisibility = () => {
-    this.setState({ visible: !this.state.visible });
+  componentWillUnmount() {
+    if (this.state.isOpen) {
+      document.body.removeEventListener('click', this.onOutsideClick);
+    }
+  }
+
+  onSelectedClick = () => {
+    this.el.focus();
+    this.setState({ isOpen: true });
   };
 
-  selectItem = index => () => {
-    this.setState({ selectedIndex: index, visible: false });
+  onSelectItem = selectedIndex => () => {
+    this.setState({ selectedIndex, isOpen: false });
     if (this.props.onSelect) {
-      this.props.onSelect(this.props.options, index);
+      this.props.onSelect(selectedIndex, this.props.options);
     }
   };
 
+  onOutsideClick = event => {
+    let el = event.target;
+
+    while (el !== document.body) {
+      if (el.dataset.id === this.state.id) {
+        break;
+      }
+      el = el.parentNode;
+    }
+
+    this.setState({ isOpen: false });
+  };
+
+  onFilter = event => {
+    this.setState({ filter: event.target.value });
+  };
+
+  onKeyDown = () => {
+    this.setState({ selectedIndex: 0 });
+  };
+
+  selectedContent = () => {
+    if (this.props.filter && this.state.isOpen) {
+      return (
+        <BorderlessInput
+          type="text"
+          placeholder="Filter..."
+          onChange={this.onFilter}
+          autoFocus
+        />
+      );
+    }
+
+    return this.state.selectedIndex >= 0
+      ? this.props.options[this.state.selectedIndex]
+      : this.props.placeholder;
+  };
+
   render() {
+    let { options } = this.props;
+    if (this.state.filter) {
+      options = options.filter(option =>
+        option.match(new RegExp(this.state.filter)),
+      );
+      if (options.length === 0) {
+        options = [this.state.filter];
+      }
+    }
+
     return (
-      <div
-        style={{ position: 'relative' }}
-        ref={el => (this.el = el)}
+      <Container
+        innerRef={c => (this.el = c)}
         data-id={this.state.id}
+        isOpen={this.state.isOpen}
+        onKeyDown={this.onKeyDown}
+        tabIndex="0"
       >
-        <Container
-          onClick={this.toggleVisibility}
-          selected={this.state.selectedIndex}
-        >
-          {this.state.selectedIndex >= 0
-            ? this.props.options[this.state.selectedIndex]
-            : this.props.label}
-          <Icon name="caret-down" size="20" />
-        </Container>
-        <Motion style={{ spring: spring(this.state.visible ? 1 : 0) }}>
-          {props => (
-            <DropdownList
-              visible={this.state.visible}
-              style={{
-                opacity: props.spring,
-                top: this.state.dropdownY + props.spring * 9,
-                left: this.state.dropdownX,
-              }}
+        <SelectedItem onClick={this.onSelectedClick}>
+          {this.selectedContent()}
+          <Icon name="caret-down" />
+        </SelectedItem>
+        <Items visible={this.state.isOpen}>
+          {options.map((item, index) => (
+            <Item
+              key={index}
+              onClick={this.onSelectItem(index)}
+              selected={index === this.state.selectedIndex}
             >
-              {this.props.options.map((option, index) => (
-                <DropdownItem
-                  key={index}
-                  onClick={this.selectItem(index)}
-                  selected={this.state.selectedIndex === index}
-                >
-                  {option}
-                </DropdownItem>
-              ))}
-            </DropdownList>
-          )}
-        </Motion>
-      </div>
+              {item}
+            </Item>
+          ))}
+        </Items>
+      </Container>
     );
   }
 }
