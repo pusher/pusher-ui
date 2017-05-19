@@ -10,12 +10,18 @@ const Container = styled(Layout).attrs({
   vertical: true,
   justified: true,
 })`
+  position: relative;
   min-width: ${pxToRem(180)};
   color: ${props => props.theme.primaryTextColor};
   background-color: #fff;
   border-radius: ${props => props.theme.borderRadius1}px;
   box-shadow: ${props => props.theme.boxShadow1};
   outline: none;
+
+  ${props => props.isOpen && css`
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  `}
 
   &:hover {
     cursor: ${props => (props.isOpen ? 'default' : 'pointer')};
@@ -25,7 +31,19 @@ const Container = styled(Layout).attrs({
 const Items = styled(Layout).attrs({
   vertical: true,
 })`
+  position: absolute;
+  top: ${pxToRem(40)};
+  left: 0;
+  right: 0;
   display: ${props => (props.visible ? 'flex' : 'none')};
+  box-shadow: ${props => props.theme.boxShadow1};
+  border-bottom-left-radius: ${props => props.theme.borderRadius1}px;
+  border-bottom-right-radius: ${props => props.theme.borderRadius1}px;
+
+  div:last-child {
+    border-bottom-left-radius: ${props => props.theme.borderRadius1}px;
+    border-bottom-right-radius: ${props => props.theme.borderRadius1}px;
+  }
 `;
 
 const sizing = css`
