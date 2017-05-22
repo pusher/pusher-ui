@@ -171,11 +171,9 @@ class Select extends Component {
 
   render() {
     const { options, ...rest } = this.props;
-    let opts;
+    let opts = options;
     if (this.state.filter) {
-      opts = options.filter(option =>
-        option.match(new RegExp(this.state.filter)),
-      );
+      opts = opts.filter(option => option.match(new RegExp(this.state.filter)));
       if (opts.length === 0) {
         opts = [this.state.filter];
       }
