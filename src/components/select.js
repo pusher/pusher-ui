@@ -170,13 +170,14 @@ class Select extends Component {
   };
 
   render() {
-    let { options } = this.props;
+    const { options, ...rest } = this.props;
+    let opts;
     if (this.state.filter) {
-      options = options.filter(option =>
+      opts = options.filter(option =>
         option.match(new RegExp(this.state.filter)),
       );
-      if (options.length === 0) {
-        options = [this.state.filter];
+      if (opts.length === 0) {
+        opts = [this.state.filter];
       }
     }
 
@@ -187,13 +188,14 @@ class Select extends Component {
         isOpen={this.state.isOpen}
         onKeyDown={this.onKeyDown}
         tabIndex="0"
+        {...rest}
       >
         <SelectedItem onClick={this.onSelectedClick}>
           {this.selectedContent()}
           <Icon name="caret-down" />
         </SelectedItem>
         <Items visible={this.state.isOpen}>
-          {options.map((item, index) => (
+          {opts.map((item, index) => (
             <Item
               key={index}
               onClick={this.onSelectItem(index)}
