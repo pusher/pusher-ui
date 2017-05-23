@@ -8,7 +8,7 @@ import { transitionShort } from '../transitions';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
-  const { primary, secondary, ...allowedProps } = props;
+  const { primary, secondary, danger, ...allowedProps } = props;
   return createElement(tag, allowedProps, props.children);
 });
 
