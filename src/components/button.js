@@ -24,9 +24,9 @@ const Button = styledButtonOrLink`
   border: none;
   border-radius: 2px;
   white-space: nowrap;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => (props.danger ? props.theme.negativeColor : props.theme.primaryColor)};
   background-color: transparent;
-  border-color: ${props => props.theme.primaryColor};
+  border-color: ${props => (props.danger ? props.theme.negativeColor : props.theme.primaryColor)};
   transition:
     color ${transitionShort} ease,
     background-color ${transitionShort} ease,
@@ -36,7 +36,7 @@ const Button = styledButtonOrLink`
   &:hover {
     cursor: pointer;
     color: #fff;
-    background-color: ${props => props.theme.primaryColor};
+    background-color: ${props => (props.danger ? props.theme.negativeColor : props.theme.primaryColor)};
   }
 
   &:active {
@@ -62,16 +62,16 @@ const Button = styledButtonOrLink`
   ${props => (props.primary || props.secondary) && css`
     padding: ${pxToRem(11)(props)} ${pxToRem(17)(props)};
     border: 1px solid;
-    border-color: ${props.theme.primaryColor};
+    border-color: ${props.danger ? props.theme.negativeColor : props.theme.primaryColor};
   `}
 
   ${props => props.primary && css`
     color: #fff;
-    background-color: ${props.theme.primaryColor};
+    background-color: ${props.danger ? props.theme.negativeColor : props.theme.primaryColor};
 
     &:hover {
-      color: ${props.theme.primaryColor};
-      background-color: #fff;
+      color: ${props.danger ? props.theme.negativeColor : props.theme.primaryColor};
+      background-color: transparent;
     }
   `}
 

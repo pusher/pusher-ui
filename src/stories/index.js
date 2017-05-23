@@ -101,6 +101,28 @@ storiesOf('Button', module)
       </CodeWrapper>
     </Section>
   ))
+  .add('danger variant', () => (
+    <Section>
+      <CodeWrapper name="Button">
+        <Button danger onClick={action('click default')}>Default button</Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
+        <Button danger onClick={action('click primary')} primary>
+          Primary button
+        </Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
+        <Button danger onClick={action('click secondary')} secondary>
+          Secondary button
+        </Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
+        <Button danger onClick={action('click disabled')} disabled>
+          Disabled button
+        </Button>
+      </CodeWrapper>
+    </Section>
+  ))
   .add('as a React Router anchor', () => (
     <Section>
       <p>
