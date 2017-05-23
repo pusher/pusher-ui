@@ -39,6 +39,7 @@ const Items = styled(Layout).attrs({
   box-shadow: ${props => props.theme.boxShadow1};
   border-bottom-left-radius: ${props => props.theme.borderRadius1}px;
   border-bottom-right-radius: ${props => props.theme.borderRadius1}px;
+  z-index: ${props => props.theme.zIndex1};
 
   div:last-child {
     border-bottom-left-radius: ${props => props.theme.borderRadius1}px;

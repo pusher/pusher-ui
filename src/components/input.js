@@ -14,10 +14,13 @@ export const inputStyles = css`
   font-family: inherit;
   font-size: 1rem;
   border: 1px solid ${colorVariant(props => props.theme.borderColor)};
+  ${props => props.raised && 'border: none;'}
   border-radius: 2px;
   background-color: transparent;
   outline: none;
   color: ${colorVariant(props => props.theme.primaryTextColor)};
+  background-color: ${props => (props.raised ? '#fff' : 'transparent')};
+  box-shadow: ${props => (props.raised ? props.theme.boxShadow1 : 'none')};
   transition:
     border-color ${transitionShort} ease,
     color ${transitionShort} ease;
@@ -34,6 +37,7 @@ export const inputStyles = css`
   &:focus {
     caret-color: ${colorVariant(props => props.theme.primaryColor)};
     border: 1px solid ${colorVariant(props => props.theme.primaryColor)};
+    ${props => props.raised && 'border: none;'}
   }
 
   &[disabled] {

@@ -76,7 +76,7 @@ const Button = styledButtonOrLink`
   `}
 
   ${props => props.secondary && css`
-    background-color: #fff;
+    background-color: transparent;
   `}
 `;
 

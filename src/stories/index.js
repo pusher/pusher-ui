@@ -439,6 +439,9 @@ storiesOf('Input')
         <Input name="myField" defaultValue="Hello, world!" />
       </CodeWrapper>
       <CodeWrapper>
+        <Input name="myField" defaultValue="Hello, world!" raised />
+      </CodeWrapper>
+      <CodeWrapper>
         <Input name="myField" defaultValue="Hello, world!" label="My label" />
       </CodeWrapper>
       <CodeWrapper>
@@ -465,14 +468,16 @@ storiesOf('Textarea')
   .add('various states', () => (
     <Section>
       <CodeWrapper>
-        <Textarea name="myField" defaultValue="Hello, world!" multi />
+        <Textarea name="myField" defaultValue="Hello, world!" />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Textarea name="myField" defaultValue="Hello, world!" raised />
       </CodeWrapper>
       <CodeWrapper>
         <Textarea
           name="myField"
           defaultValue="Hello, world!"
           label="Textarea"
-          multi
         />
       </CodeWrapper>
       <CodeWrapper>
@@ -481,7 +486,6 @@ storiesOf('Textarea')
           defaultValue="Hello, world!"
           label="Textarea"
           error
-          multi
         />
       </CodeWrapper>
       <CodeWrapper>
@@ -490,7 +494,6 @@ storiesOf('Textarea')
           defaultValue="Hello, world!"
           label="Textarea"
           disabled
-          multi
         />
       </CodeWrapper>
     </Section>
