@@ -46,5 +46,6 @@ export function download(text, filename) {
 }
 
 export function pxToRem(pixels) {
-  return props => `${pixels / props.theme.fontSize}rem`;
+  const px = typeof pixels === 'string' ? parseInt(pixels, 10) : pixels;
+  return props => `${px / props.theme.fontSize}rem`;
 }

@@ -13,6 +13,7 @@ export Modal from './components/modal';
 export Portal from './components/portal';
 export Select from './components/select';
 export Textarea from './components/textarea';
+export Text from './components/text';
 export Toast from './components/toast';
 export Tooltip from './components/tooltip';
 export * as theme from './theme';

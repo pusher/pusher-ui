@@ -14,6 +14,7 @@ import {
   Modal,
   Portal,
   Select,
+  Text,
   Textarea,
   Toast,
   Tooltip,
@@ -481,6 +482,35 @@ storiesOf('Input')
           label="My label"
           disabled
         />
+      </CodeWrapper>
+    </Section>
+  ));
+
+storiesOf('Text')
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('color variants', () => (
+    <Section>
+      <CodeWrapper name="Text">
+        <Text>Hello, world!</Text>
+      </CodeWrapper>
+      <CodeWrapper name="Text">
+        <Text primary>Hello, world!</Text>
+      </CodeWrapper>
+      <CodeWrapper name="Text">
+        <Text secondary>Hello, world!</Text>
+      </CodeWrapper>
+      <CodeWrapper name="Text">
+        <Text tertiary>Hello, world!</Text>
+      </CodeWrapper>
+    </Section>
+  ))
+  .add('as headings', () => (
+    <Section>
+      <CodeWrapper name="Text">
+        <Text heading>This is a heading</Text>
+      </CodeWrapper>
+      <CodeWrapper name="Text">
+        <Text size="26" heading>This is a heading with a custom size</Text>
       </CodeWrapper>
     </Section>
   ));
