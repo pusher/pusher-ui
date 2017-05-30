@@ -93,6 +93,7 @@ class Select extends Component {
 
   static defaultProps = {
     filter: false,
+    filterPlaceholder: 'Filter...',
     options: [],
     placeholder: 'Select one',
   };
@@ -104,6 +105,12 @@ class Select extends Component {
       isOpen: false,
       selectedIndex: props.selectedIndex,
     };
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.selectedIndex !== this.props.selectedIndex) {
+      this.setState({ selectedIndex: nextProps.selectedIndex });
+    }
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -158,7 +165,7 @@ class Select extends Component {
       return (
         <BorderlessInput
           type="text"
-          placeholder="Filter..."
+          placeholder={this.props.filterPlaceholder}
           onChange={this.onFilter}
           autoFocus
         />
