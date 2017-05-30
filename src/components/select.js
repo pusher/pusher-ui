@@ -85,6 +85,7 @@ const SelectedItem = styled(Layout).attrs({
 class Select extends Component {
   static propTypes = {
     filter: PropTypes.bool,
+    filterPlaceholder: PropTypes.string,
     onSelect: PropTypes.func, // eslint-disable-line react/require-default-props
     options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
     placeholder: PropTypes.string,
@@ -107,7 +108,7 @@ class Select extends Component {
     };
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.selectedIndex !== this.props.selectedIndex) {
       this.setState({ selectedIndex: nextProps.selectedIndex });
     }
