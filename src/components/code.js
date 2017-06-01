@@ -10,6 +10,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import styled from 'styled-components';
 
+import { pxToRem } from '../utils';
 import { darkGrey, lightLightGrey, borderRadius1 } from '../theme';
 
 // Note: All imported languages from highlight.js and syntax themes
@@ -26,7 +27,7 @@ const CodeContainer = styled.div`
 
   & pre {
     margin: 0;
-    padding: .75em !important;
+    padding: ${pxToRem(12)} !important;
   }
 
   & code {
@@ -36,10 +37,10 @@ const CodeContainer = styled.div`
 `;
 
 const LanguageMenu = styled.div`
-  padding: .75em;
+  padding: ${pxToRem(12)};
   background-color: ${lightLightGrey};
   border-bottom: 1px solid ${darkGrey};
-  font-size: .875em;
+  font-size: ${pxToRem(14)};
   user-select: none;
 `;
 
