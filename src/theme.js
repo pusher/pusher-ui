@@ -14,6 +14,16 @@ const systemFontFamilies = [
   .map(name => `"${name}"`)
   .join(', ');
 
+const systemMonoFontFamilies = [
+  'SFMono-Regular',
+  'Consolas',
+  'Liberation Mono',
+  'Menlo, Courier',
+  'monospace',
+]
+  .map(name => `"${name}"`)
+  .join(', ');
+
 // Deprecated variables & values
 export const white = '#fff';
 export const black = '#1e1e1e';
@@ -28,6 +38,7 @@ export const danger = '#ca0808';
 
 export const fontSize = 16;
 export const fontFamily = systemFontFamilies;
+export const monoFontFamily = systemMonoFontFamilies;
 export const transitionShort = '0.18s';
 export const transitionLong = '0.36s';
 export const primaryTextColor = '#2b303b';

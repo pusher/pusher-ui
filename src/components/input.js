@@ -26,6 +26,7 @@ export const inputStyles = css`
     color ${transitionShort} ease;
 
   &::placeholder {
+    font-family: inherit;
     color: ${props => props.theme.tertiaryTextColor};
   }
 

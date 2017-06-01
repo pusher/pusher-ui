@@ -410,22 +410,37 @@ storiesOf('Portal', module)
     </Section>
   ));
 
+const events = {
+  onSelectedClick: action('onSelectedClick fired'),
+  onSelectItemClick: action('onSelectItemClick fired'),
+  onOutsideClick: action('onOutsideClick fired'),
+  onFilterChange: action('onFilterChange fired'),
+  onFilterAction: action('onFilterAction fired'),
+  onEnter: action('onEnter fired'),
+};
 storiesOf('Select')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('basic static', () => (
+  .add('none selected', () => (
     <Section>
       <CodeWrapper>
-        <Select options={['a', 'b', 'c']} onSelect={action('selected item')} />
+        <Select options={['a', 'b', 'c']} {...events} />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Select options={['a', 'b', 'c']} isOpen {...events} />
       </CodeWrapper>
     </Section>
   ))
   .add('with a selected item', () => (
     <Section>
       <CodeWrapper>
+        <Select options={['a', 'b', 'c']} selectedIndex={1} {...events} />
+      </CodeWrapper>
+      <CodeWrapper>
         <Select
           options={['a', 'b', 'c']}
           selectedIndex={1}
-          onSelect={action('selected item')}
+          isOpen
+          {...events}
         />
       </CodeWrapper>
     </Section>
@@ -433,10 +448,28 @@ storiesOf('Select')
   .add('filterable', () => (
     <Section>
       <CodeWrapper>
+        <Select options={['a', 'b', 'c']} filter {...events} />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Select options={['a', 'b', 'c']} filter isOpen {...events} />
+      </CodeWrapper>
+      <CodeWrapper>
         <Select
           options={['a', 'b', 'c']}
-          onSelect={action('selected item')}
+          filterValue="b"
           filter
+          isOpen
+          {...events}
+        />
+      </CodeWrapper>
+      <CodeWrapper>
+        <Select
+          options={['a', 'b', 'c']}
+          filterValue="b"
+          filter
+          filterActionText="Create item"
+          isOpen
+          {...events}
         />
       </CodeWrapper>
     </Section>

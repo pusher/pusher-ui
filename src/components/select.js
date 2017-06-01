@@ -40,6 +40,8 @@ const Items = styled(Layout).attrs({
   border-bottom-left-radius: ${props => props.theme.borderRadius1}px;
   border-bottom-right-radius: ${props => props.theme.borderRadius1}px;
   z-index: ${props => props.theme.zIndex1};
+  max-height: 40vh;
+  overflow: auto;
 
   div:last-child {
     border-bottom-left-radius: ${props => props.theme.borderRadius1}px;
@@ -65,10 +67,13 @@ const Item = styled.div`
 `;
 
 const BorderlessInput = styled.input`
+  flex: 1;
   border: none;
   outline: none;
+  font-family: inherit;
   font-size: 1rem;
-  max-width: ${pxToRem(120)};
+  width: 0;
+  min-width: ${pxToRem(120)};
 `;
 
 const SelectedItem = styled(Layout).attrs({
@@ -78,15 +83,38 @@ const SelectedItem = styled(Layout).attrs({
   ${sizing}
 
   & > svg {
+    color: ${props => props.theme.tertiaryTextColor};
     margin-right: -5px;
+  }
+`;
+
+const Placeholder = styled.span`
+  color: ${props => props.theme.tertiaryTextColor};
+`;
+
+const FilterAction = styled(Layout)`
+  color: ${props => props.theme.primaryColor};
+  background-color: #fff;
+  ${sizing}
+
+  :hover {
+    cursor: pointer;
   }
 `;
 
 class Select extends Component {
   static propTypes = {
     filter: PropTypes.bool,
+    filterActionText: PropTypes.string, // eslint-disable-line react/require-default-props
     filterPlaceholder: PropTypes.string,
-    onSelect: PropTypes.func, // eslint-disable-line react/require-default-props
+    filterValue: PropTypes.string, // eslint-disable-line react/require-default-props
+    isOpen: PropTypes.bool,
+    onEnter: PropTypes.func, // eslint-disable-line react/require-default-props
+    onFilterAction: PropTypes.func, // eslint-disable-line react/require-default-props
+    onFilterChange: PropTypes.func, // eslint-disable-line react/require-default-props
+    onSelectedClick: PropTypes.func, // eslint-disable-line react/require-default-props
+    onSelectItemClick: PropTypes.func, // eslint-disable-line react/require-default-props
+    onOutsideClick: PropTypes.func, // eslint-disable-line react/require-default-props
     options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
     placeholder: PropTypes.string,
     selectedIndex: PropTypes.number, // eslint-disable-line react/require-default-props
@@ -95,48 +123,35 @@ class Select extends Component {
   static defaultProps = {
     filter: false,
     filterPlaceholder: 'Filter...',
+    isOpen: false,
     options: [],
     placeholder: 'Select one',
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: Math.random().toString(),
-      isOpen: false,
-      selectedIndex: props.selectedIndex,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedIndex !== this.props.selectedIndex) {
-      this.setState({ selectedIndex: nextProps.selectedIndex });
-    }
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (!this.state.isOpen && nextState.isOpen) {
+  componentWillUpdate(nextProps) {
+    if (!this.props.isOpen && nextProps.isOpen) {
+      this.el.focus();
       document.body.addEventListener('click', this.onOutsideClick);
-    } else if (this.state.isOpen && !nextState.isOpen) {
+    } else if (this.props.isOpen && !nextProps.isOpen) {
       document.body.removeEventListener('click', this.onOutsideClick);
     }
   }
 
   componentWillUnmount() {
-    if (this.state.isOpen) {
+    if (this.props.isOpen) {
       document.body.removeEventListener('click', this.onOutsideClick);
     }
   }
 
   onSelectedClick = () => {
-    this.el.focus();
-    this.setState({ isOpen: true });
+    if (this.props.onSelectedClick) {
+      this.props.onSelectedClick();
+    }
   };
 
-  onSelectItem = selectedIndex => () => {
-    this.setState({ selectedIndex, isOpen: false });
-    if (this.props.onSelect) {
-      this.props.onSelect(selectedIndex, this.props.options);
+  onSelectItemClick = selectedIndex => () => {
+    if (this.props.onSelectItemClick) {
+      this.props.onSelectItemClick(selectedIndex, this.props.options);
     }
   };
 
@@ -144,73 +159,101 @@ class Select extends Component {
     let el = event.target;
 
     while (el !== document.body) {
-      if (el.dataset.id === this.state.id) {
+      if (el.dataset.id === this.id) {
         break;
       }
       el = el.parentNode;
     }
 
-    this.setState({ isOpen: false });
+    if (this.props.onOutsideClick) {
+      this.props.onOutsideClick();
+    }
   };
 
-  onFilter = event => {
-    this.setState({ filter: event.target.value });
+  onFilterChange = event => {
+    if (this.props.onFilterChange) {
+      this.props.onFilterChange(event.target.value);
+    }
   };
 
-  onKeyDown = () => {
-    this.setState({ selectedIndex: 0 });
+  onFilterAction = () => {
+    if (this.props.onFilterAction) {
+      this.props.onFilterAction(this.props.selectedIndex, this.props.options);
+    }
   };
+
+  onKeyDown = event => {
+    if (event.keyCode === 13 && this.props.onEnter) {
+      event.preventDefault();
+      this.props.onEnter(event.target.value);
+    } else if (event.keyCode === 27) {
+      this.props.onOutsideClick();
+    }
+  };
+
+  id = Math.random().toString();
 
   selectedContent = () => {
-    if (this.props.filter && this.state.isOpen) {
+    if (this.props.filter && this.props.isOpen) {
+      const value = this.props.filter
+        ? this.props.filterValue
+        : this.props.options[this.props.selectedIndex];
+
       return (
         <BorderlessInput
           type="text"
           placeholder={this.props.filterPlaceholder}
-          onChange={this.onFilter}
+          onChange={this.onFilterChange}
+          value={value}
           autoFocus
         />
       );
     }
 
-    return this.state.selectedIndex >= 0
-      ? this.props.options[this.state.selectedIndex]
-      : this.props.placeholder;
+    if (this.props.selectedIndex >= 0) {
+      return <span>{this.props.options[this.props.selectedIndex]}</span>;
+    }
+
+    return <Placeholder>{this.props.placeholder}</Placeholder>;
   };
 
   render() {
-    const { options, ...rest } = this.props;
+    const { options } = this.props;
     let opts = options;
-    if (this.state.filter) {
-      opts = opts.filter(option => option.match(new RegExp(this.state.filter)));
-      if (opts.length === 0) {
-        opts = [this.state.filter];
-      }
+    if (this.props.filter) {
+      opts = opts.filter(option =>
+        option.match(new RegExp(this.props.filterValue)),
+      );
     }
 
     return (
       <Container
+        data-id={this.id}
         innerRef={c => (this.el = c)}
-        data-id={this.state.id}
-        isOpen={this.state.isOpen}
+        isOpen={this.props.isOpen}
         onKeyDown={this.onKeyDown}
         tabIndex="0"
-        {...rest}
+        {...this.props}
       >
         <SelectedItem onClick={this.onSelectedClick}>
           {this.selectedContent()}
           <Icon name="caret-down" />
         </SelectedItem>
-        <Items visible={this.state.isOpen}>
+        <Items visible={this.props.isOpen}>
           {opts.map((item, index) => (
             <Item
               key={index}
-              onClick={this.onSelectItem(index)}
-              selected={index === this.state.selectedIndex}
+              onClick={this.onSelectItemClick(index)}
+              selected={index === this.props.selectedIndex}
             >
               {item}
             </Item>
           ))}
+          {this.props.filter &&
+            this.props.filterActionText &&
+            <FilterAction onClick={this.onFilterAction}>
+              {this.props.filterActionText}
+            </FilterAction>}
         </Items>
       </Container>
     );
