@@ -10,7 +10,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import styled from 'styled-components';
 
-import { darkGrey, lightLightGrey } from '../theme';
+import { darkGrey, lightLightGrey, borderRadius1 } from '../theme';
 
 // Note: All imported languages from highlight.js and syntax themes
 // should be listed as externals in the build configuration.
@@ -22,7 +22,7 @@ registerLanguage('swift', swift);
 
 const CodeContainer = styled.div`
   border: 1px solid ${darkGrey};
-  border-radius: 2px;
+  border-radius: ${borderRadius1}px;
 
   & pre {
     margin: 0;
