@@ -3,15 +3,19 @@ import React from 'react';
 export const icons = [
   'account',
   'account-outline',
+  'add-circle-outline',
   'caret-down',
   'caret-left',
   'caret-right',
   'caret-up',
   'close',
   'copy',
+  'delete',
   'documentation',
   'download',
   'expand',
+  'filter',
+  'info-circle-outline',
   'plus',
   'pusher-logo',
   'pusher-logo-text',
@@ -30,6 +34,12 @@ function IconSet() {
       <symbol id="icon:account-outline" viewBox="0 0 24 24">
         <g>
           <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M16.5,16.25C16.5,14.75 13.5,14 12,14C10.5,14 7.5,14.75 7.5,16.25V17H16.5M12,12.25A2.25,2.25 0 0,0 14.25,10A2.25,2.25 0 0,0 12,7.75A2.25,2.25 0 0,0 9.75,10A2.25,2.25 0 0,0 12,12.25Z" />
+        </g>
+      </symbol>
+      <symbol id="icon:add-circle-outline" viewBox="0 0 24 24">
+        <g>
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
         </g>
       </symbol>
       <symbol id="icon:caret-left" viewBox="0 0 24 24">
@@ -67,6 +77,12 @@ function IconSet() {
           <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
         </g>
       </symbol>
+      <symbol id="icon:delete" viewBox="0 0 24 24">
+        <g>
+          <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </g>
+      </symbol>
       <symbol id="icon:documentation" viewBox="0 0 24 24">
         <g>
           <path d="M0 0h24v24H0z" fill="none" />
@@ -82,6 +98,18 @@ function IconSet() {
       <symbol id="icon:expand" viewBox="0 0 24 24">
         <g>
           <path d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" />
+        </g>
+      </symbol>
+      <symbol id="icon:filter" viewBox="0 0 24 24">
+        <g>
+          <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </g>
+      </symbol>
+      <symbol id="icon:info-circle-outline" viewBox="0 0 24 24">
+        <g>
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z" />
         </g>
       </symbol>
       <symbol id="icon:plus" viewBox="0 0 12 16">
