@@ -10,7 +10,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import styled from 'styled-components';
 
-import { lightGrey } from '../theme';
+import { darkGrey, lightLightGrey } from '../theme';
 
 // Note: All imported languages from highlight.js and syntax themes
 // should be listed as externals in the build configuration.
@@ -21,11 +21,12 @@ registerLanguage('javascript', javascript);
 registerLanguage('swift', swift);
 
 const CodeContainer = styled.div`
-  border: 1px solid ${lightGrey};
-  box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+  border: 1px solid ${darkGrey};
+  border-radius: 2px;
 
   & pre {
     margin: 0;
+    padding: .75em !important;
   }
 
   & code {
@@ -35,10 +36,10 @@ const CodeContainer = styled.div`
 `;
 
 const LanguageMenu = styled.div`
-  padding: .3em .5em;
-  background-color: ${lightGrey};
-  border-bottom: 1px solid ${lightGrey};
-  font-size: .8em;
+  padding: .75em;
+  background-color: ${lightLightGrey};
+  border-bottom: 1px solid ${darkGrey};
+  font-size: .875em;
   user-select: none;
 `;
 
