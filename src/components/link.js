@@ -2,7 +2,7 @@ import { Link as ReactRouterLink } from 'react-router';
 import styled from 'styled-components';
 
 const Link = styled(ReactRouterLink)`
-  color: ${props => props.theme.primary};
+  color: ${props => props.theme.primaryColor};
   text-decoration: none;
 
   &:hover {
