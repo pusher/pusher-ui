@@ -46,6 +46,7 @@ export const primaryTextColor = '#2b303b';
 export const secondaryTextColor = '#60646c';
 export const tertiaryTextColor = '#95979d';
 export const borderColor = '#cacbce';
+export const disabledColor = '#dfe0e2';
 export const primaryColor = '#006eff';
 export const negativeColor = '#ff455c';
 export const backgroundColor1 = '#f7f9fa';

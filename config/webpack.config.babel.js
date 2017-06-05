@@ -53,5 +53,6 @@ export default {
     'react-syntax-highlighter/dist/light',
     'react-syntax-highlighter/dist/styles/github-gist',
     'styled-components',
+    'polished',
   ]),
 };
