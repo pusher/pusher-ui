@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router';
 import { darken } from 'polished';
 
-import { pxToRem } from '../utils';
+import { pxToRem, hexToRgba } from '../utils';
 import { transitionShort } from '../transitions';
 import {
   primaryColor,
@@ -49,6 +49,7 @@ const Button = styledButtonOrLink`
 
   &:focus {
     outline: none;
+    box-shadow: 0 0 0 2px ${hexToRgba(primaryColor, 0.3)};
   }
 
   &[disabled] {
@@ -103,6 +104,10 @@ const Button = styledButtonOrLink`
       background-color: ${darken(0.1, negativeColor)};
       border-color: ${darken(0.1, negativeColor)};
       color: #fff;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px ${hexToRgba(negativeColor, 0.3)};
     }
   `}
 `;
