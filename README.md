@@ -12,7 +12,7 @@ As per usual (you can also use NPM):
 
 You may need to add the project's peer dependencies as well:
 
-    yarn add prop-types@^15.5.8 react@^15.5.4 react-dom@^15.5.4 react-motion@^0.4.7 react-router@^3.0.0 react-syntax-highlighter@^5.1.2 styled-components@2.0.0-7
+    yarn add prop-types@^15.5.8 react@^15.5.4 react-dom@^15.5.4 react-motion@^0.4.7 react-router@^3.0.0 react-syntax-highlighter@^5.1.2 styled-components@2.0.0-17 polished@^1.1.3
 
 These dependencies are required by the project but are expected to be provided
 in your project for deduplication.

@@ -35,11 +35,11 @@ const Button = styledButtonOrLink`
 
   &:hover {
     cursor: pointer;
-    color: ${darken(.1, primaryColor)};
+    color: ${darken(0.1, primaryColor)};
   }
 
   &:active {
-    color: ${darken(.2, primaryColor)};
+    color: ${darken(0.2, primaryColor)};
   }
 
   &:focus {
@@ -59,12 +59,12 @@ const Button = styledButtonOrLink`
 
     &:hover {
       color: #fff;
-      background-color: ${darken(.1, primaryColor)};
+      background-color: ${darken(0.1, primaryColor)};
     }
 
     &:active {
       color: #fff;
-      background-color: ${darken(.2, primaryColor)};
+      background-color: ${darken(0.2, primaryColor)};
     }
   `}
 
@@ -78,8 +78,8 @@ const Button = styledButtonOrLink`
     }
 
     &:active {
-      background-color: ${darken(.1, primaryColor)};
-      border-color: ${darken(.1, primaryColor)};
+      background-color: ${darken(0.1, primaryColor)};
+      border-color: ${darken(0.1, primaryColor)};
       color: #fff;
     }
   `}
@@ -95,8 +95,8 @@ const Button = styledButtonOrLink`
     }
 
     &:active {
-      background-color: ${darken(.1, negativeColor)};
-      border-color: ${darken(.1, negativeColor)};
+      background-color: ${darken(0.1, negativeColor)};
+      border-color: ${darken(0.1, negativeColor)};
       color: #fff;
     }
   `}
