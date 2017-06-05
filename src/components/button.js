@@ -6,7 +6,12 @@ import { darken } from 'polished';
 
 import { pxToRem } from '../utils';
 import { transitionShort } from '../transitions';
-import { primaryColor, disabledColor, tertiaryTextColor, negativeColor } from '../theme';
+import {
+  primaryColor,
+  disabledColor,
+  tertiaryTextColor,
+  negativeColor,
+} from '../theme';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
