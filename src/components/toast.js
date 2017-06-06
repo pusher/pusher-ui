@@ -93,7 +93,7 @@ class Toast extends Component {
           opacity: spring(this.state.opacity),
         }}
       >
-        {({ x, opacity }) => (
+        {({ x, opacity }) =>
           <Container
             onClick={this.dismiss}
             style={{
@@ -104,8 +104,7 @@ class Toast extends Component {
             {...other}
           >
             {text}
-          </Container>
-        )}
+          </Container>}
       </Motion>
     );
   }

@@ -34,7 +34,9 @@ const TooltipBubble = styled.div`
     height: 0;
     border: solid 5px transparent;
 
-    ${props => props.position === 'top' && `
+    ${props =>
+      props.position === 'top' &&
+      `
       top: 100%;
       left: 50%;
       margin-left: -5px;
@@ -42,7 +44,9 @@ const TooltipBubble = styled.div`
       border-bottom: none;
     `}
 
-    ${props => props.position === 'right' && `
+    ${props =>
+      props.position === 'right' &&
+      `
       top: 50%;
       left: -5px;
       margin-top: -5px;
@@ -50,7 +54,9 @@ const TooltipBubble = styled.div`
       border-left: none;
     `}
 
-    ${props => props.position === 'bottom' && `
+    ${props =>
+      props.position === 'bottom' &&
+      `
       top: -5px;
       left: 50%;
       margin-left: -5px;
@@ -58,7 +64,9 @@ const TooltipBubble = styled.div`
       border-top: none;
     `}
 
-    ${props => props.position === 'left' && `
+    ${props =>
+      props.position === 'left' &&
+      `
       top: 50%;
       left: 100%;
       margin-top: -5px;
@@ -171,7 +179,7 @@ class Tooltip extends Component {
             y: spring(this.state.isOpen ? this.state.y : 0),
           }}
         >
-          {({ x, y }) => (
+          {({ x, y }) =>
             <TooltipBubble
               innerRef={c => (this.tooltip = c)}
               position={this.props.position}
@@ -187,8 +195,7 @@ class Tooltip extends Component {
               }}
             >
               {this.props.text}
-            </TooltipBubble>
-          )}
+            </TooltipBubble>}
         </Motion>
         <ComponentWrapper
           innerRef={c => (this.child = c)}

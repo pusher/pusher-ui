@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SyntaxHighlighter, {
-  registerLanguage,
-} from 'react-syntax-highlighter/dist/light';
+import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
 import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
 import swift from 'highlight.js/lib/languages/swift';

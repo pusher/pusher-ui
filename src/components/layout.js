@@ -1,62 +1,78 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { pxToRem } from '../utils';
 
 const Layout = styled.div`
-  display: ${props => do {
-    if (props.block) {
-      ('block');
-    } else if (props.inline) {
-      ('inline-flex');
-    } else {
-      ('flex');
-    }
-  }};
+  box-sizing: border-box;
+  display: ${props =>
+    do {
+      if (props.block) {
+        ('block');
+      } else if (props.inline) {
+        ('inline-flex');
+      } else {
+        ('flex');
+      }
+    }};
 
-  flex-direction: ${props => do {
-    if (props.vertical && props.reverse) {
-      ('column-reverse');
-    } else if (props.vertical) {
-      ('column');
-    } else if (props.horizontal && props.reverse) {
-      ('row-reverse');
-    } else {
-      ('row');
-    }
-  }};
+  flex-direction: ${props =>
+    do {
+      if (props.vertical && props.reverse) {
+        ('column-reverse');
+      } else if (props.vertical) {
+        ('column');
+      } else if (props.horizontal && props.reverse) {
+        ('row-reverse');
+      } else {
+        ('row');
+      }
+    }};
 
-  align-items: ${props => do {
-    if (props.center || props.centerCenter) {
-      ('center');
-    } else {
-      ('normal');
-    }
-  }};
+  align-items: ${props =>
+    do {
+      if (props.center || props.centerCenter) {
+        ('center');
+      } else {
+        ('normal');
+      }
+    }};
 
-  justify-content: ${props => do {
-    if (props.centerCenter || props.centerJustified) {
-      ('center');
-    } else if (props.justified) {
-      ('space-between');
-    } else if (props.aroundJustified) {
-      ('space-around');
-    } else {
-      ('normal');
-    }
-  }};
+  justify-content: ${props =>
+    do {
+      if (props.centerCenter || props.centerJustified) {
+        ('center');
+      } else if (props.justified) {
+        ('space-between');
+      } else if (props.aroundJustified) {
+        ('space-around');
+      } else {
+        ('normal');
+      }
+    }};
 
-  flex: ${props => do {
-    if (props.flex === true) {
-      ('1');
-    } else if (props.flex) {
-      props.flex;
-    } else {
-      ('none');
-    }
-  }};
+  flex: ${props =>
+    do {
+      if (props.flex === true) {
+        ('1');
+      } else if (props.flex) {
+        props.flex;
+      } else {
+        ('none');
+      }
+    }};
 
-  ${props => props.gutter && `
+  ${props =>
+    props.padding &&
+    css`
+    padding: ${pxToRem(props.padding)};
+  `}
+
+  ${props =>
+    props.gutter &&
+    css`
     > :not(:last-child) {
-      margin-${props.vertical ? 'bottom' : 'right'}: ${props.gutter}px;
+      margin-${props.vertical ? 'bottom' : 'right'}: ${pxToRem(props.gutter)};
     }
   `}
 `;

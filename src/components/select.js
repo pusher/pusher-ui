@@ -18,7 +18,9 @@ const Container = styled(Layout).attrs({
   box-shadow: ${props => props.theme.boxShadow1};
   outline: none;
 
-  ${props => props.isOpen && css`
+  ${props =>
+    props.isOpen &&
+    css`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   `}
@@ -58,7 +60,8 @@ const sizing = css`
 const Item = styled.div`
   ${sizing}
   user-select: none;
-  background-color: ${props => (props.selected ? props.theme.backgroundColor1 : '#fff')};
+  background-color: ${props =>
+    props.selected ? props.theme.backgroundColor1 : '#fff'};
 
   &:hover {
     cursor: pointer;
@@ -131,15 +134,15 @@ class Select extends Component {
   componentWillUpdate(nextProps) {
     if (!this.props.isOpen && nextProps.isOpen) {
       this.el.focus();
-      document.body.addEventListener('click', this.onOutsideClick);
+      window.addEventListener('click', this.onOutsideClick);
     } else if (this.props.isOpen && !nextProps.isOpen) {
-      document.body.removeEventListener('click', this.onOutsideClick);
+      window.removeEventListener('click', this.onOutsideClick);
     }
   }
 
   componentWillUnmount() {
     if (this.props.isOpen) {
-      document.body.removeEventListener('click', this.onOutsideClick);
+      window.removeEventListener('click', this.onOutsideClick);
     }
   }
 
@@ -158,7 +161,7 @@ class Select extends Component {
   onOutsideClick = event => {
     let el = event.target;
 
-    while (el !== document.body) {
+    while (el !== document.documentElement) {
       if (el.dataset.id === this.id) {
         break;
       }
@@ -240,15 +243,15 @@ class Select extends Component {
           <Icon name="caret-down" />
         </SelectedItem>
         <Items visible={this.props.isOpen}>
-          {opts.map((item, index) => (
+          {opts.map((item, index) =>
             <Item
               key={index}
               onClick={this.onSelectItemClick(index)}
               selected={index === this.props.selectedIndex}
             >
               {item}
-            </Item>
-          ))}
+            </Item>,
+          )}
           {this.props.filter &&
             this.props.filterActionText &&
             <FilterAction onClick={this.onFilterAction}>

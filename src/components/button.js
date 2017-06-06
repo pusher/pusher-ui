@@ -59,7 +59,9 @@ const Button = styledButtonOrLink`
     cursor: not-allowed;
   }
 
-  ${props => props.primary && css`
+  ${props =>
+    props.primary &&
+    css`
     color: #fff;
     background-color: ${primaryColor};
 
@@ -74,7 +76,9 @@ const Button = styledButtonOrLink`
     }
   `}
 
-  ${props => props.secondary && css`
+  ${props =>
+    props.secondary &&
+    css`
     padding: ${pxToRem(11)(props)} ${pxToRem(17)(props)};
     border: 1px solid ${primaryColor};
 
@@ -90,7 +94,9 @@ const Button = styledButtonOrLink`
     }
   `}
 
-  ${props => props.danger && css`
+  ${props =>
+    props.danger &&
+    css`
     padding: ${pxToRem(11)(props)} ${pxToRem(17)(props)};
     border: 1px solid ${negativeColor};
     color: ${negativeColor};

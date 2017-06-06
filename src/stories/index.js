@@ -32,7 +32,7 @@ import {
 
 storiesOf('Alert', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('color variants', () => (
+  .add('color variants', () =>
     <Section>
       <CodeWrapper>
         <Alert title="Default">This is the default alert.</Alert>
@@ -49,9 +49,9 @@ storiesOf('Alert', module)
       <CodeWrapper>
         <Alert title="Danger" danger>This is a danger alert.</Alert>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('filled color variants', () => (
+    </Section>,
+  )
+  .add('filled color variants', () =>
     <Section>
       <CodeWrapper>
         <Alert title="Default" filled>This is the default alert.</Alert>
@@ -68,19 +68,19 @@ storiesOf('Alert', module)
       <CodeWrapper>
         <Alert title="Danger" danger filled>This is a danger alert.</Alert>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with a dismiss button', () => (
+    </Section>,
+  )
+  .add('with a dismiss button', () =>
     <Section>
       <CodeWrapper>
         <Alert title="Primary" primary dismiss>This is a primary alert.</Alert>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Button', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('with the default theme', () => (
+  .add('with the default theme', () =>
     <Section>
       <CodeWrapper name="Button">
         <Button onClick={action('click default')}>Default button</Button>
@@ -105,9 +105,9 @@ storiesOf('Button', module)
           Disabled button
         </Button>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('as a React Router anchor', () => (
+    </Section>,
+  )
+  .add('as a React Router anchor', () =>
     <Section>
       <p>
         Note: as React Router is not set up here the href attribute is missing.
@@ -115,102 +115,89 @@ storiesOf('Button', module)
       <CodeWrapper name="Button">
         <Button to="/home" primary>Go home!</Button>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Card', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('default', () => (
+  .add('default', () =>
     <Section>
       <CodeWrapper name="Card">
         <Card>
           Hello, world! This is a card element, for text and other things.
         </Card>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with a hover effect', () => (
-    <Section>
       <CodeWrapper name="Card">
-        <Card withHoverEffect>
-          <div>First row</div>
-          <div>Second row</div>
+        <Card padding={36}>
+          With a custom padding
         </Card>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('as a link', () => (
-    <Section>
-      <CodeWrapper name="Card">
-        <Card to="/" withHoverEffect>
-          Go home!
-        </Card>
-      </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Code', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('default', () => (
+  .add('default', () =>
     <Section>
       <CodeWrapper name="Code" filter={['style']}>
         <Code language="javascript">{'const foo = "bar";'}</Code>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with a menu', () => (
+    </Section>,
+  )
+  .add('with a menu', () =>
     <Section>
       <CodeWrapper name="Code" filter={['style']}>
         <Code language="javascript" menu>{'const foo = "bar";'}</Code>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with line numbers', () => (
+    </Section>,
+  )
+  .add('with line numbers', () =>
     <Section>
       <CodeWrapper name="Code" filter={['style']}>
         <Code language="javascript" menu showLineNumbers>
           {'const foo = "bar";'}
         </Code>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Dropdown', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('simple dropdown', () => (
+  .add('simple dropdown', () =>
     <Section>
       <CodeWrapper>
         <Dropdown render={() => <div>Hello!</div>}>
           <Button primary>Press to toggle</Button>
         </Dropdown>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('shown on hover', () => (
+    </Section>,
+  )
+  .add('shown on hover', () =>
     <Section>
       <CodeWrapper>
         <Dropdown showOnHover render={() => <div>Hello!</div>}>
           <Button primary>Hover me</Button>
         </Dropdown>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Icon', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('all icons in the their default size', () => (
+  .add('all icons in the their default size', () =>
     <Section>
       <p>
-        Note: you must also include the “IconSet” component in the root of your app.
+        Note: you must also include the “IconSet” component in the root of your
+        app.
       </p>
-      {icons.map(icon => (
+      {icons.map(icon =>
         <CodeWrapper key={icon}>
           <Icon name={icon} />
-        </CodeWrapper>
-      ))}
-    </Section>
-  ))
-  .add('various size formats', () => (
+        </CodeWrapper>,
+      )}
+    </Section>,
+  )
+  .add('various size formats', () =>
     <Section>
       <CodeWrapper>
         <Icon name="account" size={36} />
@@ -221,9 +208,9 @@ storiesOf('Icon', module)
       <CodeWrapper>
         <Icon name="pusher-logo" size="120x37" />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('various colors', () => (
+    </Section>,
+  )
+  .add('various colors', () =>
     <Section>
       <CodeWrapper>
         <Icon name="account" color="red" />
@@ -231,19 +218,19 @@ storiesOf('Icon', module)
       <CodeWrapper>
         <Icon name="account" color="#ff00ff" />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('arbitrary styles', () => (
+    </Section>,
+  )
+  .add('arbitrary styles', () =>
     <Section>
       <CodeWrapper>
         <Icon name="account" style={{ opacity: 0.5, color: '#ff00ff' }} />
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Layout', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('basic examples', () => (
+  .add('basic examples', () =>
     <Section>
       <CodeWrapper name="Layout">
         <LayoutWrapper>
@@ -313,6 +300,13 @@ storiesOf('Layout', module)
         </LayoutWrapper>
       </CodeWrapper>
       <CodeWrapper name="Layout">
+        <LayoutWrapper padding={48}>
+          <div style={{ backgroundColor: '#fff', padding: '5px' }}>
+            With a padding
+          </div>
+        </LayoutWrapper>
+      </CodeWrapper>
+      <CodeWrapper name="Layout">
         <LayoutWrapper aroundJustified>
           <LayoutItem>
             Around
@@ -322,12 +316,12 @@ storiesOf('Layout', module)
           </LayoutItem>
         </LayoutWrapper>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Toast', module)
   .addDecorator(getSTory => <Container>{getSTory()}</Container>)
-  .add('without a parent container', () => (
+  .add('without a parent container', () =>
     <Section>
       <p>
         Try switching back and forth to this tab to see how the toasts are
@@ -354,9 +348,9 @@ storiesOf('Toast', module)
       <CodeWrapper>
         <Toast text="Oh no, danger!" danger />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with timeouts', () => (
+    </Section>,
+  )
+  .add('with timeouts', () =>
     <Section>
       <p>Toasts disappear after a timeout if so configured.</p>
       <CodeWrapper>
@@ -368,12 +362,12 @@ storiesOf('Toast', module)
       <CodeWrapper>
         <Toast text="10 seconds" danger timeout={10000} />
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Portal', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('basic portal', () => (
+  .add('basic portal', () =>
     <Section>
       <CodeWrapper>
         <Portal isOpen>
@@ -386,12 +380,13 @@ storiesOf('Portal', module)
             }}
           >
             This is rendered in an outside DOM node: outside the app, but still
-            within the StoryBook iframe. See the Modal component for a usage example.
+            within the StoryBook iframe. See the Modal component for a usage
+            example.
           </div>
         </Portal>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 const events = {
   onSelectedClick: action('onSelectedClick fired'),
@@ -403,7 +398,7 @@ const events = {
 };
 storiesOf('Select')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('none selected', () => (
+  .add('none selected', () =>
     <Section>
       <CodeWrapper>
         <Select options={['a', 'b', 'c']} {...events} />
@@ -411,9 +406,9 @@ storiesOf('Select')
       <CodeWrapper>
         <Select options={['a', 'b', 'c']} isOpen {...events} />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('with a selected item', () => (
+    </Section>,
+  )
+  .add('with a selected item', () =>
     <Section>
       <CodeWrapper>
         <Select options={['a', 'b', 'c']} selectedIndex={1} {...events} />
@@ -426,9 +421,9 @@ storiesOf('Select')
           {...events}
         />
       </CodeWrapper>
-    </Section>
-  ))
-  .add('filterable', () => (
+    </Section>,
+  )
+  .add('filterable', () =>
     <Section>
       <CodeWrapper>
         <Select options={['a', 'b', 'c']} filter {...events} />
@@ -455,24 +450,24 @@ storiesOf('Select')
           {...events}
         />
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Modal')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('basic modal', () => (
+  .add('basic modal', () =>
     <Section>
       <CodeWrapper>
         <Modal isOpen>
           This is the default, unstyled modal.
         </Modal>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Input')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('various states', () => (
+  .add('various states', () =>
     <Section>
       <CodeWrapper>
         <Input name="myField" defaultValue="Hello, world!" />
@@ -499,12 +494,12 @@ storiesOf('Input')
           disabled
         />
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Text')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('color variants', () => (
+  .add('color variants', () =>
     <Section>
       <CodeWrapper name="Text">
         <Text>Hello, world!</Text>
@@ -518,9 +513,9 @@ storiesOf('Text')
       <CodeWrapper name="Text">
         <Text tertiary>Hello, world!</Text>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('as headings', () => (
+    </Section>,
+  )
+  .add('as headings', () =>
     <Section>
       <CodeWrapper name="Text">
         <Text heading>This is a heading</Text>
@@ -528,12 +523,12 @@ storiesOf('Text')
       <CodeWrapper name="Text">
         <Text size="26" heading>This is a heading with a custom size</Text>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Textarea')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('various states', () => (
+  .add('various states', () =>
     <Section>
       <CodeWrapper>
         <Textarea name="myField" defaultValue="Hello, world!" />
@@ -564,22 +559,22 @@ storiesOf('Textarea')
           disabled
         />
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Link', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('with the primary color by default', () => (
+  .add('with the primary color by default', () =>
     <Section>
       <CodeWrapper>
         <Link to="/">Go home!</Link>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 storiesOf('Tooltip', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
-  .add('four different positions', () => (
+  .add('four different positions', () =>
     <Section>
       <p>
         Note: it is currently your responsibility to make sure that the Tooltip
@@ -607,9 +602,9 @@ storiesOf('Tooltip', module)
           <Button>Hover me</Button>
         </Tooltip>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('color variants', () => (
+    </Section>,
+  )
+  .add('color variants', () =>
     <Section>
       <p>Each of the following has a different color:</p>
       <CodeWrapper>
@@ -632,16 +627,16 @@ storiesOf('Tooltip', module)
           <Button>Hover me</Button>
         </Tooltip>
       </CodeWrapper>
-    </Section>
-  ))
-  .add('visibility by prop', () => (
+    </Section>,
+  )
+  .add('visibility by prop', () =>
     <Section>
       <CodeWrapper>
         <Tooltip position="bottom" text="Pusher is hiring!" isOpen>
           <Button>Hover me</Button>
         </Tooltip>
       </CodeWrapper>
-    </Section>
-  ));
+    </Section>,
+  );
 
 /* eslint-enable no-alert */

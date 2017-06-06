@@ -18,7 +18,9 @@ const Container = styled.div`
   border: 1px solid ${grey};
   border-color: ${props => hexToRgba(getVariant(props) || grey, 0.8)};
   box-shadow: 0 2px 5px ${props => hexToRgba(getVariant(props) || black, 0.1)};
-  ${props => props.filled && `
+  ${props =>
+    props.filled &&
+    `
     background-color: ${hexToRgba(getVariant(props) || white, 0.1)};
   `}
 

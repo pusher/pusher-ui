@@ -19,13 +19,19 @@ const Container = styled.div`
   opacity: 0;
   z-index: ${zIndex2};
   transition: opacity ease-out ${transitionShort};
-  ${props => props.withBackdrop && css`
+  ${props =>
+    props.withBackdrop &&
+    css`
     background-color: rgba(0, 0, 0, .2);
   `}
-  ${props => props.isInstant && css`
+  ${props =>
+    props.isInstant &&
+    css`
     opacity: 1;
   `}
-  ${props => props.clickThrough && css`
+  ${props =>
+    props.clickThrough &&
+    css`
     pointer-events: none;
   `}
 `;

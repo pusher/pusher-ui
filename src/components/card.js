@@ -1,37 +1,25 @@
-import { createElement } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router';
+import styled, { css } from 'styled-components';
 
+import Layout from './layout';
 import { pxToRem } from '../utils';
 
-const styledDivOrLink = styled(props => {
-  const tag = props.to ? Link : 'div';
-  const { withHoverEffect, ...allowedProps } = props;
-  return createElement(tag, allowedProps, props.children);
-});
-
-const Card = styledDivOrLink`
+const Card = styled(Layout)`
   display: flex;
   flex-direction: column;
-  text-decoration: none;
   padding: ${pxToRem(20)};
   background-color: #fff;
   box-shadow: ${props => props.theme.boxShadow1};
   border-radius: ${props => props.theme.borderRadius1}px;
 
+  ${props =>
+    props.padding != null &&
+    css`
+    padding: ${pxToRem(props.padding)};
+  `}
+
   @media (min-width: ${props => props.theme.containerWidth - 1}px) {
     border-radius: ${props => props.theme.borderRadius2}px;
   }
-
-  ${props => props.withHoverEffect && `
-    transition: ${props.theme.transitionLong};
-
-    &:hover {
-      cursor: pointer;
-      box-shadow: ${props.theme.boxShadow2};
-      transform: translate3d(0, -4px, 0);
-    }
-  `}
 `;
 
 export default Card;
