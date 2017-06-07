@@ -318,12 +318,15 @@ storiesOf('Layout', module)
       </CodeWrapper>
       <CodeWrapper name="Layout">
         <LayoutWrapper gutter={24} wrapped>
-          <LayoutItem style={{ width: '250px' }}>
+          <div style={{ width: 120, padding: 5, backgroundColor: '#fff' }}>
             Wrapped
-          </LayoutItem>
-          <LayoutItem style={{ width: '250px' }}>
+          </div>
+          <div style={{ width: 120, padding: 5, backgroundColor: '#fff' }}>
             Wrapped
-          </LayoutItem>
+          </div>
+          <div style={{ width: 120, padding: 5, backgroundColor: '#fff' }}>
+            Wrapped
+          </div>
         </LayoutWrapper>
       </CodeWrapper>
     </Section>,
