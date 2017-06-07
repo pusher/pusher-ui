@@ -16,6 +16,12 @@ const Layout = styled.div`
       }
     }};
 
+  ${props =>
+    props.wrapped &&
+    css`
+    flex-wrap: wrap;
+  `}
+
   flex-direction: ${props =>
     do {
       if (props.vertical && props.reverse) {
@@ -69,10 +75,20 @@ const Layout = styled.div`
   `}
 
   ${props =>
-    props.gutter &&
+    (props.gutter && !props.wrapped) &&
     css`
     > :not(:last-child) {
       margin-${props.vertical ? 'bottom' : 'right'}: ${pxToRem(props.gutter)};
+    }
+  `}
+
+  ${props =>
+    (props.gutter && props.wrapped) &&
+    css`
+    margin-left: -${pxToRem(props.gutter)};
+    > * {
+      margin-bottom: ${pxToRem(props.gutter)};
+      margin-left: ${pxToRem(props.gutter)};
     }
   `}
 `;
