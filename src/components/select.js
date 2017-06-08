@@ -134,7 +134,9 @@ class Select extends Component {
   componentWillUpdate(nextProps) {
     if (!this.props.isOpen && nextProps.isOpen) {
       this.el.focus();
-      window.addEventListener('click', this.onOutsideClick);
+      setTimeout(() => {
+        window.addEventListener('click', this.onOutsideClick);
+      });
     } else if (this.props.isOpen && !nextProps.isOpen) {
       window.removeEventListener('click', this.onOutsideClick);
     }
