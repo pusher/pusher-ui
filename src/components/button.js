@@ -2,22 +2,24 @@ import { createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router';
-import { darken } from 'polished';
+import { darken, transparentize } from 'polished';
 
-import { pxToRem, hexToRgba } from '../utils';
+import { pxToRem } from '../utils';
 import { transitionShort } from '../transitions';
-import {
-  primaryColor,
-  disabledColor,
-  tertiaryTextColor,
-  negativeColor,
-} from '../theme';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
   const { primary, secondary, danger, ...allowedProps } = props;
   return createElement(tag, allowedProps, props.children);
 });
+
+const buttonColor = props =>
+  props.danger ? props.theme.negativeColor : props.theme.primaryColor;
+
+const buttonColorHover = multiplier => props =>
+  darken(multiplier, buttonColor(props));
+
+const buttonColorFocus = props => transparentize(0.7, buttonColor(props));
 
 const Button = styledButtonOrLink`
   display: inline-block;
@@ -31,7 +33,7 @@ const Button = styledButtonOrLink`
   border: none;
   border-radius: 2px;
   white-space: nowrap;
-  color: ${primaryColor};
+  color: ${buttonColor};
   background-color: transparent;
   transition:
     color ${transitionShort} ease,
@@ -40,39 +42,32 @@ const Button = styledButtonOrLink`
 
   &:hover {
     cursor: pointer;
-    color: ${darken(0.1, primaryColor)};
+    color: ${buttonColorHover(0.1)};
   }
 
   &:active {
-    color: ${darken(0.2, primaryColor)};
+    color: ${buttonColorHover(0.2)};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${hexToRgba(primaryColor, 0.3)};
-  }
-
-  &[disabled] {
-    background-color: ${disabledColor};
-    border: 1px solid ${disabledColor};
-    color: ${tertiaryTextColor};
-    cursor: not-allowed;
+    box-shadow: 0 0 0 2px ${buttonColorFocus};
   }
 
   ${props =>
     props.primary &&
     css`
     color: #fff;
-    background-color: ${primaryColor};
+    background-color: ${buttonColor};
 
     &:hover {
       color: #fff;
-      background-color: ${darken(0.1, primaryColor)};
+      background-color: ${buttonColorHover(0.1)};
     }
 
     &:active {
       color: #fff;
-      background-color: ${darken(0.2, primaryColor)};
+      background-color: ${buttonColorHover(0.2)};
     }
   `}
 
@@ -80,42 +75,25 @@ const Button = styledButtonOrLink`
     props.secondary &&
     css`
     padding: ${pxToRem(11)(props)} ${pxToRem(17)(props)};
-    border: 1px solid ${primaryColor};
+    border: 1px solid ${buttonColor};
 
     &:hover {
-      background-color: ${primaryColor};
+      background-color: ${buttonColor};
       color: #fff;
     }
 
     &:active {
-      background-color: ${darken(0.1, primaryColor)};
-      border-color: ${darken(0.1, primaryColor)};
+      background-color: ${buttonColorHover(0.1)};
+      border-color: ${buttonColorHover(0.1)};
       color: #fff;
     }
   `}
 
-  ${props =>
-    props.danger &&
-    css`
-    padding: ${pxToRem(11)(props)} ${pxToRem(17)(props)};
-    border: 1px solid ${negativeColor};
-    color: ${negativeColor};
-
-    &:hover {
-      background-color: ${negativeColor};
-      color: #fff;
-    }
-
-    &:active {
-      background-color: ${darken(0.1, negativeColor)};
-      border-color: ${darken(0.1, negativeColor)};
-      color: #fff;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 2px ${hexToRgba(negativeColor, 0.3)};
-    }
-  `}
+  &[disabled] {
+    background-color: ${props => props.theme.disabledColor};
+    color: ${props => props.theme.tertiaryTextColor};
+    cursor: not-allowed;
+  }
 `;
 
 Button.propTypes = {

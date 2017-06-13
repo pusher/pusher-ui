@@ -75,7 +75,8 @@ const Layout = styled.div`
   `}
 
   ${props =>
-    (props.gutter && !props.wrapped) &&
+    props.gutter &&
+    !props.wrapped &&
     css`
     > :not(:last-child) {
       margin-${props.vertical ? 'bottom' : 'right'}: ${pxToRem(props.gutter)};
@@ -83,7 +84,8 @@ const Layout = styled.div`
   `}
 
   ${props =>
-    (props.gutter && props.wrapped) &&
+    props.gutter &&
+    props.wrapped &&
     css`
     margin-left: -${pxToRem(props.gutter)};
     > * {

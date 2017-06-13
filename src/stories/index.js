@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   Code,
+  Dialog,
   Dropdown,
   Input,
   Icon,
@@ -96,8 +97,13 @@ storiesOf('Button', module)
         </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
-        <Button onClick={action('click danger')} danger>
-          Danger button
+        <Button onClick={action('click danger')} primary danger>
+          Primary danger button
+        </Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
+        <Button onClick={action('click danger')} secondary danger>
+          Secondary danger button
         </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
@@ -157,6 +163,75 @@ storiesOf('Code', module)
         <Code language="javascript" menu showLineNumbers>
           {'const foo = "bar";'}
         </Code>
+      </CodeWrapper>
+    </Section>,
+  );
+
+storiesOf('Dialog', module)
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('simple dialog', () =>
+    <Section>
+      <CodeWrapper>
+        <Dialog
+          title="Do you want to proceed?"
+          confirmText="Delete feed"
+          onCancel={action('onCancel fired')}
+          onConfirm={action('onConfirm fired')}
+          isOpen
+        >
+          <Text>This will destroy the feed and all of its content.</Text>
+        </Dialog>
+      </CodeWrapper>
+    </Section>,
+  )
+  .add('danger dialog', () =>
+    <Section>
+      <CodeWrapper>
+        <Dialog
+          title="Do you want to proceed?"
+          confirmText="Delete feed"
+          onCancel={action('onCancel fired')}
+          onConfirm={action('onConfirm fired')}
+          isOpen
+          danger
+        >
+          <Text>This will destroy the feed and all of its content.</Text>
+        </Dialog>
+      </CodeWrapper>
+    </Section>,
+  )
+  .add('disabled dialog with input', () =>
+    <Section>
+      <CodeWrapper>
+        <Dialog
+          title="Do you want to proceed?"
+          confirmText="Delete service"
+          onCancel={action('onCancel fired')}
+          onConfirm={action('onConfirm fired')}
+          canConfirm={false}
+          isOpen
+          danger
+        >
+          <Text>Type the name of this instance to continue.</Text>
+          <Input />
+        </Dialog>
+      </CodeWrapper>
+    </Section>,
+  )
+  .add('dialog with input', () =>
+    <Section>
+      <CodeWrapper>
+        <Dialog
+          title="Do you want to proceed?"
+          confirmText="Delete service"
+          onCancel={action('onCancel fired')}
+          onConfirm={action('onConfirm fired')}
+          isOpen
+          danger
+        >
+          <Text>Type the name of this instance to continue.</Text>
+          <Input />
+        </Dialog>
       </CodeWrapper>
     </Section>,
   );
