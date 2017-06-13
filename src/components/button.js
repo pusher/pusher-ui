@@ -2,16 +2,10 @@ import { createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router';
-import { darken } from 'polished';
+import { darken, transparentize } from 'polished';
 
-import { pxToRem, hexToRgba } from '../utils';
+import { pxToRem } from '../utils';
 import { transitionShort } from '../transitions';
-import {
-  primaryColor,
-  disabledColor,
-  tertiaryTextColor,
-  negativeColor,
-} from '../theme';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
@@ -19,11 +13,13 @@ const styledButtonOrLink = styled(props => {
   return createElement(tag, allowedProps, props.children);
 });
 
-const buttonColor = props => (props.danger ? negativeColor : primaryColor);
+const buttonColor = props =>
+  props.danger ? props.theme.negativeColor : props.theme.primaryColor;
+
 const buttonColorHover = multiplier => props =>
-  darken(multiplier, props.danger ? negativeColor : primaryColor);
-const buttonColorFocus = props =>
-  hexToRgba(props.danger ? negativeColor : primaryColor, 0.3);
+  darken(multiplier, buttonColor(props));
+
+const buttonColorFocus = props => transparentize(0.7, buttonColor(props));
 
 const Button = styledButtonOrLink`
   display: inline-block;
@@ -94,8 +90,8 @@ const Button = styledButtonOrLink`
   `}
 
   &[disabled] {
-    background-color: ${disabledColor};
-    color: ${tertiaryTextColor};
+    background-color: ${props => props.theme.disabledColor};
+    color: ${props => props.theme.tertiaryTextColor};
     cursor: not-allowed;
   }
 `;

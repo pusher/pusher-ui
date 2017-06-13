@@ -3,66 +3,59 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Portal } from '../index';
-import {
-  white,
-  primaryColor,
-  negativeColor,
-  boxShadow3,
-  borderRadius1,
-} from '../theme';
 import { pxToRem } from '../utils';
 import Layout from './layout';
 import Button from './button';
 import Text from './text';
 
-const Root = styled.div`
-  display: flex;
-  justify-content: center;
+const Root = styled(Layout).attrs({
+  centerJustified: true,
+  flex: 1,
+})`
   align-items: flex-start;
-  flex: 1;
 `;
 
 const Container = styled(Layout).attrs({
   vertical: true,
   gutter: 24,
 })`
-  display: flex;
-  flex-direction: column;
   position: relative;
   top: 15vh;
   min-width: ${pxToRem(450)};
-  max-width: ${pxToRem(550)};
+  max-width: ${pxToRem(552)};
   padding: ${pxToRem(24)};
-  border-radius: ${borderRadius1}px;
-  background-color: ${white};
-  box-shadow: ${boxShadow3};
+  border-radius: ${props => props.theme.borderRadius1}px;
+  background-color: ${props => props.theme.white};
+  box-shadow: ${props => props.theme.boxShadow3};
   ${Button} {
     flex: 1;
   }
 `;
 
-const Heading = styled(Text)`
-  color: ${props => (props.danger ? negativeColor : primaryColor)};
+const Heading = styled(Text).attrs({
+  heading: true,
+})`
+  color: ${props =>
+    props.danger ? props.theme.negativeColor : props.theme.primaryColor};
 `;
 
 class Dialog extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     isOpen: PropTypes.bool,
-    withBackdrop: PropTypes.bool,
-    dismissOnClickInside: PropTypes.bool,
-    onClickOutside: PropTypes.func, // eslint-disable-line react/require-default-props
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     confirmText: PropTypes.string.isRequired,
     onCancel: PropTypes.func.isRequired,
     onConfirm: PropTypes.func.isRequired,
     canConfirm: PropTypes.bool,
     danger: PropTypes.bool,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
   };
 
   static defaultProps = {
     isOpen: false,
     canConfirm: true,
+    danger: false,
   };
 
   render() {
@@ -81,7 +74,7 @@ class Dialog extends Component {
       <Portal {...props} withBackdrop isInstant>
         <Root>
           <Container className={className}>
-            {title && <Heading heading danger={danger}>{title}</Heading>}
+            {title && <Heading danger={danger}>{title}</Heading>}
             {children}
             <Layout gutter={24}>
               <Button
