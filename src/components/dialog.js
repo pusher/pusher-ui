@@ -18,7 +18,7 @@ import Text from './text';
 const Root = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex: 1;
 `;
 
@@ -28,9 +28,10 @@ const Container = styled(Layout).attrs({
 })`
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: 15vh;
   min-width: ${pxToRem(450)};
   max-width: ${pxToRem(550)};
-  position: relative;
   padding: ${pxToRem(24)};
   border-radius: ${borderRadius1}px;
   background-color: ${white};
