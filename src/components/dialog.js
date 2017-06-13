@@ -91,7 +91,7 @@ class Dialog extends Component {
               >
                 {confirmText}
               </Button>
-              <Button onClick={onCancel} danger={danger} secondary>
+              <Button onClick={onCancel} secondary>
                 Cancel
               </Button>
             </Layout>
