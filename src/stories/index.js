@@ -618,20 +618,20 @@ storiesOf('Textarea')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('various states', () =>
     <Section>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Textarea name="myField" defaultValue="Hello, world!" />
       </CodeWrapper>
       <CodeWrapper>
         <Textarea name="myField" defaultValue="Hello, world!" raised />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Textarea
           name="myField"
           defaultValue="Hello, world!"
           label="Textarea"
         />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Textarea
           name="myField"
           defaultValue="Hello, world!"
