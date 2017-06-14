@@ -145,21 +145,21 @@ storiesOf('Code', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('default', () =>
     <Section>
-      <CodeWrapper name="Code" filter={['style']}>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
         <Code language="javascript">{'const foo = "bar";'}</Code>
       </CodeWrapper>
     </Section>,
   )
   .add('with a menu', () =>
     <Section>
-      <CodeWrapper name="Code" filter={['style']}>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
         <Code language="javascript" menu>{'const foo = "bar";'}</Code>
       </CodeWrapper>
     </Section>,
   )
   .add('with line numbers', () =>
     <Section>
-      <CodeWrapper name="Code" filter={['style']}>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
         <Code language="javascript" menu showLineNumbers>
           {'const foo = "bar";'}
         </Code>

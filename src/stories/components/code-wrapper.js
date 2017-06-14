@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled, { css } from 'styled-components';
 
-import { Code, Layout } from '../../index';
+import { Card, Code, Layout } from '../../index';
 
 function renderJsx(component, name, filterProps) {
   const displayName = ({ type }) => {
@@ -49,11 +49,11 @@ function CodeWrapper(props) {
       {castArray(children).map((child, index) => (
         <Row key={index}>
           <Container onWhite={onWhite} block>{children}</Container>
-          <Layout block>
+          <Card block>
             <Code language="javascript">
               {renderJsx(child, name, props.filter)}
             </Code>
-          </Layout>
+          </Card>
         </Row>
       ))}
     </Layout>
