@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 
 import Label from './label';
 import { colorVariant, pxToRem } from '../utils';
 import { transitionShort } from '../transitions';
+
+const inputColorFocus = props => transparentize(0.7, props.theme.primaryColor);
 
 export const inputStyles = css`
   position: relative;
@@ -38,7 +41,7 @@ export const inputStyles = css`
 
   &:focus {
     caret-color: ${colorVariant(props => props.theme.primaryColor)};
-    border: 1px solid ${colorVariant(props => props.theme.primaryColor)};
+    box-shadow: 0 0 0 2px ${inputColorFocus};
     ${props => props.raised && 'border: none;'}
   }
 
