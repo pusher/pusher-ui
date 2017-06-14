@@ -557,16 +557,16 @@ storiesOf('Input')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('various states', () =>
     <Section>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Input name="myField" defaultValue="Hello, world!" />
       </CodeWrapper>
       <CodeWrapper>
         <Input name="myField" defaultValue="Hello, world!" raised />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Input name="myField" defaultValue="Hello, world!" label="My label" />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Input
           name="myField"
           defaultValue="Hello, world!"

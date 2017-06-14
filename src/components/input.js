@@ -13,13 +13,14 @@ export const inputStyles = css`
   padding: ${pxToRem(12)} ${pxToRem(18)};
   font-family: inherit;
   font-size: 1rem;
-  border: 1px solid ${colorVariant(props => props.theme.borderColor)};
+  border: 1px solid ${props =>
+    props.error ? props.theme.negativeColor : 'transparent'};
   ${props => props.raised && 'border: none;'}
   border-radius: 2px;
   background-color: transparent;
   outline: none;
   color: ${colorVariant(props => props.theme.primaryTextColor)};
-  background-color: ${props => (props.raised ? '#fff' : 'transparent')};
+  background-color: ${props => (props.raised ? '#fff' : props.theme.lightGrey)};
   box-shadow: ${props => (props.raised ? props.theme.boxShadow1 : 'none')};
   transition:
     border-color ${transitionShort} ease,
