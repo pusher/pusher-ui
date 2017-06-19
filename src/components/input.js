@@ -7,7 +7,8 @@ import Label from './label';
 import { colorVariant, pxToRem } from '../utils';
 import { transitionShort } from '../transitions';
 
-const inputColorFocus = props => transparentize(0.7, props.theme.primaryColor);
+const inputColor = props =>
+  props.error ? props.theme.negativeColor : props.theme.primaryColor;
 
 export const inputStyles = css`
   position: relative;
@@ -41,13 +42,13 @@ export const inputStyles = css`
 
   &:focus {
     caret-color: ${colorVariant(props => props.theme.primaryColor)};
-    box-shadow: 0 0 0 2px ${inputColorFocus};
+    box-shadow: 0 0 0 2px ${props => transparentize(0.7, inputColor(props))};
     ${props => props.raised && 'border: none;'}
   }
 
   &[disabled] {
-    background-color: ${props => props.theme.borderColor};
-    border: 1px solid ${props => props.theme.borderColor};
+    background-color: ${props => props.theme.darkGrey};
+    border: 1px solid ${props => props.theme.darkGrey};
     color: ${props => props.theme.tertiaryTextColor};
     user-select: none;
     cursor: not-allowed;
