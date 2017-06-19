@@ -24,8 +24,11 @@ export const inputStyles = css`
   background-color: transparent;
   outline: none;
   color: ${colorVariant(props => props.theme.primaryTextColor)};
-  background-color: ${props => (props.raised ? '#fff' : props.theme.lightGrey)};
-  box-shadow: ${props => (props.raised ? props.theme.boxShadow1 : 'none')};
+  background-color: ${props => props.theme.lightGrey};
+  ${props => props.raised && css`
+    background-color: ${props.theme.white};
+    box-shadow: ${props.theme.boxShadow1};
+  `}
   transition:
     border-color ${transitionShort} ease,
     color ${transitionShort} ease;
