@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Motion, spring } from 'react-motion';
 import styled from 'styled-components';
 
-import { getVariant } from '../utils';
+import { getVariant, pxToRem } from '../utils';
 import { white, primary, zIndex1 } from '../theme';
 
 const TooltipWrapper = styled.div`
@@ -16,11 +16,11 @@ const ComponentWrapper = styled.div`
 
 const TooltipBubble = styled.div`
   position: absolute;
-  padding: 5px 8px;
-  border-radius: 2px;
+  padding: ${pxToRem(6)} ${pxToRem(12)};
+  border-radius: ${props => props.theme.borderRadius1}px;
   background-color: ${props => getVariant(props) || primary};
   color: ${white};
-  font-size: 0.9rem;
+  font-size: ${pxToRem(14)};
   text-align: center;
   white-space: nowrap;
   z-index: ${zIndex1};

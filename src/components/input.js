@@ -25,7 +25,9 @@ export const inputStyles = css`
   outline: none;
   color: ${colorVariant(props => props.theme.primaryTextColor)};
   background-color: ${props => props.theme.lightGrey};
-  ${props => props.raised && css`
+  ${props =>
+    props.raised &&
+    css`
     background-color: ${props.theme.white};
     box-shadow: ${props.theme.boxShadow1};
   `}
