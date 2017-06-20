@@ -75,6 +75,7 @@ class Code extends Component {
     style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     copyText: PropTypes.string,
     onCopy: PropTypes.func, // eslint-disable-line react/require-default-props
+    label: PropTypes.string, // eslint-disable-line react/require-default-props
   };
 
   constructor(props) {
@@ -112,13 +113,13 @@ class Code extends Component {
   };
 
   render() {
-    const { language, menu, copyText, ...other } = this.props;
+    const { language, label, menu, copyText, ...other } = this.props;
 
     return (
       <CodeContainer menu={menu} innerRef={c => (this.root = c)}>
         {menu &&
           <LanguageMenu>
-            {languageMap[language]}
+            {label || languageMap[language]}
             <Tooltip text={this.state.copyText} position="right">
               <Icon name="copy" size="16" onClick={this.copy} />
             </Tooltip>

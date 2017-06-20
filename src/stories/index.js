@@ -153,7 +153,9 @@ storiesOf('Code', module)
   .add('with a menu', () =>
     <Section>
       <CodeWrapper name="Code" filter={['style']} onWhite>
-        <Code language="javascript" menu>{'const foo = "bar";'}</Code>
+        <Code language="javascript" menu>
+          {'const foo = "bar";'}
+        </Code>
       </CodeWrapper>
     </Section>,
   )
@@ -161,6 +163,15 @@ storiesOf('Code', module)
     <Section>
       <CodeWrapper name="Code" filter={['style']} onWhite>
         <Code language="javascript" menu showLineNumbers>
+          {'const foo = "bar";'}
+        </Code>
+      </CodeWrapper>
+    </Section>,
+  )
+  .add('with a label', () =>
+    <Section>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
+        <Code label="Label" language="javascript" menu showLineNumbers>
           {'const foo = "bar";'}
         </Code>
       </CodeWrapper>
