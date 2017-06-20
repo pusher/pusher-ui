@@ -145,22 +145,33 @@ storiesOf('Code', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('default', () =>
     <Section>
-      <CodeWrapper name="Code" filter={['style']}>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
         <Code language="javascript">{'const foo = "bar";'}</Code>
       </CodeWrapper>
     </Section>,
   )
   .add('with a menu', () =>
     <Section>
-      <CodeWrapper name="Code" filter={['style']}>
-        <Code language="javascript" menu>{'const foo = "bar";'}</Code>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
+        <Code language="javascript" menu>
+          {'const foo = "bar";'}
+        </Code>
       </CodeWrapper>
     </Section>,
   )
   .add('with line numbers', () =>
     <Section>
-      <CodeWrapper name="Code" filter={['style']}>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
         <Code language="javascript" menu showLineNumbers>
+          {'const foo = "bar";'}
+        </Code>
+      </CodeWrapper>
+    </Section>,
+  )
+  .add('with a label', () =>
+    <Section>
+      <CodeWrapper name="Code" filter={['style']} onWhite>
+        <Code label="Label" language="javascript" menu showLineNumbers>
           {'const foo = "bar";'}
         </Code>
       </CodeWrapper>
@@ -557,16 +568,16 @@ storiesOf('Input')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('various states', () =>
     <Section>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Input name="myField" defaultValue="Hello, world!" />
       </CodeWrapper>
       <CodeWrapper>
         <Input name="myField" defaultValue="Hello, world!" raised />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Input name="myField" defaultValue="Hello, world!" label="My label" />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Input
           name="myField"
           defaultValue="Hello, world!"
@@ -618,20 +629,20 @@ storiesOf('Textarea')
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('various states', () =>
     <Section>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Textarea name="myField" defaultValue="Hello, world!" />
       </CodeWrapper>
       <CodeWrapper>
         <Textarea name="myField" defaultValue="Hello, world!" raised />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Textarea
           name="myField"
           defaultValue="Hello, world!"
           label="Textarea"
         />
       </CodeWrapper>
-      <CodeWrapper>
+      <CodeWrapper onWhite>
         <Textarea
           name="myField"
           defaultValue="Hello, world!"

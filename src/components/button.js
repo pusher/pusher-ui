@@ -16,11 +16,6 @@ const styledButtonOrLink = styled(props => {
 const buttonColor = props =>
   props.danger ? props.theme.negativeColor : props.theme.primaryColor;
 
-const buttonColorHover = multiplier => props =>
-  darken(multiplier, buttonColor(props));
-
-const buttonColorFocus = props => transparentize(0.7, buttonColor(props));
-
 const Button = styledButtonOrLink`
   display: inline-block;
   padding: ${pxToRem(12)} ${pxToRem(18)};
@@ -42,16 +37,16 @@ const Button = styledButtonOrLink`
 
   &:hover {
     cursor: pointer;
-    color: ${buttonColorHover(0.1)};
+    color: ${props => darken(0.1, buttonColor(props))};
   }
 
   &:active {
-    color: ${buttonColorHover(0.2)};
+    color: ${props => darken(0.2, buttonColor(props))};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${buttonColorFocus};
+    box-shadow: 0 0 0 2px ${props => transparentize(0.7, buttonColor(props))};
   }
 
   ${props =>
@@ -62,12 +57,12 @@ const Button = styledButtonOrLink`
 
     &:hover {
       color: #fff;
-      background-color: ${buttonColorHover(0.1)};
+      background-color: ${darken(0.1, buttonColor(props))};
     }
 
     &:active {
       color: #fff;
-      background-color: ${buttonColorHover(0.2)};
+      background-color: ${darken(0.2, buttonColor(props))};
     }
   `}
 
@@ -83,8 +78,8 @@ const Button = styledButtonOrLink`
     }
 
     &:active {
-      background-color: ${buttonColorHover(0.1)};
-      border-color: ${buttonColorHover(0.1)};
+      background-color: ${darken(0.1, buttonColor(props))};
+      border-color: ${darken(0.1, buttonColor(props))};
       color: #fff;
     }
   `}

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Code, Layout } from '../../index';
+import { Card, Code, Layout } from '../../index';
 
 function renderJsx(component, name, filterProps) {
   const displayName = ({ type }) => {
@@ -31,20 +31,29 @@ const Row = styled.div`
   border-bottom: 1px solid ${props => props.theme.grey};
 `;
 
+const Container = styled(Layout)`
+  ${props => props.onWhite && css`
+    box-shadow: 0 1px 2px 0 rgba(50, 52, 58, 0.15);
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 12px;
+  `};
+`;
+
 const castArray = items => (Array.isArray(items) ? items : [items]);
 
 function CodeWrapper(props) {
-  const { children, name } = props;
+  const { children, name, onWhite } = props;
   return (
     <Layout flex>
       {castArray(children).map((child, index) => (
         <Row key={index}>
-          <Layout block>{children}</Layout>
-          <Layout block>
+          <Container onWhite={onWhite} block>{children}</Container>
+          <Card block>
             <Code language="javascript">
               {renderJsx(child, name, props.filter)}
             </Code>
-          </Layout>
+          </Card>
         </Row>
       ))}
     </Layout>
@@ -55,10 +64,12 @@ CodeWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   name: PropTypes.string, // eslint-disable-line react/require-default-props
   filter: PropTypes.array, // eslint-disable-line react/forbid-prop-types
+  onWhite: PropTypes.bool,
 };
 
 CodeWrapper.defaultProps = {
   filter: [],
+  onWhite: false,
 };
 
 export default CodeWrapper;

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 
 import Icon from './icon';
+import Input from './input';
 import Layout from './layout';
 import { pxToRem } from '../utils';
 
@@ -27,6 +29,12 @@ const Container = styled(Layout).attrs({
 
   &:hover {
     cursor: ${props => (props.isOpen ? 'default' : 'pointer')};
+  }
+
+  &:focus {
+    box-shadow:
+      ${props => props.theme.boxShadow1},
+      inset 0 0 0 2px ${props => transparentize(0.7, props.theme.primaryColor)};
   }
 `;
 
@@ -53,7 +61,7 @@ const Items = styled(Layout).attrs({
 
 const sizing = css`
   box-sizing: border-box;
-  max-height: ${pxToRem(40)};
+  height: ${pxToRem(40)};
   padding: ${pxToRem(12)} ${pxToRem(18)};
 `;
 
@@ -69,14 +77,21 @@ const Item = styled.div`
   }
 `;
 
-const BorderlessInput = styled.input`
-  flex: 1;
+const BorderlessInput = styled(Input)`
+  background-color: ${props => props.theme.white};
   border: none;
-  outline: none;
-  font-family: inherit;
-  font-size: 1rem;
-  width: 0;
-  min-width: ${pxToRem(120)};
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  &:focus {
+    box-shadow: inset 0 0 0 2px ${props =>
+      transparentize(0.7, props.theme.primaryColor)};
+  }
 `;
 
 const SelectedItem = styled(Layout).attrs({
@@ -87,7 +102,8 @@ const SelectedItem = styled(Layout).attrs({
 
   & > svg {
     color: ${props => props.theme.tertiaryTextColor};
-    margin-right: -5px;
+    position: absolute;
+    right: 13px;
   }
 `;
 
@@ -237,7 +253,7 @@ class Select extends Component {
         innerRef={c => (this.el = c)}
         isOpen={this.props.isOpen}
         onKeyDown={this.onKeyDown}
-        tabIndex="0"
+        tabIndex={this.props.filter ? -1 : 0}
         {...this.props}
       >
         <SelectedItem onClick={this.onSelectedClick}>
