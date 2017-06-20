@@ -4,7 +4,7 @@ import { Motion, spring } from 'react-motion';
 import styled from 'styled-components';
 
 import { getVariant, pxToRem } from '../utils';
-import { white, primary, zIndex1 } from '../theme';
+import { white, primaryColor, zIndex1 } from '../theme';
 
 const TooltipWrapper = styled.div`
   position: relative;
@@ -18,7 +18,7 @@ const TooltipBubble = styled.div`
   position: absolute;
   padding: ${pxToRem(6)} ${pxToRem(12)};
   border-radius: ${props => props.theme.borderRadius1}px;
-  background-color: ${props => getVariant(props) || primary};
+  background-color: ${props => getVariant(props) || primaryColor};
   color: ${white};
   font-size: ${pxToRem(14)};
   text-align: center;
@@ -40,7 +40,7 @@ const TooltipBubble = styled.div`
       top: 100%;
       left: 50%;
       margin-left: -5px;
-      border-top: solid 5px ${getVariant(props) || primary};
+      border-top: solid 5px ${getVariant(props) || primaryColor};
       border-bottom: none;
     `}
 
@@ -50,7 +50,7 @@ const TooltipBubble = styled.div`
       top: 50%;
       left: -5px;
       margin-top: -5px;
-      border-right: solid 5px ${getVariant(props) || primary};
+      border-right: solid 5px ${getVariant(props) || primaryColor};
       border-left: none;
     `}
 
@@ -60,7 +60,7 @@ const TooltipBubble = styled.div`
       top: -5px;
       left: 50%;
       margin-left: -5px;
-      border-bottom: solid 5px ${getVariant(props) || primary};
+      border-bottom: solid 5px ${getVariant(props) || primaryColor};
       border-top: none;
     `}
 
@@ -70,7 +70,7 @@ const TooltipBubble = styled.div`
       top: 50%;
       left: 100%;
       margin-top: -5px;
-      border-left: solid 5px ${getVariant(props) || primary};
+      border-left: solid 5px ${getVariant(props) || primaryColor};
       border-right: none;
     `}
   }

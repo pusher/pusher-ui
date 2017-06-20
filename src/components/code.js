@@ -7,7 +7,6 @@ import swift from 'highlight.js/lib/languages/swift';
 import xml from 'highlight.js/lib/languages/xml';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import styled, { css } from 'styled-components';
-import _ from 'lodash';
 
 import Layout from './layout';
 import Icon from './icon';
