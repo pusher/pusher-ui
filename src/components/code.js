@@ -107,7 +107,7 @@ class Code extends Component {
     this.updateCopyTextTimeout = setTimeout(() => {
       this.setState({ copyText: Code.defaultProps.copyText });
     }, 2000);
-    if (_.isFunction(this.props.onCopy)) {
+    if (this.props.onCopy) {
       this.props.onCopy(this.props, this.state);
     }
   };
