@@ -669,6 +669,13 @@ storiesOf('Link', module)
         <Link to="/">Go home!</Link>
       </CodeWrapper>
     </Section>,
+  )
+  .add('external (new tab)', () =>
+    <Section>
+      <CodeWrapper>
+        <Link to="https://google.com" external>Go home!</Link>
+      </CodeWrapper>
+    </Section>,
   );
 
 storiesOf('Tooltip', module)
