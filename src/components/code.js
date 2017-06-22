@@ -12,6 +12,7 @@ import Layout from './layout';
 import Icon from './icon';
 import Tooltip from './tooltip';
 import { pxToRem, copyToClipboard } from '../utils';
+import allHelpers from '../helpers';
 
 // Note: All imported languages from highlight.js and syntax themes
 // should be listed as externals in the build configuration.
@@ -40,6 +41,8 @@ const CodeContainer = styled.div`
     white-space: pre;
     overflow-wrap: break-word;
   }
+
+  ${allHelpers};
 `;
 
 const LanguageMenu = styled(Layout).attrs({

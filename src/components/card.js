@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import Layout from './layout';
+import allHelpers from '../helpers';
 import { pxToRem } from '../utils';
 
 const Card = styled(Layout)`
@@ -20,6 +21,8 @@ const Card = styled(Layout)`
   @media (min-width: ${props => props.theme.containerWidth - 1}px) {
     border-radius: ${props => props.theme.borderRadius2}px;
   }
+
+  ${allHelpers}
 `;
 
 export default Card;

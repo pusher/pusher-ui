@@ -6,7 +6,7 @@ import Label from './label';
 import { inputStyles } from './input';
 
 const TextareaContainer = styled.textarea`
-  ${inputStyles};
+  ${inputStyles}
   height: inherit;
 `;
 

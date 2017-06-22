@@ -6,6 +6,7 @@ import Icon from './icon';
 import { opacityHoverEffect } from '../transitions';
 import { getVariant, hexToRgba } from '../utils';
 import { black, grey, white } from '../theme';
+import allHelpers from '../helpers';
 
 const Container = styled.div`
   position: relative;
@@ -32,6 +33,8 @@ const Container = styled.div`
   > p {
     margin: 0;
   }
+
+  ${allHelpers}
 `;
 
 const DismissIcon = styled(Icon)`

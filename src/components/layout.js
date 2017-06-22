@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
+import allHelpers from '../helpers';
 import { pxToRem } from '../utils';
 
 const Layout = styled.div`
@@ -93,6 +94,8 @@ const Layout = styled.div`
       margin-left: ${pxToRem(props.gutter)};
     }
   `}
+
+  ${allHelpers}
 `;
 
 Layout.propTypes = {
