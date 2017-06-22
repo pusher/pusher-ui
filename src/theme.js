@@ -1,4 +1,7 @@
-const systemFontFamilies = [
+const createFontNames = fonts =>
+  fonts.map(name => (name.match(/\s/) ? `"${name}"` : name)).join(', ');
+
+const systemFontFamilies = createFontNames([
   '-apple-system',
   'BlinkMacSystemFont',
   'Segoe UI',
@@ -10,19 +13,16 @@ const systemFontFamilies = [
   'Droid Sans',
   'Helvetica Neue',
   'sans-serif',
-]
-  .map(name => `"${name}"`)
-  .join(', ');
+]);
 
-const systemMonoFontFamilies = [
+const systemMonoFontFamilies = createFontNames([
   'SFMono-Regular',
   'Consolas',
   'Liberation Mono',
-  'Menlo, Courier',
+  'Menlo',
+  'Courier',
   'monospace',
-]
-  .map(name => `"${name}"`)
-  .join(', ');
+]);
 
 // Deprecated variables & values
 export const white = '#fff';
