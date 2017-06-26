@@ -92,10 +92,7 @@ const Button = styledButtonOrLink`
 `;
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.string,
-  ]),
+  children: PropTypes.node,
   to: PropTypes.string,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
