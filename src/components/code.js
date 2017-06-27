@@ -69,8 +69,7 @@ class Code extends Component {
 
   static propTypes = {
     children: PropTypes.string.isRequired,
-    language: PropTypes.oneOf(['html', 'java', 'javascript', 'swift'])
-      .isRequired,
+    language: PropTypes.oneOf(['html', 'java', 'javascript', 'swift']),
     menu: PropTypes.bool,
     style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     copyText: PropTypes.string,
