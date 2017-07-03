@@ -7,6 +7,7 @@ export Dropdown from './components/dropdown';
 export Icon from './components/icon';
 export IconSet from './components/icon-set';
 export Input from './components/input';
+export InlineCode from './components/inline-code';
 export Label from './components/label';
 export Layout from './components/layout';
 export Link from './components/link';

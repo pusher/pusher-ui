@@ -8,8 +8,9 @@ import {
   Code,
   Dialog,
   Dropdown,
-  Input,
   Icon,
+  Input,
+  InlineCode,
   Layout,
   Link,
   Modal,
@@ -174,6 +175,16 @@ storiesOf('Code', module)
         <Code label="Label" language="javascript" menu showLineNumbers>
           {'const foo = "bar";'}
         </Code>
+      </CodeWrapper>
+    </Section>,
+  );
+
+storiesOf('InlineCode', module)
+  .addDecorator(getStory => <Container>{getStory()}</Container>)
+  .add('default', () =>
+    <Section>
+      <CodeWrapper name="InlineCode" filter={['style']} onWhite>
+        <InlineCode>const foo = bar</InlineCode>
       </CodeWrapper>
     </Section>,
   );
