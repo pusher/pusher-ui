@@ -72,7 +72,7 @@ class Dialog extends Component {
     } = this.props;
     return (
       <Portal {...props} withBackdrop isInstant>
-        <Root>
+        <Root data-root>
           <Container className={className}>
             {title && <Heading danger={danger}>{title}</Heading>}
             {children}

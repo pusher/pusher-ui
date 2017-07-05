@@ -77,8 +77,9 @@ class Portal extends Component {
   }
 
   onClick = event => {
-    // True when clicking on the portal and not on the rendered children.
-    if (event.currentTarget.children[0] === event.target) {
+    // True when clicking on the portal and not on the rendered children,
+    // unless the root of the rendered children has data-root set.
+    if (event.currentTarget.children[0] === event.target || event.target.dataset.root) {
       this.unrenderPortal();
     }
 
