@@ -20,7 +20,7 @@ export function colorVariant(defaultColorFunc) {
 }
 
 export function copyToClipboard(text) {
-  const { scrollTop } = document.body;
+  const { scrollTop } = document.scrollingElement;
   const textarea = document.createElement('textarea');
   document.body.appendChild(textarea);
   textarea.value = text;
