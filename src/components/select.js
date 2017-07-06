@@ -180,7 +180,7 @@ class Select extends Component {
     let el = event.target;
 
     while (el !== document.documentElement) {
-      if (el.dataset.id === this.id) {
+      if (el.getAttribute('data-id') === this.id) {
         break;
       }
       el = el.parentNode;
