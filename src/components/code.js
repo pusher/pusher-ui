@@ -22,6 +22,7 @@ registerLanguage('javascript', javascript);
 registerLanguage('swift', swift);
 
 const CodeContainer = styled.div`
+  font-size: ${pxToRem(14)};
 
   & pre {
     margin: 0;
