@@ -17,7 +17,7 @@ class Container extends Component {
         margin: 0;
         width: 100%;
         min-height: 100vh;
-        font-family: Roboto;
+        font-family: ${theme.fontFamily};
         font-size: ${theme.fontSize}px;
         color: ${theme.primaryTextColor};
         background-color: ${theme.backgroundColor1};

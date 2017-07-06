@@ -38,8 +38,8 @@ export const warning = '#ffaf1c';
 export const danger = '#ca0808';
 
 export const fontSize = 16;
-export const fontFamily = systemFontFamilies;
-export const monoFontFamily = systemMonoFontFamilies;
+export const fontFamily = `Roboto, ${systemFontFamilies}`;
+export const monoFontFamily = `"Roboto Mono", ${systemMonoFontFamilies}`;
 export const transitionShort = '0.18s';
 export const transitionLong = '0.36s';
 export const primaryTextColor = '#2b303b';
