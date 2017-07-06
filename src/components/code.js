@@ -22,6 +22,7 @@ registerLanguage('javascript', javascript);
 registerLanguage('swift', swift);
 
 const CodeContainer = styled.div`
+  font-size: ${pxToRem(14)};
 
   & pre {
     margin: 0;
@@ -37,6 +38,7 @@ const CodeContainer = styled.div`
   }
 
   & code {
+    font-family: ${props => props.theme.monoFontFamily};
     white-space: pre;
     overflow-wrap: break-word;
   }
