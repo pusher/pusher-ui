@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { colorVariant, pxToRem } from '../utils';
+import allHelpers from '../helpers';
 
 const Label = styled.label`
   display: flex;
@@ -14,6 +15,8 @@ const Label = styled.label`
   textarea {
     margin-top: ${pxToRem(6)};
   }
+
+  ${allHelpers}
 `;
 
 export default Label;

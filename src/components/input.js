@@ -5,6 +5,7 @@ import { transparentize } from 'polished';
 
 import Label from './label';
 import { colorVariant, pxToRem } from '../utils';
+import allHelpers from '../helpers';
 import { transitionShort } from '../transitions';
 
 const inputColor = props =>
@@ -58,6 +59,8 @@ export const inputStyles = css`
     user-select: none;
     cursor: not-allowed;
   }
+
+  ${allHelpers}
 `;
 
 const InputContainer = styled.input`${inputStyles}`;

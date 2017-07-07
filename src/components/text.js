@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { pxToRem } from '../utils';
+import allHelpers from '../helpers';
 
 const Text = styled.span`
   color: ${props =>
@@ -24,6 +25,8 @@ const Text = styled.span`
       }
     }};
   line-height: 1.4;
+
+  ${allHelpers}
 `;
 
 export default Text;

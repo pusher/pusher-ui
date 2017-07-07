@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import allHelpers from '../helpers';
 import { icons } from './icon-set';
 
 const SVG = styled.svg`
@@ -10,6 +11,8 @@ const SVG = styled.svg`
   color: ${props => props.color};
   width: ${props => props.width}px;
   height: ${props => props.height}px;
+
+  ${allHelpers}
 `;
 
 function Icon(props) {

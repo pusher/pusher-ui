@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { darken, transparentize } from 'polished';
 
 import { pxToRem } from '../utils';
+import allHelpers from '../helpers';
 import { transitionShort } from '../transitions';
 
 const styledButtonOrLink = styled(props => {
@@ -89,6 +90,8 @@ const Button = styledButtonOrLink`
     color: ${props => props.theme.tertiaryTextColor};
     cursor: not-allowed;
   }
+
+  ${allHelpers}
 `;
 
 Button.propTypes = {

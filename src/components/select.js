@@ -7,6 +7,7 @@ import Icon from './icon';
 import Input from './input';
 import Layout from './layout';
 import { pxToRem } from '../utils';
+import allHelpers from '../helpers';
 
 const Container = styled(Layout).attrs({
   vertical: true,
@@ -36,6 +37,8 @@ const Container = styled(Layout).attrs({
       ${props => props.theme.boxShadow1},
       inset 0 0 0 2px ${props => transparentize(0.7, props.theme.primaryColor)};
   }
+
+  ${allHelpers}
 `;
 
 const Items = styled(Layout).attrs({
