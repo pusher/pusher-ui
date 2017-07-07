@@ -1,6 +1,6 @@
-import { createElement } from 'react';
+import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Link } from 'react-router';
 import { darken, transparentize } from 'polished';
 
@@ -9,14 +9,32 @@ import { transitionShort } from '../transitions';
 
 const styledButtonOrLink = styled(props => {
   const tag = props.to ? Link : 'button';
-  const { primary, secondary, danger, ...allowedProps } = props;
+  const { loading, primary, secondary, danger, ...allowedProps } = props;
   return createElement(tag, allowedProps, props.children);
 });
+
+const rotate = keyframes`
+  100% { transform: rotate(360deg); }
+`;
+
+const Spinner = styled.div`
+  position: absolute;
+  top: calc(50% - ${pxToRem(8)});
+  left: calc(50% - ${pxToRem(8)});
+  display: inline-block;
+  width: ${pxToRem(12)};
+  height: ${pxToRem(12)};
+  border: 2px solid currentcolor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ${rotate} .5s linear infinite;
+`;
 
 const buttonColor = props =>
   props.danger ? props.theme.negativeColor : props.theme.primaryColor;
 
-const Button = styledButtonOrLink`
+const ButtonBase = styledButtonOrLink`
+  position: relative;
   display: inline-block;
   padding: ${pxToRem(12)} ${pxToRem(18)};
   font-family: inherit;
@@ -34,6 +52,12 @@ const Button = styledButtonOrLink`
     color ${transitionShort} ease,
     background-color ${transitionShort} ease,
     border-color ${transitionShort} ease;
+
+  ${props => props.loading && css`
+    & span {
+      visibility: hidden;
+    }
+  `}
 
   &:hover {
     cursor: pointer;
@@ -91,12 +115,33 @@ const Button = styledButtonOrLink`
   }
 `;
 
-Button.propTypes = {
+function Button(props) {
+  const { loading, children, ...rest } = props;
+  return (
+    <ButtonBase loading={loading} {...rest}>
+      {loading && <Spinner />}
+      <span>
+        {children}
+      </span>
+    </ButtonBase>
+  );
+}
+
+ButtonBase.propTypes = {
   children: PropTypes.node,
   to: PropTypes.string,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   danger: PropTypes.bool,
+};
+
+Button.propTypes = {
+  loading: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+};
+
+Button.defaultProps = {
+  loading: false,
 };
 
 export default Button;
