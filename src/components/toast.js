@@ -4,14 +4,14 @@ import { Motion, spring } from 'react-motion';
 import styled, { css } from 'styled-components';
 
 import Icon from './icon';
-import { black, grey, white } from '../theme';
+import { opacityHoverEffect } from '../transitions';
+import { black, white } from '../theme';
 import { getVariant, pxToRem } from '../utils';
 
 const Container = styled.div`
   max-width: ${pxToRem(360)};
   margin: ${pxToRem(6)};
   padding: ${pxToRem(12)} ${pxToRem(18)};
-  line-height: 1.4em;
   pointer-events: auto;
   background-color: ${white};
   border-radius: 2px;
@@ -20,7 +20,6 @@ const Container = styled.div`
   cursor: pointer;
   ${props => css`
     color: ${getVariant(props) ? white : black};
-    border: 1px solid ${getVariant(props) || grey};
     background-color: ${getVariant(props)};
   `}
 `;
@@ -31,7 +30,7 @@ const DismissIcon = styled(Icon).attrs({
   size: 18,
 })`
   margin-left: ${pxToRem(12)};
-  opacity: 0.65;
+  ${opacityHoverEffect};
 `;
 
 class Toast extends Component {
