@@ -108,6 +108,11 @@ storiesOf('Button', module)
         </Button>
       </CodeWrapper>
       <CodeWrapper name="Button">
+        <Button onClick={action('click loading')} primary loading>
+          Loading button
+        </Button>
+      </CodeWrapper>
+      <CodeWrapper name="Button">
         <Button onClick={action('click disabled')} disabled>
           Disabled button
         </Button>
