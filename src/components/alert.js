@@ -58,7 +58,7 @@ class Alert extends Component {
           {children}
         </Text>
         {dismiss &&
-          <DismissIcon name="close" size="16" onClick={this.dismiss} />}
+          <DismissIcon onClick={this.dismiss} />}
       </Container>
     );
   }
