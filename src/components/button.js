@@ -95,6 +95,10 @@ const Button = styledButtonOrLink`
     &:hover {
       background-color: ${buttonColor};
       color: #fff;
+
+      &:before {
+        border: 2px solid #fff;
+      }
     }
 
     &:active {
@@ -104,12 +108,22 @@ const Button = styledButtonOrLink`
     }
   `}
 
+  &[disabled] {
+    background-color: ${props => props.theme.disabledColor};
+    color: ${props => props.theme.tertiaryTextColor};
+    cursor: not-allowed;
+
+    &:before {
+      border: 2px solid ${props => props.theme.tertiaryTextColor};
+    }
+  }
+
   ${props =>
     props.loading &&
     css`
     color: transparent;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &[disabled] {
       color: transparent;
     }
 
@@ -120,17 +134,14 @@ const Button = styledButtonOrLink`
       left: calc(50% - ${pxToRem(8)});
       width: ${pxToRem(12)};
       height: ${pxToRem(12)};
-      border-right-color: transparent;
       border-radius: 50%;
       animation: ${rotate} .5s linear infinite;
     }
-  `}
 
-  &[disabled] {
-    background-color: ${props => props.theme.disabledColor};
-    color: ${props => props.theme.tertiaryTextColor};
-    cursor: not-allowed;
-  }
+    &:before, &:hover:before, &[disabled]:before {
+      border-right-color: transparent;
+    }
+  `}
 `;
 
 Button.propTypes = {
