@@ -8,7 +8,6 @@ import Icon from './icon';
 
 import { opacityHoverEffect } from '../transitions';
 import { getVariant, hexToRgba, pxToRem } from '../utils';
-import { white } from '../theme';
 
 const Container = styled(Layout).attrs({
   justified: true,
@@ -16,7 +15,8 @@ const Container = styled(Layout).attrs({
   gutter: 12,
 })`
   padding: ${pxToRem(12)} ${pxToRem(18)};
-  background-color: ${props => hexToRgba(getVariant(props) || white, 0.15)};
+  background-color: ${props =>
+    hexToRgba(getVariant(props) || props.theme.white, 0.15)};
   border-radius: 2px;
 `;
 
