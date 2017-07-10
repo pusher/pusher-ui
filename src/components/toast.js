@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components';
 
 import Icon from './icon';
 import { opacityHoverEffect } from '../transitions';
-import { black, white } from '../theme';
 import { getVariant, pxToRem } from '../utils';
 
 const Container = styled.div`
@@ -13,13 +12,13 @@ const Container = styled.div`
   margin: ${pxToRem(6)};
   padding: ${pxToRem(12)} ${pxToRem(18)};
   pointer-events: auto;
-  background-color: ${white};
+  background-color: ${props => props.theme.white};
   border-radius: 2px;
   box-shadow: ${props => props.theme.boxShadow3};
   font-weight: 500;
   cursor: pointer;
   ${props => css`
-    color: ${getVariant(props) ? white : black};
+    color: ${getVariant(props) ? props.theme.white : props.theme.black};
     background-color: ${getVariant(props)};
   `}
 `;
