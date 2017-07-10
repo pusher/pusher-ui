@@ -33,9 +33,9 @@ export const darkDarkGrey = '#989898';
 export const lightGrey = '#eff4f7';
 export const lightLightGrey = '#f7f9fa';
 export const primary = '#006eff';
-export const success = '#319a31';
+export const success = '#00D08D';
 export const warning = '#ffaf1c';
-export const danger = '#ca0808';
+export const danger = '#ff455c';
 
 export const fontSize = 16;
 export const fontFamily = `Roboto, ${systemFontFamilies}`;

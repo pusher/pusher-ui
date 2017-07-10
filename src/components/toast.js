@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Motion, spring } from 'react-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { black, grey, white } from '../theme';
-import { getVariant, hexToRgba } from '../utils';
+import Icon from './icon';
+import { opacityHoverEffect } from '../transitions';
+import { getVariant, pxToRem } from '../utils';
 
 const Container = styled.div`
-  max-width: 300px;
-  margin: 5px;
-  padding: 1em 1.4em;
-  line-height: 1.5em;
+  max-width: ${pxToRem(360)};
+  margin: ${pxToRem(6)};
+  padding: ${pxToRem(12)} ${pxToRem(18)};
   pointer-events: auto;
-  background-color: ${white};
-  border-radius: 3px;
-  box-shadow: 0 2px 5px ${hexToRgba(black, 0.1)};
+  background-color: ${props => props.theme.white};
+  border-radius: 2px;
+  box-shadow: ${props => props.theme.boxShadow3};
   font-weight: 500;
   cursor: pointer;
-  ${props => `
-    color: ${getVariant(props) ? white : black};
-    border: 1px solid ${getVariant(props) || grey};
+  ${props => css`
+    color: ${getVariant(props) ? props.theme.white : props.theme.black};
     background-color: ${getVariant(props)};
-    box-shadow: 0 2px 5px ${hexToRgba(black, 0.2)};
   `}
+`;
+
+const DismissIcon = styled(Icon).attrs({
+  color: 'inherit',
+  name: 'close',
+  size: 18,
+})`
+  margin-left: ${pxToRem(12)};
+  ${opacityHoverEffect};
 `;
 
 class Toast extends Component {
@@ -104,6 +111,7 @@ class Toast extends Component {
             {...other}
           >
             {text}
+            <DismissIcon color="inherit" name="close" size={18} />
           </Container>}
       </Motion>
     );

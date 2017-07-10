@@ -442,7 +442,7 @@ storiesOf('Toast', module)
         <Toast text="Careful!" warning />
       </CodeWrapper>
       <CodeWrapper>
-        <Toast text="Oh no, danger!" danger />
+        <Toast text="You can only publish valid JSON" danger />
       </CodeWrapper>
     </Section>,
   )
