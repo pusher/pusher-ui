@@ -37,26 +37,38 @@ storiesOf('Alert', module)
   .add('color variants', () =>
     <Section>
       <CodeWrapper>
-        <Alert title="Default">This is the default alert.</Alert>
+        <Alert>
+          <Text>This is the default alert.</Text>
+        </Alert>
       </CodeWrapper>
       <CodeWrapper>
-        <Alert title="Primary" primary>This is a primary alert.</Alert>
+        <Alert primary>
+          <Text>This is a primary alert.</Text>
+        </Alert>
       </CodeWrapper>
       <CodeWrapper>
-        <Alert title="Success" success>This is a success alert.</Alert>
+        <Alert success>
+          <Text>This is a success alert.</Text>
+        </Alert>
       </CodeWrapper>
       <CodeWrapper>
-        <Alert title="Warning" warning>This is a warning alert.</Alert>
+        <Alert warning>
+          <Text>This is a warning alert.</Text>
+        </Alert>
       </CodeWrapper>
       <CodeWrapper>
-        <Alert title="Danger" danger>This is a danger alert.</Alert>
+        <Alert danger>
+          <Text>This is a danger alert.</Text>
+        </Alert>
       </CodeWrapper>
     </Section>,
   )
   .add('with a dismiss button', () =>
     <Section>
       <CodeWrapper>
-        <Alert title="Primary" primary dismiss>This is a primary alert.</Alert>
+        <Alert title="Primary" primary dismiss>
+          <Text>This is a primary alert.</Text>
+        </Alert>
       </CodeWrapper>
     </Section>,
   );
