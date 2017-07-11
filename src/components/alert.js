@@ -9,7 +9,6 @@ import { opacityHoverEffect } from '../transitions';
 import { getVariant, hexToRgba, pxToRem } from '../utils';
 
 const Container = styled(Layout).attrs({
-  justified: true,
   center: true,
   gutter: 12,
 })`
@@ -53,9 +52,7 @@ class Alert extends Component {
     const { children, dismiss, ...other } = this.props;
     return (
       <Container {...other}>
-        <Layout gutter={8}>
-          {children}
-        </Layout>
+        {children}
         {dismiss && <DismissIcon onClick={this.dismiss} />}
       </Container>
     );

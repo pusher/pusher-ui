@@ -1,6 +1,6 @@
 {
   "name": "pusher-ui",
-  "version": "0.0.58",
+  "version": "0.0.59",
   "main": "build/pusher-ui.js",
   "module": "src/index.js",
   "author": "Haukur Páll Hallvarðsson <hph@hph.is>",

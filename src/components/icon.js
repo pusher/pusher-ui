@@ -9,7 +9,9 @@ const SVG = styled.svg`
   vertical-align: middle;
   color: ${props => props.color};
   width: ${props => props.width}px;
+  min-width: ${props => props.width}px;
   height: ${props => props.height}px;
+  min-height: ${props => props.height}px;
 `;
 
 function Icon(props) {
