@@ -53,7 +53,9 @@ class Alert extends Component {
     const { children, dismiss, ...other } = this.props;
     return (
       <Container {...other}>
-        {children}
+        <Layout gutter={8}>
+          {children}
+        </Layout>
         {dismiss && <DismissIcon onClick={this.dismiss} />}
       </Container>
     );
