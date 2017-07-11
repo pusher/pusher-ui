@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Layout from './layout';
+import Text from './text';
 import Icon from './icon';
 
 import { opacityHoverEffect } from '../transitions';
@@ -18,6 +19,10 @@ const Container = styled(Layout).attrs({
   border-radius: 2px;
 `;
 
+const AlertText = styled(Text)`
+  flex: 1;
+`;
+
 const DismissIcon = styled(Icon).attrs({
   color: 'inherit',
   name: 'close',
@@ -30,10 +35,18 @@ class Alert extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     dismiss: PropTypes.bool,
+    primary: PropTypes.bool,
+    warning: PropTypes.bool,
+    danger: PropTypes.bool,
+    success: PropTypes.bool,
   };
 
   static defaultProps = {
     dismiss: false,
+    primary: false,
+    warning: false,
+    danger: false,
+    success: false,
   };
 
   state = {
@@ -49,10 +62,23 @@ class Alert extends Component {
       return null;
     }
 
+    let iconName = 'info-circle-outline';
+
+    if (this.props.warning) {
+      iconName = 'warning';
+    } else if (this.props.danger) {
+      iconName = 'error';
+    } else if (this.props.success) {
+      iconName = 'success';
+    }
+
     const { children, dismiss, ...other } = this.props;
     return (
       <Container {...other}>
-        {children}
+        <Icon name={iconName} color="inherit" size={18} />
+        <AlertText>
+          {children}
+        </AlertText>
         {dismiss && <DismissIcon onClick={this.dismiss} />}
       </Container>
     );

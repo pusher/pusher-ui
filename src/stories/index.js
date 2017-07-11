@@ -37,11 +37,6 @@ storiesOf('Alert', module)
   .add('color variants', () =>
     <Section>
       <CodeWrapper>
-        <Alert>
-          <Text>This is the default alert.</Text>
-        </Alert>
-      </CodeWrapper>
-      <CodeWrapper>
         <Alert primary>
           <Text>This is a primary alert.</Text>
         </Alert>
@@ -63,33 +58,26 @@ storiesOf('Alert', module)
       </CodeWrapper>
     </Section>,
   )
-  .add('with icons', () =>
+  .add('with a dismiss button', () =>
     <Section>
       <CodeWrapper>
-        <Alert primary>
-          <Icon name="info-circle-outline" color="inherit" size={20} />
+        <Alert primary dismiss>
           <Text>This is a primary alert.</Text>
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
-        <Alert warning>
-          <Icon name="warning" color="inherit" size={20} />
+        <Alert success dismiss>
+          <Text>This is a success alert.</Text>
+        </Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert warning dismiss>
           <Text>This is a warning alert.</Text>
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
-        <Alert danger>
-          <Icon name="error" color="inherit" size={20} />
+        <Alert danger dismiss>
           <Text>This is a danger alert.</Text>
-        </Alert>
-      </CodeWrapper>
-    </Section>,
-  )
-  .add('with a dismiss button', () =>
-    <Section>
-      <CodeWrapper>
-        <Alert title="Primary" primary dismiss>
-          <Text>This is a primary alert.</Text>
         </Alert>
       </CodeWrapper>
     </Section>,
