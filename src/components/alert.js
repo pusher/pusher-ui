@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Layout from './layout';
-import Text from './text';
 import Icon from './icon';
 
 import { opacityHoverEffect } from '../transitions';
@@ -54,11 +53,8 @@ class Alert extends Component {
     const { children, dismiss, ...other } = this.props;
     return (
       <Container {...other}>
-        <Text>
-          {children}
-        </Text>
-        {dismiss &&
-          <DismissIcon onClick={this.dismiss} />}
+        {children}
+        {dismiss && <DismissIcon onClick={this.dismiss} />}
       </Container>
     );
   }
