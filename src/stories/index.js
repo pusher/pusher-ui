@@ -38,22 +38,22 @@ storiesOf('Alert', module)
     <Section>
       <CodeWrapper>
         <Alert primary>
-          <Text>This is a primary alert.</Text>
+          This is a primary alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert success>
-          <Text>This is a success alert.</Text>
+          This is a success alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert warning>
-          <Text>This is a warning alert.</Text>
+          This is a warning alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert danger>
-          <Text>This is a danger alert.</Text>
+          This is a danger alert.
         </Alert>
       </CodeWrapper>
     </Section>,
@@ -62,22 +62,22 @@ storiesOf('Alert', module)
     <Section>
       <CodeWrapper>
         <Alert primary dismiss>
-          <Text>This is a primary alert.</Text>
+          This is a primary alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert success dismiss>
-          <Text>This is a success alert.</Text>
+          This is a success alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert warning dismiss>
-          <Text>This is a warning alert.</Text>
+          This is a warning alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert danger dismiss>
-          <Text>This is a danger alert.</Text>
+          This is a danger alert.
         </Alert>
       </CodeWrapper>
     </Section>,
