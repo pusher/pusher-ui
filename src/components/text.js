@@ -23,6 +23,14 @@ const Text = styled.span`
         pxToRem(16);
       }
     }};
+  font-weight: ${props =>
+    do {
+      if (props.heading) {
+        ('500');
+      } else {
+        ('400');
+      }
+    }};
   line-height: 1.4;
 `;
 

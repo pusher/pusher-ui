@@ -37,50 +37,23 @@ storiesOf('Alert', module)
   .add('color variants', () =>
     <Section>
       <CodeWrapper>
-        <Alert>
-          <Text>This is the default alert.</Text>
-        </Alert>
-      </CodeWrapper>
-      <CodeWrapper>
         <Alert primary>
-          <Text>This is a primary alert.</Text>
+          This is a primary alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert success>
-          <Text>This is a success alert.</Text>
+          This is a success alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert warning>
-          <Text>This is a warning alert.</Text>
+          This is a warning alert.
         </Alert>
       </CodeWrapper>
       <CodeWrapper>
         <Alert danger>
-          <Text>This is a danger alert.</Text>
-        </Alert>
-      </CodeWrapper>
-    </Section>,
-  )
-  .add('with icons', () =>
-    <Section>
-      <CodeWrapper>
-        <Alert primary>
-          <Icon name="info-circle-outline" color="inherit" size={20} />
-          <Text>This is a primary alert.</Text>
-        </Alert>
-      </CodeWrapper>
-      <CodeWrapper>
-        <Alert warning>
-          <Icon name="warning" color="inherit" size={20} />
-          <Text>This is a warning alert.</Text>
-        </Alert>
-      </CodeWrapper>
-      <CodeWrapper>
-        <Alert danger>
-          <Icon name="error" color="inherit" size={20} />
-          <Text>This is a danger alert.</Text>
+          This is a danger alert.
         </Alert>
       </CodeWrapper>
     </Section>,
@@ -88,8 +61,23 @@ storiesOf('Alert', module)
   .add('with a dismiss button', () =>
     <Section>
       <CodeWrapper>
-        <Alert title="Primary" primary dismiss>
-          <Text>This is a primary alert.</Text>
+        <Alert primary dismiss>
+          This is a primary alert.
+        </Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert success dismiss>
+          This is a success alert.
+        </Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert warning dismiss>
+          This is a warning alert.
+        </Alert>
+      </CodeWrapper>
+      <CodeWrapper>
+        <Alert danger dismiss>
+          This is a danger alert.
         </Alert>
       </CodeWrapper>
     </Section>,
