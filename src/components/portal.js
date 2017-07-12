@@ -81,7 +81,7 @@ class Portal extends Component {
     // unless the root of the rendered children has data-root set.
     if (
       event.currentTarget.children[0] === event.target ||
-      event.target.dataset.root
+      event.target.getAttribute('data-root')
     ) {
       this.unrenderPortal();
     }
