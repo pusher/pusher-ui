@@ -51,6 +51,10 @@ export const inputStyles = css`
     ${props => props.raised && 'border: none;'}
   }
 
+  &[type="password"] {
+    line-height: 1;
+  }
+
   &[disabled] {
     background-color: ${props => props.theme.darkGrey};
     border: 1px solid ${props => props.theme.darkGrey};
