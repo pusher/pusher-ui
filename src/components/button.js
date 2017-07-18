@@ -23,6 +23,7 @@ const buttonColor = props =>
 const Button = styledButtonOrLink`
   position: relative;
   display: inline-block;
+  margin: 0;
   padding: ${pxToRem(12)} ${pxToRem(18)};
   font-family: inherit;
   font-size: inherit;
