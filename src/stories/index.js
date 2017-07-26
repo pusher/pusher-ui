@@ -83,6 +83,62 @@ storiesOf('Alert', module)
     </Section>,
   );
 
+class LoadingButtonContainer extends React.Component {
+  state = {
+    loadingOne: false,
+    loadingTwo: false,
+  };
+
+  shortLoading = () => {
+    this.setState({ loadingOne: true });
+    setTimeout(() => {
+      this.setState({ loadingOne: false });
+    }, 1);
+  };
+
+  longLoading = () => {
+    this.setState({ loadingTwo: true });
+    setTimeout(() => {
+      this.setState({ loadingTwo: false });
+    }, 2000);
+  };
+
+  render() {
+    return (
+      <div style={{ padding: 20 }}>
+        <p>These buttons Keep the loading state for at least 500 ms.</p>
+        <div>
+          <p>
+            This button will transition to a loading state and keep it for 500
+            ms even though it receives a loading=false prop right after.
+          </p>
+          <Button
+            primary
+            loading={this.state.loadingOne}
+            onClick={this.shortLoading}
+          >
+            Loading?
+          </Button>
+        </div>
+        <div>
+          <p>
+            This button will transition to a loading state and immediately
+            transition back after 2000 ms when it receives a new prop, since
+            2000 ms is more than 500 ms.
+          </p>
+          <Button
+            primary
+            loading={this.state.loadingTwo}
+            onClick={this.longLoading}
+          >
+            Loading?
+          </Button>
+        </div>
+      </div>
+    );
+  }
+}
+
 storiesOf('Button', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)
   .add('with the default theme', () =>
@@ -131,7 +187,8 @@ storiesOf('Button', module)
         <Button to="/home" primary>Go home!</Button>
       </CodeWrapper>
     </Section>,
-  );
+  )
+  .add('with loading state', () => <LoadingButtonContainer />);
 
 storiesOf('Card', module)
   .addDecorator(getStory => <Container>{getStory()}</Container>)

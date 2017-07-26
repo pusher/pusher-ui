@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 import { Link } from 'react-router';
@@ -20,7 +20,7 @@ const rotate = keyframes`
 const buttonColor = props =>
   props.danger ? props.theme.negativeColor : props.theme.primaryColor;
 
-const Button = styledButtonOrLink`
+const Container = styledButtonOrLink`
   position: relative;
   display: inline-block;
   margin: 0;
@@ -145,13 +145,73 @@ const Button = styledButtonOrLink`
   `}
 `;
 
+const getTimestamp = () => new Date().getTime();
+
+class Button extends Component {
+  constructor(props) {
+    super(props);
+    const loading = !!props.loading;
+    const startedLoading = loading ? getTimestamp() : undefined;
+    this.state = {
+      loading,
+      disabled: props.disabled || loading,
+      startedLoading,
+    };
+    this.timeouts = [];
+  }
+
+  componentWillUpdate(nextProps) {
+    if (this.props.loading && !nextProps.loading) {
+      this.eventuallyStopLoading();
+    } else if (!this.props.loading && nextProps.loading) {
+      this.setState({
+        loading: true,
+        disabled: true,
+        startedLoading: getTimestamp(),
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    this.timeouts.forEach(clearTimeout);
+  }
+
+  eventuallyStopLoading = () => {
+    const now = getTimestamp();
+    const startedLoading = this.state.startedLoading || now;
+    const diff = now - startedLoading;
+    const timeout = diff > 500 ? 0 : 500 - diff;
+    this.timeouts.push(
+      setTimeout(() => {
+        this.setState({
+          loading: false,
+          disabled: false, // or depending on prop
+        });
+      }, timeout),
+    );
+  };
+
+  render() {
+    return (
+      <Container
+        {...this.props}
+        loading={this.state.loading}
+        disabled={this.state.disabled}
+      >
+        {this.props.children}
+      </Container>
+    );
+  }
+}
+
 Button.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   to: PropTypes.string,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   danger: PropTypes.bool,
   loading: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default Button;
