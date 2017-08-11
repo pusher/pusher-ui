@@ -39,6 +39,7 @@ class Alert extends Component {
     warning: PropTypes.bool,
     danger: PropTypes.bool,
     success: PropTypes.bool,
+    onDismiss: PropTypes.func,
   };
 
   static defaultProps = {
@@ -55,6 +56,9 @@ class Alert extends Component {
 
   dismiss = () => {
     this.setState({ dismissed: true });
+    if (this.props.onDismiss) {
+      this.props.onDismiss();
+    }
   };
 
   render() {
