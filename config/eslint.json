@@ -3,7 +3,8 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "settings": {
     "import/resolver": {
@@ -19,7 +20,7 @@
     "consistent-return": 0,
     "import/extensions": 0,
     "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
-    "import/no-unresolved": [2, { "ignore": ["react", "styled-components"] }],
+    "import/no-unresolved": [2, { "ignore": ["react"] }],
     "jsx-a11y/no-static-element-interactions": 0,
     "jsx-quotes": [2, "prefer-double"],
     "no-confusing-arrow": 0,

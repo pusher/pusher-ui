@@ -1,0 +1,525 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip should allow configuring its position 1`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-top: solid 5px #006eff;
+  border-bottom: none;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(0px, 0px, 0)",
+        "left": 0,
+        "top": -30,
+        "transform": "translate3d(0px, 0px, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      hover me!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should allow configuring its position 2`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: 50%;
+  left: -5px;
+  margin-top: -5px;
+  border-right: solid 5px #006eff;
+  border-left: none;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(0px, 0px, 0)",
+        "left": 60,
+        "top": 0,
+        "transform": "translate3d(0px, 0px, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      hover me!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should allow configuring its position 3`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom: solid 5px #006eff;
+  border-top: none;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(0px, 0px, 0)",
+        "left": 0,
+        "top": 30,
+        "transform": "translate3d(0px, 0px, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      hover me!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should allow configuring its position 4`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-right: none;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(0px, 0px, 0)",
+        "left": -60,
+        "top": 0,
+        "transform": "translate3d(0px, 0px, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      hover me!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should be visible if the isOpen prop is set 1`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-top: solid 5px #006eff;
+  border-bottom: none;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(undefinedpx, undefinedpx, 0)",
+        "left": 0,
+        "top": -30,
+        "transform": "translate3d(undefinedpx, undefinedpx, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      hover me!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should render a tooltip 1`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-top: solid 5px #006eff;
+  border-bottom: none;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(0px, 0px, 0)",
+        "left": 0,
+        "top": -30,
+        "transform": "translate3d(0px, 0px, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      hover me!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should render children 1`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: block;
+  position: relative;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  position: absolute;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity .18s;
+  color: #fff;
+  background-color: #006eff;
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .18s;
+  -moz-transition: opacity .18s;
+}
+
+.glamor-0::after,
+[data-glamor-0]::after {
+  content: ;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-top: solid 5px #006eff;
+  border-bottom: none;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  display: inline;
+  cursor: pointer;
+}
+
+<div
+  className="glamor-2"
+>
+  <div
+    className="glamor-0"
+    style={
+      Object {
+        "WebkitTransform": "translate3d(0px, 0px, 0)",
+        "left": 0,
+        "top": -30,
+        "transform": "translate3d(0px, 0px, 0)",
+      }
+    }
+  >
+    I am a tooltip
+  </div>
+  <div
+    className="glamor-1"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      Inner content
+    </div>
+  </div>
+</div>
+`;

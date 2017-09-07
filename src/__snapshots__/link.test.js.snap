@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should pass on any css props 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  text-decoration: none;
+  color: #006eff;
+}
+
+.glamor-0:hover,
+[data-glamor-0]:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+<a
+  className="glamor-0"
+  color="hotpink"
+  external={false}
+  margin={12}
+  onClick={[Function]}
+  padding={24}
+  style={Object {}}
+/>
+`;
+
+exports[`Link should render a link 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  text-decoration: none;
+  color: #006eff;
+}
+
+.glamor-0:hover,
+[data-glamor-0]:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+<a
+  className="glamor-0"
+  external={false}
+  onClick={[Function]}
+  style={Object {}}
+/>
+`;

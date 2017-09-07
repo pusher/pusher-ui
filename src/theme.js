@@ -24,38 +24,37 @@ const systemMonoFontFamilies = createFontNames([
   'monospace',
 ]);
 
-// Deprecated variables & values
-export const white = '#fff';
-export const black = '#1e1e1e';
-export const grey = '#e7ebf3';
-export const darkGrey = '#dfe0e2';
-export const darkDarkGrey = '#989898';
-export const lightGrey = '#eff4f7';
-export const lightLightGrey = '#f7f9fa';
-export const primary = '#006eff';
-export const success = '#00D08D';
-export const warning = '#ffaf1c';
-export const danger = '#ff455c';
-
+/* Global defaults */
 export const fontSize = 16;
 export const fontFamily = `Roboto, ${systemFontFamilies}`;
 export const monoFontFamily = `"Roboto Mono", ${systemMonoFontFamilies}`;
-export const transitionShort = '0.18s';
-export const transitionLong = '0.36s';
+export const backgroundColor1 = '#f7f9fa';
+
+/* General colors */
+export const whiteColor = '#fff';
+export const blackColor = '#1e1e1e';
+export const darkGreyColor = '#dfe0e2';
+export const lightGreyColor = '#eff4f7';
+export const disabledColor = '#dfe0e2';
+
+/* Variant colors (primary, success, etc) */
+export const primaryColor = '#006eff';
+export const negativeColor = '#ff455c';
+export const positiveColor = '#00D08D';
+export const warningColor = '#ffaf1c';
+
+/* Typography colors */
 export const primaryTextColor = '#2b303b';
 export const secondaryTextColor = '#60646c';
 export const tertiaryTextColor = '#95979d';
-export const borderColor = '#cacbce';
-export const disabledColor = '#dfe0e2';
-export const primaryColor = '#006eff';
-export const negativeColor = '#ff455c';
-export const backgroundColor1 = '#f7f9fa';
-export const backgroundColor2 = '#eff4f7';
+
+/* Scale */
+export const zIndex0 = 0;
+export const zIndex1 = 1;
+export const zIndex2 = 2;
+
+/* Misc */
+export const borderRadius1 = 2;
 export const boxShadow1 = '0 1px 2px 0 rgba(50, 52, 58, 0.15)';
 export const boxShadow2 = '0 1px 4px 0 rgba(50, 52, 58, 0.14)';
 export const boxShadow3 = '0 1px 4px 1px rgba(50, 52, 58, 0.13)';
-export const borderRadius1 = 2;
-export const borderRadius2 = 4;
-export const containerWidth = 960;
-export const zIndex1 = 1;
-export const zIndex2 = 2;

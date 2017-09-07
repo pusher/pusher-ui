@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should have a dismiss button if so configured 1`] = `
+.glamor-3,
+[data-glamor-3] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  background-color: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  flex-direction: row;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+.glamor-2,
+[data-glamor-2] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+<div
+  className="glamor-3"
+>
+  <svg
+    className="glamor-0"
+    color="inherit"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon:info-circle-outline"
+    />
+  </svg>
+  <p
+    className="glamor-1"
+  >
+    Hello, world!
+  </p>
+  <svg
+    className="glamor-2"
+    color="inherit"
+    height="18"
+    onClick={[Function]}
+    width="18"
+  >
+    <use
+      xlinkHref="#icon:close"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Alert should have a primary color variant 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+.glamor-2,
+[data-glamor-2] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  background-color: rgba(0,110,255,0.15);
+  border-radius: 2px;
+  flex-direction: row;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+}
+
+<div
+  className="glamor-2"
+>
+  <svg
+    className="glamor-0"
+    color="inherit"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon:info-circle-outline"
+    />
+  </svg>
+  <p
+    className="glamor-1"
+  >
+    Hello, world!
+  </p>
+</div>
+`;
+
+exports[`Alert should pass on any css props as usual 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+.glamor-2,
+[data-glamor-2] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  background-color: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  flex-direction: row;
+  align-items: center;
+  color: hotpink;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+}
+
+<div
+  className="glamor-2"
+>
+  <svg
+    className="glamor-0"
+    color="inherit"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon:info-circle-outline"
+    />
+  </svg>
+  <p
+    className="glamor-1"
+  >
+    Hello, world!
+  </p>
+</div>
+`;
+
+exports[`Alert should render an element with text inside 1`] = `
+.glamor-2,
+[data-glamor-2] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  background-color: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  flex-direction: row;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+}
+
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.glamor-1,
+[data-glamor-1] {
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+<div
+  className="glamor-2"
+>
+  <svg
+    className="glamor-0"
+    color="inherit"
+    height={18}
+    width={18}
+  >
+    <use
+      xlinkHref="#icon:info-circle-outline"
+    />
+  </svg>
+  <p
+    className="glamor-1"
+  >
+    Hello, world!
+  </p>
+</div>
+`;
