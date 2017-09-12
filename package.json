@@ -1,7 +1,7 @@
 {
   "name": "pusher-ui",
   "version": "0.1.0",
-  "main": "src/index.js",
+  "main": "build/pusher-ui.js",
   "module": "src/index.js",
   "author": "Haukur Páll Hallvarðsson <hph@hph.is>",
   "license": "MIT",
