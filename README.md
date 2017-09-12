@@ -1,4 +1,4 @@
-# Pusher UI · [![Build Status](https://img.shields.io/travis/pusher/pusher-ui/master.svg?style=flat-square)](https://travis-ci.org/pusher/pusher-ui) [![Coverage](https://img.shields.io/coveralls/pusher/pusher-ui/master?style=flat-square.svg)](https://coveralls.io/github/pusher/pusher-ui)
+# Pusher UI · [![Build Status](https://img.shields.io/travis/pusher/pusher-ui/master.svg?style=flat-square)](https://travis-ci.org/pusher/pusher-ui) [![Coverage](https://img.shields.io/coveralls/pusher/pusher-ui/master.svg?style=flat-square)](https://coveralls.io/github/pusher/pusher-ui)
 
 > A UI component library for Pusher web apps. Built with React.
 
