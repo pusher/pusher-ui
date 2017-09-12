@@ -1,22 +1,18 @@
-export function hexToRgba(hex, alpha) {
-  let hexTmp = hex.replace('#', '');
-  if (hexTmp.length === 3) {
-    hexTmp = hexTmp.split('').map(char => `${char}${char}`).join('');
+// eslint-disable-next-line import/prefer-default-export
+export function colorVariant(props) {
+  if (props.primary) {
+    return props.theme.primaryColor;
   }
-  const r = parseInt(hexTmp.substring(0, 2), 16);
-  const g = parseInt(hexTmp.substring(2, 4), 16);
-  const b = parseInt(hexTmp.substring(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
-
-export function getVariant(props) {
-  const variants = ['primary', 'success', 'warning', 'danger'];
-  return props.theme[variants.find(variant => !!props[variant])];
-}
-
-export function colorVariant(defaultColorFunc) {
-  return props =>
-    props.error ? props.theme.negativeColor : defaultColorFunc(props);
+  if (props.warning) {
+    return props.theme.warningColor;
+  }
+  if (props.danger) {
+    return props.theme.negativeColor;
+  }
+  if (props.success) {
+    return props.theme.positiveColor;
+  }
+  return props.theme.whiteColor;
 }
 
 export function copyToClipboard(text) {
@@ -43,9 +39,4 @@ export function download(text, filename) {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
-}
-
-export function pxToRem(pixels) {
-  const px = typeof pixels === 'string' ? parseInt(pixels, 10) : pixels;
-  return props => `${px / props.theme.fontSize}rem`;
 }

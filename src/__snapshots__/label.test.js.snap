@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label should have a different color if an error prop is set 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: #ff455c;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+}
+
+.glamor-0 input,
+[data-glamor-0] input,
+.glamor-0 textarea,
+[data-glamor-0] textarea {
+  margin-top: 0.375rem;
+}
+
+<label
+  className="glamor-0"
+/>
+`;
+
+exports[`Label should render a label 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: #95979d;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+}
+
+.glamor-0 input,
+[data-glamor-0] input,
+.glamor-0 textarea,
+[data-glamor-0] textarea {
+  margin-top: 0.375rem;
+}
+
+<label
+  className="glamor-0"
+>
+  Hello, label
+</label>
+`;
+
+exports[`Label should render children 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: #95979d;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+}
+
+.glamor-0 input,
+[data-glamor-0] input,
+.glamor-0 textarea,
+[data-glamor-0] textarea {
+  margin-top: 0.375rem;
+}
+
+<label
+  className="glamor-0"
+>
+  <div>
+    Inner content
+  </div>
+</label>
+`;

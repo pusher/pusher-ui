@@ -1,6 +1,8 @@
-# Pusher UI
+# Pusher UI · [![Build Status](https://img.shields.io/travis/pusher/pusher-ui.svg)](https://travis-ci.org/pusher/pusher-ui) [![Coverage](https://img.shields.io/coveralls/pusher/pusher-ui.svg)](https://coveralls.io/github/pusher/pusher-ui)
 
 > A UI component library for Pusher web apps. Built with React.
+
+Please note that this library is in a pre-alpha stage; do not use it.
 
 ## Pusher UI as a dependency
 
@@ -12,7 +14,7 @@ As per usual (you can also use NPM):
 
 You may need to add the project's peer dependencies as well:
 
-    yarn add prop-types@^15.5.8 react@^15.5.4 react-dom@^15.5.4 react-motion@^0.4.7 react-router@^3.0.0 react-syntax-highlighter@^5.1.2 styled-components@2.0.0-17 polished@^1.1.3
+    yarn add glamor glamorous highlight.js polished prop-types react react-dom react-motion react-router@3 react-syntax-highlighter
 
 These dependencies are required by the project but are expected to be provided
 in your project for deduplication.
@@ -23,7 +25,7 @@ In a React entry file (as a simple example):
 
 ```javascript
 import { render } from 'react-dom';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'glamorous';
 import { Button, theme } from 'pusher-ui';
 
 render((

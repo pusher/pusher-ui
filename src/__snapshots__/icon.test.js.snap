@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should allow configuring its color 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+<svg
+  className="glamor-0"
+  color="red"
+  height={24}
+  width={24}
+>
+  <use
+    xlinkHref="#icon:account"
+  />
+</svg>
+`;
+
+exports[`Icon should allow configuring its size 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 12px;
+  min-height: 12px;
+}
+
+<svg
+  className="glamor-0"
+  color="inherit"
+  height={12}
+  width={12}
+>
+  <use
+    xlinkHref="#icon:account"
+  />
+</svg>
+`;
+
+exports[`Icon should allow configuring its size 2`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+<svg
+  className="glamor-0"
+  color="inherit"
+  height="24"
+  width="24"
+>
+  <use
+    xlinkHref="#icon:account"
+  />
+</svg>
+`;
+
+exports[`Icon should allow configuring its size 3`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 16px;
+  min-height: 18px;
+}
+
+<svg
+  className="glamor-0"
+  color="inherit"
+  height="18"
+  width="16"
+>
+  <use
+    xlinkHref="#icon:account"
+  />
+</svg>
+`;
+
+exports[`Icon should not render anything if no icon is found 1`] = `null`;
+
+exports[`Icon should pass on any css props 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 10px;
+}
+
+<svg
+  className="glamor-0"
+  color="inherit"
+  height={24}
+  width={24}
+>
+  <use
+    xlinkHref="#icon:account"
+  />
+</svg>
+`;
+
+exports[`Icon should render an icon from the icon set with default props 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+<svg
+  className="glamor-0"
+  color="inherit"
+  height={24}
+  width={24}
+>
+  <use
+    xlinkHref="#icon:account"
+  />
+</svg>
+`;
+
+exports[`Icon should render an icon from the icon set with default props 2`] = `
+.glamor-0,
+[data-glamor-0] {
+  fill: currentcolor;
+  vertical-align: middle;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+<svg
+  className="glamor-0"
+  color="inherit"
+  height={24}
+  width={24}
+>
+  <use
+    xlinkHref="#icon:pusher-logo"
+  />
+</svg>
+`;

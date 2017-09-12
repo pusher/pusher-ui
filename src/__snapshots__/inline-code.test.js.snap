@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineCode should render an inline codeblock element 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  font-size: 0.875rem;
+  padding-top: 0.0625rem;
+  padding-right: 0.1875rem;
+  padding-bottom: 0.1875rem;
+  padding-left: 0.1875rem;
+}
+
+<code
+  className="glamor-0"
+>
+  const foo = "bar";
+</code>
+`;
+
+exports[`InlineCode should render children 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  font-size: 0.875rem;
+  padding-top: 0.0625rem;
+  padding-right: 0.1875rem;
+  padding-bottom: 0.1875rem;
+  padding-left: 0.1875rem;
+}
+
+<code
+  className="glamor-0"
+>
+  <span>
+    foo
+  </span>
+</code>
+`;
+
+exports[`InlineCode should take any css props as usual 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  font-size: 0.875rem;
+  padding-top: 0.0625rem;
+  padding-right: 0.1875rem;
+  padding-bottom: 0.1875rem;
+  padding-left: 0.1875rem;
+  background-color: hotpink;
+  padding: 10px;
+}
+
+<code
+  className="glamor-0"
+>
+  const foo = "bar";
+</code>
+`;
