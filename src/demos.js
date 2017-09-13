@@ -219,7 +219,9 @@ const App = () => (
         </Demo>
 
         <Demo component="Icon and IconSet">
-          <Flex gutter={12}>{icons.map(name => <Icon name={name} />)}</Flex>
+          <Flex gutter={12}>
+            {icons.map(name => <Icon name={name} key={name} />)}
+          </Flex>
         </Demo>
 
         <Demo component="InlineCode">
@@ -228,7 +230,7 @@ const App = () => (
           </p>
         </Demo>
 
-        <Demo compoent="Input">
+        <Demo component="Input">
           <Input placeholder="default input" />
           <Input placeholder="danger input" danger />
           <Input label="custom label" placeholder="with a label" danger />
@@ -252,7 +254,7 @@ const App = () => (
           <ModalDemo />
         </Demo>
 
-        <Demo compoent="Portal">
+        <Demo component="Portal">
           <Alert primary>No demo for a non-UI component.</Alert>
         </Demo>
 
@@ -295,4 +297,4 @@ const App = () => (
   </Block>
 );
 
-render(<App />, document.body);
+render(<App />, document.getElementById('container'));

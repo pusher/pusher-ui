@@ -1,6 +1,7 @@
 import { join, resolve } from 'path';
 import webpack from 'webpack';
 import HTMLPlugin from 'html-webpack-plugin';
+import ContainerPlugin from 'stateful-react-container-webpack-plugin';
 
 export default {
   entry: {
@@ -32,6 +33,7 @@ export default {
     new HTMLPlugin({
       title: 'Pusher UI',
     }),
+    new ContainerPlugin(),
   ],
   devServer: {
     contentBase: join(__dirname, 'build'),

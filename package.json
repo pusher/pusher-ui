@@ -6,7 +6,7 @@
   "author": "Haukur Páll Hallvarðsson <hph@hph.is>",
   "license": "MIT",
   "scripts": {
-    "start": "if-env NODE_ENV=development && yarn start:development || yarn start:production",
+    "start": "if-env NODE_ENV=production && yarn start:production || yarn start:development",
     "start:development": "webpack-dev-server --config=config/webpack-demos.babel.js",
     "start:production": "butler build --port ${PORT:-8080}",
     "postinstall": "if-env HEROKU=true && yarn build:demos || :",
@@ -55,6 +55,7 @@
     "react-router": "^3.0.5",
     "react-syntax-highlighter": "^5.7.0",
     "react-test-renderer": "^15.6.1",
+    "stateful-react-container-webpack-plugin": "^0.3.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1"

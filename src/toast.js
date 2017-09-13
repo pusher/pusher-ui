@@ -6,7 +6,23 @@ import { padding, rem } from 'polished';
 
 import { Icon, colorVariant } from './index';
 
-const Container = glamorous('div')(
+
+export const options = {
+  propsAreCssOverrides: true,
+  filterProps: [
+    'id',
+    'dismiss',
+    'onDismiss',
+    'text',
+    'timeout',
+    'primary',
+    'success',
+    'warning',
+    'danger',
+  ],
+};
+
+const Container = glamorous('div', options)(
   {
     maxWidth: rem(360),
     margin: rem(6),
@@ -33,7 +49,7 @@ const Container = glamorous('div')(
 class Toast extends Component {
   static propTypes = {
     id: PropTypes.number, // eslint-disable-line react/require-default-props
-    dismiss: PropTypes.func, // eslint-disable-line react/require-default-props
+    dismiss: PropTypes.bool, // eslint-disable-line react/require-default-props
     onDismiss: PropTypes.func, // eslint-disable-line react/require-default-props
     text: PropTypes.string.isRequired,
     timeout: PropTypes.number,

@@ -16,7 +16,6 @@ exports[`Link should pass on any css props 1`] = `
 <a
   className="glamor-0"
   color="hotpink"
-  external={false}
   margin={12}
   onClick={[Function]}
   padding={24}
@@ -39,7 +38,6 @@ exports[`Link should render a link 1`] = `
 
 <a
   className="glamor-0"
-  external={false}
   onClick={[Function]}
   style={Object {}}
 />

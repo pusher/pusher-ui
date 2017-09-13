@@ -22,10 +22,6 @@ const Container = glamorous(
   }),
 );
 
-const Text = glamorous('p')({
-  flex: 1,
-});
-
 class Alert extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -70,7 +66,7 @@ class Alert extends Component {
     return (
       <Container {...other}>
         <Icon name={iconName} color="inherit" size={18} />
-        <Text>{children}</Text>
+        <Flex flexDirection="column">{children}</Flex>
         {dismiss && (
           <Icon name="close" size="18" color="inherit" onClick={this.dismiss} />
         )}

@@ -3,7 +3,10 @@ import { Link as ReactRouterLink } from 'react-router';
 import glamorous from 'glamorous';
 import PropTypes from 'prop-types';
 
-const RouterLink = glamorous(ReactRouterLink, { propsAreCssOverrides: true })(
+const RouterLink = glamorous(ReactRouterLink, {
+  propsAreCssOverrides: true,
+  filterProps: ['external'],
+})(
   {
     textDecoration: 'none',
     '&:hover': {

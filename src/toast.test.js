@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'glamorous';
 
-import { Toast } from './index';
+import Toast, { options } from './toast';
 import * as theme from './theme';
 
 describe('Toast', () => {
@@ -30,5 +30,13 @@ describe('Toast', () => {
       ...defaultProps,
       text: 'Some message to the user',
     });
+  });
+
+  it('should map arbitrary css props to css', () => {
+    expect(options.propsAreCssOverrides).toBe(true);
+  });
+
+  it('should include all props in the filterProps option', () => {
+    expect(options.filterProps).toEqual(Object.keys(Toast.propTypes));
   });
 });

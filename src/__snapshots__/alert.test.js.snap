@@ -33,8 +33,15 @@ exports[`Alert should have a dismiss button if so configured 1`] = `
 
 .glamor-1,
 [data-glamor-1] {
-  flex: 1;
-  -webkit-flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
 }
 
 .glamor-2,
@@ -58,11 +65,11 @@ exports[`Alert should have a dismiss button if so configured 1`] = `
       xlinkHref="#icon:info-circle-outline"
     />
   </svg>
-  <p
+  <div
     className="glamor-1"
   >
     Hello, world!
-  </p>
+  </div>
   <svg
     className="glamor-2"
     color="inherit"
@@ -88,8 +95,15 @@ exports[`Alert should have a primary color variant 1`] = `
 
 .glamor-1,
 [data-glamor-1] {
-  flex: 1;
-  -webkit-flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
 }
 
 .glamor-2,
@@ -127,11 +141,11 @@ exports[`Alert should have a primary color variant 1`] = `
       xlinkHref="#icon:info-circle-outline"
     />
   </svg>
-  <p
+  <div
     className="glamor-1"
   >
     Hello, world!
-  </p>
+  </div>
 </div>
 `;
 
@@ -146,8 +160,15 @@ exports[`Alert should pass on any css props as usual 1`] = `
 
 .glamor-1,
 [data-glamor-1] {
-  flex: 1;
-  -webkit-flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
 }
 
 .glamor-2,
@@ -186,11 +207,11 @@ exports[`Alert should pass on any css props as usual 1`] = `
       xlinkHref="#icon:info-circle-outline"
     />
   </svg>
-  <p
+  <div
     className="glamor-1"
   >
     Hello, world!
-  </p>
+  </div>
 </div>
 `;
 
@@ -227,8 +248,15 @@ exports[`Alert should render an element with text inside 1`] = `
 
 .glamor-1,
 [data-glamor-1] {
-  flex: 1;
-  -webkit-flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
 }
 
 <div
@@ -244,10 +272,10 @@ exports[`Alert should render an element with text inside 1`] = `
       xlinkHref="#icon:info-circle-outline"
     />
   </svg>
-  <p
+  <div
     className="glamor-1"
   >
     Hello, world!
-  </p>
+  </div>
 </div>
 `;
