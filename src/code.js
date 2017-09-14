@@ -7,6 +7,8 @@ import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
 import swift from 'highlight.js/lib/languages/swift';
 import xml from 'highlight.js/lib/languages/xml';
+import ruby from 'highlight.js/lib/languages/ruby';
+import bash from 'highlight.js/lib/languages/bash';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import glamorous from 'glamorous';
 import { rem } from 'polished';
@@ -16,10 +18,13 @@ import { Block, Flex, Icon, Tooltip, copyToClipboard } from './index';
 // Note: All imported languages from highlight.js and syntax themes
 // should be listed as externals in the build configuration.
 
+registerLanguage('plaintext', () => ({}));
 registerLanguage('html', xml);
 registerLanguage('java', java);
 registerLanguage('javascript', javascript);
 registerLanguage('swift', swift);
+registerLanguage('bash', bash);
+registerLanguage('ruby', ruby);
 
 const CodeContainer = glamorous(Block)(
   {
@@ -61,10 +66,13 @@ const LanguageMenu = glamorous(Flex)(
 );
 
 const languageMap = {
+  plaintext: 'Plaintext',
   html: 'HTML',
   java: 'Java',
   javascript: 'JavaScript',
   swift: 'Swift',
+  ruby: 'Ruby',
+  bash: 'Bash',
 };
 
 class Code extends Component {
@@ -77,7 +85,15 @@ class Code extends Component {
   static propTypes = {
     children: PropTypes.string.isRequired,
     // eslint-disable-next-line react/require-default-props
-    language: PropTypes.oneOf(['html', 'java', 'javascript', 'swift']),
+    language: PropTypes.oneOf([
+      'plaintext',
+      'html',
+      'java',
+      'javascript',
+      'swift',
+      'ruby',
+      'bash',
+    ]),
     menu: PropTypes.bool,
     style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     copyText: PropTypes.string,
