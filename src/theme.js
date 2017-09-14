@@ -35,6 +35,7 @@ export const whiteColor = '#fff';
 export const blackColor = '#1e1e1e';
 export const darkGreyColor = '#dfe0e2';
 export const lightGreyColor = '#eff4f7';
+export const lightLightGreyColor = '#f7f9fa';
 export const disabledColor = '#dfe0e2';
 
 /* Variant colors (primary, success, etc) */

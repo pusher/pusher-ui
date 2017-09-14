@@ -6,7 +6,6 @@ import { padding, rem } from 'polished';
 
 import { Icon, colorVariant } from './index';
 
-
 export const options = {
   propsAreCssOverrides: true,
   filterProps: [

@@ -35,7 +35,7 @@ const CodeContainer = glamorous(Block)(
   },
   props => ({
     '& pre': {
-      backgroundColor: `${props.theme.lightLightGrey} !important`,
+      backgroundColor: `${props.theme.lightLightGreyColor} !important`,
       borderRadius: props.theme.borderRadius1,
       borderTopRightRadius: props.menu ? 0 : props.theme.borderRadius,
       borderTopLeftRadius: props.menu ? 0 : props.theme.borderRadius,
@@ -54,7 +54,7 @@ const LanguageMenu = glamorous(Flex)(
     userSelect: 'none',
   },
   props => ({
-    backgroundColor: props.theme.lightGrey,
+    backgroundColor: props.theme.lightGreyColor,
     borderTopRightRadius: props.theme.borderRadius1,
     borderTopLeftRadius: props.theme.borderRadius1,
   }),

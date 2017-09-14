@@ -36,7 +36,10 @@ import {
   theme,
 } from './index';
 
-insertGlobalBaseStyles(theme);
+insertGlobalBaseStyles({
+  ...theme,
+  backgroundColor1: '#fff',
+});
 
 const Demo = props => (
   <Flex flexDirection="column" gutter={12}>
