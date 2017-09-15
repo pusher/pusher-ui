@@ -75,7 +75,7 @@ const Button = glamorous('button', {
 
       '&:focus': {
         outline: 'none',
-        boxShadow: `0 0 0 2px ${transparentize(0.7, color)}`,
+        boxShadow: `0 0 0 2px ${transparentize(0.7, borderColor)}`,
       },
 
       '&[disabled]': {

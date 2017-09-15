@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import { padding, rem, rgba } from 'polished';
 
-import { Flex, Icon, colorVariant } from './index';
+import { Block, Flex, Icon, colorVariant } from './index';
 
 const Container = glamorous(
   Flex.withProps({
@@ -66,7 +66,7 @@ class Alert extends Component {
     return (
       <Container {...other}>
         <Icon name={iconName} color="inherit" size={18} />
-        <Flex flexDirection="column">{children}</Flex>
+        <Block>{children}</Block>
         {dismiss && (
           <Icon name="close" size="18" color="inherit" onClick={this.dismiss} />
         )}
