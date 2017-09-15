@@ -35,7 +35,6 @@ const CodeContainer = glamorous(Block)(
     },
     '& code': {
       whiteSpace: 'pre',
-      overflowWrap: 'break-word',
     },
   },
   props => ({
