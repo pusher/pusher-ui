@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should pass on any css props 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .18s ease, color .18s ease;
+  color: hotpink;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #eff4f7;
+  padding: 24px;
+  margin: 12px;
+  -webkit-transition: border-color .18s ease, color .18s ease;
+  -moz-transition: border-color .18s ease, color .18s ease;
+}
+
+.glamor-0::-webkit-input-placeholder,
+[data-glamor-0]::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-moz-placeholder,
+[data-glamor-0]::-moz-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-ms-input-placeholder,
+[data-glamor-0]::-ms-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::placeholder,
+[data-glamor-0]::placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::selection,
+[data-glamor-0]::selection {
+  color: #fff;
+  background-color: #006eff;
+}
+
+.glamor-0:focus,
+[data-glamor-0]:focus {
+  caret-color: #006eff;
+  box-shadow: 0 0 0 2px rgba(0,110,255,0.3);
+}
+
+<Label
+  error={false}
+>
+  Check me
+  <input
+    checked={false}
+    className="glamor-0"
+  />
+</Label>
+`;
+
+exports[`Input should render a checkbox 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .18s ease, color .18s ease;
+  color: #2b303b;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #eff4f7;
+  -webkit-transition: border-color .18s ease, color .18s ease;
+  -moz-transition: border-color .18s ease, color .18s ease;
+}
+
+.glamor-0::-webkit-input-placeholder,
+[data-glamor-0]::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-moz-placeholder,
+[data-glamor-0]::-moz-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-ms-input-placeholder,
+[data-glamor-0]::-ms-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::placeholder,
+[data-glamor-0]::placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::selection,
+[data-glamor-0]::selection {
+  color: #fff;
+  background-color: #006eff;
+}
+
+.glamor-0:focus,
+[data-glamor-0]:focus {
+  caret-color: #006eff;
+  box-shadow: 0 0 0 2px rgba(0,110,255,0.3);
+}
+
+<Label
+  error={false}
+>
+  Check me
+  <input
+    checked={false}
+    className="glamor-0"
+  />
+</Label>
+`;
+
+exports[`Input should render a disabled checkbox 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .18s ease, color .18s ease;
+  color: #2b303b;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #eff4f7;
+  -webkit-transition: border-color .18s ease, color .18s ease;
+  -moz-transition: border-color .18s ease, color .18s ease;
+}
+
+.glamor-0::-webkit-input-placeholder,
+[data-glamor-0]::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-moz-placeholder,
+[data-glamor-0]::-moz-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-ms-input-placeholder,
+[data-glamor-0]::-ms-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::placeholder,
+[data-glamor-0]::placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::selection,
+[data-glamor-0]::selection {
+  color: #fff;
+  background-color: #006eff;
+}
+
+.glamor-0:focus,
+[data-glamor-0]:focus {
+  caret-color: #006eff;
+  box-shadow: 0 0 0 2px rgba(0,110,255,0.3);
+}
+
+<Label
+  error={false}
+>
+  Check me
+  <input
+    checked={false}
+    className="glamor-0"
+    disabled={true}
+  />
+</Label>
+`;
+
+exports[`Input should render any label inside 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .18s ease, color .18s ease;
+  color: #2b303b;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #eff4f7;
+  -webkit-transition: border-color .18s ease, color .18s ease;
+  -moz-transition: border-color .18s ease, color .18s ease;
+}
+
+.glamor-0::-webkit-input-placeholder,
+[data-glamor-0]::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-moz-placeholder,
+[data-glamor-0]::-moz-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-ms-input-placeholder,
+[data-glamor-0]::-ms-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::placeholder,
+[data-glamor-0]::placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::selection,
+[data-glamor-0]::selection {
+  color: #fff;
+  background-color: #006eff;
+}
+
+.glamor-0:focus,
+[data-glamor-0]:focus {
+  caret-color: #006eff;
+  box-shadow: 0 0 0 2px rgba(0,110,255,0.3);
+}
+
+<Label
+  error={false}
+>
+  This is a good checkbox
+  <input
+    checked={false}
+    className="glamor-0"
+  />
+</Label>
+`;
+
+exports[`Input should take an error state and pass it to the label 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .18s ease, color .18s ease;
+  color: #ff455c;
+  border: 1px solid #ff455c;
+  border-radius: 2px;
+  background-color: #eff4f7;
+  -webkit-transition: border-color .18s ease, color .18s ease;
+  -moz-transition: border-color .18s ease, color .18s ease;
+}
+
+.glamor-0::-webkit-input-placeholder,
+[data-glamor-0]::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-moz-placeholder,
+[data-glamor-0]::-moz-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-ms-input-placeholder,
+[data-glamor-0]::-ms-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::placeholder,
+[data-glamor-0]::placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::selection,
+[data-glamor-0]::selection {
+  color: #fff;
+  background-color: #ff455c;
+}
+
+.glamor-0:focus,
+[data-glamor-0]:focus {
+  caret-color: #ff455c;
+  box-shadow: 0 0 0 2px rgba(255,69,92,0.3);
+}
+
+<Label
+  error={true}
+>
+  Check me
+  <input
+    checked={false}
+    className="glamor-0"
+  />
+</Label>
+`;

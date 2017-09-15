@@ -8,6 +8,7 @@ export const icons = [
   'caret-left',
   'caret-right',
   'caret-up',
+  'check',
   'close',
   'copy',
   'delete',
@@ -66,6 +67,12 @@ function IconSet() {
         <g>
           <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
           <path d="M0 0h24v24H0z" fill="none" />
+        </g>
+      </symbol>
+      <symbol id="icon:check" viewBox="0 0 24 24">
+        <g>
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
         </g>
       </symbol>
       <symbol id="icon:close" viewBox="0 0 24 24">

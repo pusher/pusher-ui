@@ -2,6 +2,7 @@ export * as theme from './theme';
 export Alert from './alert';
 export Button from './button';
 export Card from './card';
+export Checkbox from './checkbox';
 export Code from './code';
 export Dialog from './dialog';
 export Icon from './icon';

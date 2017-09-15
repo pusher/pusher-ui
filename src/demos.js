@@ -9,6 +9,7 @@ import {
   Block,
   Button,
   Card,
+  Checkbox,
   Code,
   Dialog,
   Flex,
@@ -208,6 +209,13 @@ const App = () => (
 
         <Demo component="Card">
           <Card>Default card</Card>
+        </Demo>
+
+        <Demo component="Checkbox">
+          <Checkbox label="You can toggle me" checked={false} color={'red'} />
+          <Checkbox label="Check me out!" checked />
+          <Checkbox label="I am disabled" checked disabled />
+          <Checkbox label="Error!!!" error checked />
         </Demo>
 
         <Demo component="Code">
