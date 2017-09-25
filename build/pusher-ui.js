@@ -7842,6 +7842,86 @@ https://highlightjs.org/
 
 /***/ }),
 
+/***/ "./node_modules/highlight.js/lib/languages/bash.js":
+/***/ (function(module, exports) {
+
+module.exports = function(hljs) {
+  var VAR = {
+    className: 'variable',
+    variants: [
+      {begin: /\$[\w\d#@][\w\d_]*/},
+      {begin: /\$\{(.*?)}/}
+    ]
+  };
+  var QUOTE_STRING = {
+    className: 'string',
+    begin: /"/, end: /"/,
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      VAR,
+      {
+        className: 'variable',
+        begin: /\$\(/, end: /\)/,
+        contains: [hljs.BACKSLASH_ESCAPE]
+      }
+    ]
+  };
+  var APOS_STRING = {
+    className: 'string',
+    begin: /'/, end: /'/
+  };
+
+  return {
+    aliases: ['sh', 'zsh'],
+    lexemes: /\b-?[a-z\._]+\b/,
+    keywords: {
+      keyword:
+        'if then else elif fi for while in do done case esac function',
+      literal:
+        'true false',
+      built_in:
+        // Shell built-ins
+        // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
+        'break cd continue eval exec exit export getopts hash pwd readonly return shift test times ' +
+        'trap umask unset ' +
+        // Bash built-ins
+        'alias bind builtin caller command declare echo enable help let local logout mapfile printf ' +
+        'read readarray source type typeset ulimit unalias ' +
+        // Shell modifiers
+        'set shopt ' +
+        // Zsh built-ins
+        'autoload bg bindkey bye cap chdir clone comparguments compcall compctl compdescribe compfiles ' +
+        'compgroups compquote comptags comptry compvalues dirs disable disown echotc echoti emulate ' +
+        'fc fg float functions getcap getln history integer jobs kill limit log noglob popd print ' +
+        'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
+        'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
+        'zpty zregexparse zsocket zstyle ztcp',
+      _:
+        '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
+    },
+    contains: [
+      {
+        className: 'meta',
+        begin: /^#![^\n]+sh\s*$/,
+        relevance: 10
+      },
+      {
+        className: 'function',
+        begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
+        returnBegin: true,
+        contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
+        relevance: 0
+      },
+      hljs.HASH_COMMENT_MODE,
+      QUOTE_STRING,
+      APOS_STRING,
+      VAR
+    ]
+  };
+};
+
+/***/ }),
+
 /***/ "./node_modules/highlight.js/lib/languages/java.js":
 /***/ (function(module, exports) {
 
@@ -8126,6 +8206,188 @@ module.exports = function(hljs) {
       }
     ],
     illegal: /#(?!!)/
+  };
+};
+
+/***/ }),
+
+/***/ "./node_modules/highlight.js/lib/languages/ruby.js":
+/***/ (function(module, exports) {
+
+module.exports = function(hljs) {
+  var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
+  var RUBY_KEYWORDS = {
+    keyword:
+      'and then defined module in return redo if BEGIN retry end for self when ' +
+      'next until do begin unless END rescue else break undef not super class case ' +
+      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor',
+    literal:
+      'true false nil'
+  };
+  var YARDOCTAG = {
+    className: 'doctag',
+    begin: '@[A-Za-z]+'
+  };
+  var IRB_OBJECT = {
+    begin: '#<', end: '>'
+  };
+  var COMMENT_MODES = [
+    hljs.COMMENT(
+      '#',
+      '$',
+      {
+        contains: [YARDOCTAG]
+      }
+    ),
+    hljs.COMMENT(
+      '^\\=begin',
+      '^\\=end',
+      {
+        contains: [YARDOCTAG],
+        relevance: 10
+      }
+    ),
+    hljs.COMMENT('^__END__', '\\n$')
+  ];
+  var SUBST = {
+    className: 'subst',
+    begin: '#\\{', end: '}',
+    keywords: RUBY_KEYWORDS
+  };
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    variants: [
+      {begin: /'/, end: /'/},
+      {begin: /"/, end: /"/},
+      {begin: /`/, end: /`/},
+      {begin: '%[qQwWx]?\\(', end: '\\)'},
+      {begin: '%[qQwWx]?\\[', end: '\\]'},
+      {begin: '%[qQwWx]?{', end: '}'},
+      {begin: '%[qQwWx]?<', end: '>'},
+      {begin: '%[qQwWx]?/', end: '/'},
+      {begin: '%[qQwWx]?%', end: '%'},
+      {begin: '%[qQwWx]?-', end: '-'},
+      {begin: '%[qQwWx]?\\|', end: '\\|'},
+      {
+        // \B in the beginning suppresses recognition of ?-sequences where ?
+        // is the last character of a preceding identifier, as in: `func?4`
+        begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
+      },
+      {
+        begin: /<<(-?)\w+$/, end: /^\s*\w+$/,
+      }
+    ]
+  };
+  var PARAMS = {
+    className: 'params',
+    begin: '\\(', end: '\\)', endsParent: true,
+    keywords: RUBY_KEYWORDS
+  };
+
+  var RUBY_DEFAULT_CONTAINS = [
+    STRING,
+    IRB_OBJECT,
+    {
+      className: 'class',
+      beginKeywords: 'class module', end: '$|;',
+      illegal: /=/,
+      contains: [
+        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        {
+          begin: '<\\s*',
+          contains: [{
+            begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
+          }]
+        }
+      ].concat(COMMENT_MODES)
+    },
+    {
+      className: 'function',
+      beginKeywords: 'def', end: '$|;',
+      contains: [
+        hljs.inherit(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
+        PARAMS
+      ].concat(COMMENT_MODES)
+    },
+    {
+      // swallow namespace qualifiers before symbols
+      begin: hljs.IDENT_RE + '::'
+    },
+    {
+      className: 'symbol',
+      begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
+      relevance: 0
+    },
+    {
+      className: 'symbol',
+      begin: ':(?!\\s)',
+      contains: [STRING, {begin: RUBY_METHOD_RE}],
+      relevance: 0
+    },
+    {
+      className: 'number',
+      begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
+      relevance: 0
+    },
+    {
+      begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))' // variables
+    },
+    {
+      className: 'params',
+      begin: /\|/, end: /\|/,
+      keywords: RUBY_KEYWORDS
+    },
+    { // regexp container
+      begin: '(' + hljs.RE_STARTERS_RE + '|unless)\\s*',
+      keywords: 'unless',
+      contains: [
+        IRB_OBJECT,
+        {
+          className: 'regexp',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+          illegal: /\n/,
+          variants: [
+            {begin: '/', end: '/[a-z]*'},
+            {begin: '%r{', end: '}[a-z]*'},
+            {begin: '%r\\(', end: '\\)[a-z]*'},
+            {begin: '%r!', end: '![a-z]*'},
+            {begin: '%r\\[', end: '\\][a-z]*'}
+          ]
+        }
+      ].concat(COMMENT_MODES),
+      relevance: 0
+    }
+  ].concat(COMMENT_MODES);
+
+  SUBST.contains = RUBY_DEFAULT_CONTAINS;
+  PARAMS.contains = RUBY_DEFAULT_CONTAINS;
+
+  var SIMPLE_PROMPT = "[>?]>";
+  var DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
+  var RVM_PROMPT = "(\\w+-)?\\d+\\.\\d+\\.\\d(p\\d+)?[^>]+>";
+
+  var IRB_DEFAULT = [
+    {
+      begin: /^\s*=>/,
+      starts: {
+        end: '$', contains: RUBY_DEFAULT_CONTAINS
+      }
+    },
+    {
+      className: 'meta',
+      begin: '^('+SIMPLE_PROMPT+"|"+DEFAULT_PROMPT+'|'+RVM_PROMPT+')',
+      starts: {
+        end: '$', contains: RUBY_DEFAULT_CONTAINS
+      }
+    }
+  ];
+
+  return {
+    aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
+    keywords: RUBY_KEYWORDS,
+    illegal: /\/\*/,
+    contains: COMMENT_MODES.concat(IRB_DEFAULT).concat(RUBY_DEFAULT_CONTAINS)
   };
 };
 
@@ -40249,12 +40511,6 @@ var Container = (0, _glamorous2.default)(_index.Flex.withProps({
   };
 });
 
-var Text = (0, _glamorous2.default)('p').withConfig({
-  displayName: 'alert__Text'
-})({
-  flex: 1
-});
-
 var Alert = function (_Component) {
   _inherits(Alert, _Component);
 
@@ -40302,7 +40558,7 @@ var Alert = function (_Component) {
         other,
         _react2.default.createElement(_index.Icon, { name: iconName, color: 'inherit', size: 18 }),
         _react2.default.createElement(
-          Text,
+          _index.Block,
           null,
           children
         ),
@@ -40466,7 +40722,7 @@ var Button = (0, _glamorous2.default)('button', {
 
     '&:focus': {
       outline: 'none',
-      boxShadow: '0 0 0 2px ' + (0, _polished.transparentize)(0.7, color)
+      boxShadow: '0 0 0 2px ' + (0, _polished.transparentize)(0.7, borderColor)
     },
 
     '&[disabled]': {
@@ -40531,6 +40787,158 @@ exports.default = Card;
 
 /***/ }),
 
+/***/ "./src/checkbox.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _glamorous = __webpack_require__("./node_modules/glamorous/dist/glamorous.es.js");
+
+var _glamorous2 = _interopRequireDefault(_glamorous);
+
+var _propTypes = __webpack_require__("./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _polished = __webpack_require__("./node_modules/polished/dist/polished.es.js");
+
+var _index = __webpack_require__("./src/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Square = (0, _glamorous2.default)(_index.InlineBlock, {
+  filterProps: ['checked', 'disabled']
+}).withConfig({
+  displayName: 'checkbox__Square'
+})({
+  width: (0, _polished.rem)(20),
+  height: (0, _polished.rem)(20),
+  border: '1px solid',
+  borderRadius: (0, _polished.rem)(2)
+}, function (props) {
+  return {
+    cursor: props.disabled ? 'not-allowed' : 'pointer',
+    borderColor: props.disabled ? props.theme.disabledColor : props.theme.primaryColor
+  };
+});
+
+var Checkmark = function Checkmark(props) {
+  return _react2.default.createElement(
+    Square,
+    _extends({
+      position: 'relative',
+      role: 'checkbox',
+      'aria-checked': props.checked ? 'true' : 'false'
+    }, props),
+    props.checked && _react2.default.createElement(_index.Icon, {
+      name: 'check',
+      size: (0, _polished.rem)(20),
+      color: props.disabled ? _index.theme.disabledColor : _index.theme.primaryColor,
+      position: 'absolute'
+    })
+  );
+};
+
+Checkmark.propTypes = {
+  checked: _propTypes2.default.bool.isRequired,
+  disabled: _propTypes2.default.bool
+};
+
+Checkmark.defaultProps = {
+  disabled: false
+};
+
+var Checkbox = function (_Component) {
+  _inherits(Checkbox, _Component);
+
+  function Checkbox(props) {
+    _classCallCheck(this, Checkbox);
+
+    var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+    _this.onToggle = function () {
+      if (_this.props.disabled) {
+        return;
+      }
+
+      var checked = !_this.state.checked;
+      _this.setState({ checked: checked });
+      _this.props.onToggle && _this.props.onToggle(checked);
+    };
+
+    _this.state = {
+      checked: props.checked
+    };
+    return _this;
+  }
+
+  _createClass(Checkbox, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _index.Label,
+        {
+          error: this.props.error,
+          onClick: this.onToggle,
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'row',
+          cursor: this.props.disabled ? 'not-allowed' : 'pointer',
+          userSelect: 'none'
+        },
+        _react2.default.createElement(Checkmark, {
+          checked: this.state.checked,
+          disabled: this.props.disabled,
+          marginRight: (0, _polished.rem)(12)
+        }),
+        _react2.default.createElement(
+          _index.InlineBlock,
+          null,
+          this.props.label
+        )
+      );
+    }
+  }]);
+
+  return Checkbox;
+}(_react.Component);
+
+Checkbox.propTypes = {
+  checked: _propTypes2.default.bool.isRequired,
+  disabled: _propTypes2.default.bool,
+  error: _propTypes2.default.bool,
+  label: _propTypes2.default.string.isRequired,
+  onToggle: _propTypes2.default.func // eslint-disable-line react/require-default-props
+};
+
+Checkbox.defaultProps = {
+  disabled: false,
+  error: false
+};
+
+exports.default = Checkbox;
+
+/***/ }),
+
 /***/ "./src/code.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40571,6 +40979,14 @@ var _xml = __webpack_require__("./node_modules/highlight.js/lib/languages/xml.js
 
 var _xml2 = _interopRequireDefault(_xml);
 
+var _ruby = __webpack_require__("./node_modules/highlight.js/lib/languages/ruby.js");
+
+var _ruby2 = _interopRequireDefault(_ruby);
+
+var _bash = __webpack_require__("./node_modules/highlight.js/lib/languages/bash.js");
+
+var _bash2 = _interopRequireDefault(_bash);
+
 var _githubGist = __webpack_require__("./node_modules/react-syntax-highlighter/dist/styles/github-gist.js");
 
 var _githubGist2 = _interopRequireDefault(_githubGist);
@@ -40596,10 +41012,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // Note: All imported languages from highlight.js and syntax themes
 // should be listed as externals in the build configuration.
 
+(0, _light.registerLanguage)('plaintext', function () {
+  return {};
+});
 (0, _light.registerLanguage)('html', _xml2.default);
 (0, _light.registerLanguage)('java', _java2.default);
 (0, _light.registerLanguage)('javascript', _javascript2.default);
 (0, _light.registerLanguage)('swift', _swift2.default);
+(0, _light.registerLanguage)('bash', _bash2.default);
+(0, _light.registerLanguage)('ruby', _ruby2.default);
 
 var CodeContainer = (0, _glamorous2.default)(_index.Block).withConfig({
   displayName: 'code__CodeContainer'
@@ -40610,13 +41031,12 @@ var CodeContainer = (0, _glamorous2.default)(_index.Block).withConfig({
     padding: (0, _polished.rem)(12) + ' !important'
   },
   '& code': {
-    whiteSpace: 'pre',
-    overflowWrap: 'break-word'
+    whiteSpace: 'pre'
   }
 }, function (props) {
   return {
     '& pre': {
-      backgroundColor: props.theme.lightLightGrey + ' !important',
+      backgroundColor: props.theme.lightLightGreyColor + ' !important',
       borderRadius: props.theme.borderRadius1,
       borderTopRightRadius: props.menu ? 0 : props.theme.borderRadius,
       borderTopLeftRadius: props.menu ? 0 : props.theme.borderRadius
@@ -40636,17 +41056,20 @@ var LanguageMenu = (0, _glamorous2.default)(_index.Flex).withConfig({
   userSelect: 'none'
 }, function (props) {
   return {
-    backgroundColor: props.theme.lightGrey,
+    backgroundColor: props.theme.lightGreyColor,
     borderTopRightRadius: props.theme.borderRadius1,
     borderTopLeftRadius: props.theme.borderRadius1
   };
 });
 
 var languageMap = {
+  plaintext: 'Plaintext',
   html: 'HTML',
   java: 'Java',
   javascript: 'JavaScript',
-  swift: 'Swift'
+  swift: 'Swift',
+  ruby: 'Ruby',
+  bash: 'Bash'
 };
 
 var Code = function (_Component) {
@@ -40736,7 +41159,7 @@ Code.defaultProps = {
 Code.propTypes = {
   children: _propTypes2.default.string.isRequired,
   // eslint-disable-next-line react/require-default-props
-  language: _propTypes2.default.oneOf(['html', 'java', 'javascript', 'swift']),
+  language: _propTypes2.default.oneOf(['plaintext', 'html', 'java', 'javascript', 'swift', 'ruby', 'bash']),
   menu: _propTypes2.default.bool,
   style: _propTypes2.default.object, // eslint-disable-line react/forbid-prop-types
   copyText: _propTypes2.default.string,
@@ -40916,7 +41339,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var icons = exports.icons = ['account', 'account-outline', 'add-circle-outline', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'close', 'copy', 'delete', 'documentation', 'download', 'error', 'expand', 'filter', 'info-circle-outline', 'plus', 'pusher-logo', 'pusher-logo-text', 'search', 'success', 'warning'];
+var icons = exports.icons = ['account', 'account-outline', 'add-circle-outline', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'check', 'close', 'copy', 'delete', 'documentation', 'download', 'error', 'expand', 'filter', 'info-circle-outline', 'plus', 'pusher-logo', 'pusher-logo-text', 'search', 'success', 'warning'];
 
 function IconSet() {
   return _react2.default.createElement(
@@ -40988,6 +41411,16 @@ function IconSet() {
         null,
         _react2.default.createElement('path', { d: 'M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z' }),
         _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
+      )
+    ),
+    _react2.default.createElement(
+      'symbol',
+      { id: 'icon:check', viewBox: '0 0 24 24' },
+      _react2.default.createElement(
+        'g',
+        null,
+        _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' }),
+        _react2.default.createElement('path', { d: 'M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z' })
       )
     ),
     _react2.default.createElement(
@@ -41257,7 +41690,7 @@ exports.default = Icon;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.download = exports.copyToClipboard = exports.colorVariant = exports.P = exports.H6 = exports.H5 = exports.H4 = exports.H3 = exports.H2 = exports.H1 = exports.InlineBlock = exports.Inline = exports.Flex = exports.Block = exports.insertGlobalBaseStyles = exports.Tooltip = exports.Toast = exports.Textarea = exports.Portal = exports.Modal = exports.Link = exports.Label = exports.Input = exports.InlineCode = exports.icons = exports.IconSet = exports.Icon = exports.Dialog = exports.Code = exports.Card = exports.Button = exports.Alert = exports.theme = undefined;
+exports.download = exports.copyToClipboard = exports.colorVariant = exports.P = exports.H6 = exports.H5 = exports.H4 = exports.H3 = exports.H2 = exports.H1 = exports.InlineBlock = exports.Inline = exports.Flex = exports.Block = exports.insertGlobalBaseStyles = exports.Tooltip = exports.Toast = exports.Textarea = exports.Portal = exports.Modal = exports.Link = exports.Label = exports.Input = exports.InlineCode = exports.icons = exports.IconSet = exports.Icon = exports.Dialog = exports.Code = exports.Checkbox = exports.Card = exports.Button = exports.Alert = exports.theme = undefined;
 
 var _iconSet = __webpack_require__("./src/icon-set.js");
 
@@ -41377,6 +41810,10 @@ var _card = __webpack_require__("./src/card.js");
 
 var _card2 = _interopRequireDefault(_card);
 
+var _checkbox = __webpack_require__("./src/checkbox.js");
+
+var _checkbox2 = _interopRequireDefault(_checkbox);
+
 var _code = __webpack_require__("./src/code.js");
 
 var _code2 = _interopRequireDefault(_code);
@@ -41439,6 +41876,7 @@ exports.theme = _theme;
 exports.Alert = _alert2.default;
 exports.Button = _button2.default;
 exports.Card = _card2.default;
+exports.Checkbox = _checkbox2.default;
 exports.Code = _code2.default;
 exports.Dialog = _dialog2.default;
 exports.Icon = _icon2.default;
@@ -41756,7 +42194,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var RouterLink = (0, _glamorous2.default)(_reactRouter.Link, { propsAreCssOverrides: true }).withConfig({
+var RouterLink = (0, _glamorous2.default)(_reactRouter.Link, {
+  propsAreCssOverrides: true,
+  filterProps: ['external']
+}).withConfig({
   displayName: 'link__RouterLink'
 })({
   textDecoration: 'none',
@@ -42208,6 +42649,7 @@ var whiteColor = exports.whiteColor = '#fff';
 var blackColor = exports.blackColor = '#1e1e1e';
 var darkGreyColor = exports.darkGreyColor = '#dfe0e2';
 var lightGreyColor = exports.lightGreyColor = '#eff4f7';
+var lightLightGreyColor = exports.lightLightGreyColor = '#f7f9fa';
 var disabledColor = exports.disabledColor = '#dfe0e2';
 
 /* Variant colors (primary, success, etc) */
@@ -42243,6 +42685,7 @@ var boxShadow3 = exports.boxShadow3 = '0 1px 4px 1px rgba(50, 52, 58, 0.13)';
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.options = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -42276,7 +42719,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Container = (0, _glamorous2.default)('div').withConfig({
+var options = exports.options = {
+  propsAreCssOverrides: true,
+  filterProps: ['id', 'dismiss', 'onDismiss', 'text', 'timeout', 'primary', 'success', 'warning', 'danger']
+};
+
+var Container = (0, _glamorous2.default)('div', options).withConfig({
   displayName: 'toast__Container'
 })(_extends({
   maxWidth: (0, _polished.rem)(360),
@@ -42395,7 +42843,7 @@ var Toast = function (_Component) {
 
 Toast.propTypes = {
   id: _propTypes2.default.number, // eslint-disable-line react/require-default-props
-  dismiss: _propTypes2.default.func, // eslint-disable-line react/require-default-props
+  dismiss: _propTypes2.default.bool, // eslint-disable-line react/require-default-props
   onDismiss: _propTypes2.default.func, // eslint-disable-line react/require-default-props
   text: _propTypes2.default.string.isRequired,
   timeout: _propTypes2.default.number,
