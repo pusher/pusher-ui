@@ -40851,7 +40851,7 @@ var Checkmark = function Checkmark(props) {
     }, props),
     props.checked && _react2.default.createElement(_index.Icon, {
       name: 'check',
-      size: (0, _polished.rem)(20),
+      size: 20,
       color: props.disabled ? _index.theme.disabledColor : _index.theme.primaryColor,
       position: 'absolute'
     })
