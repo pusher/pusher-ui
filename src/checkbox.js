@@ -33,7 +33,7 @@ const Checkmark = props => {
       {props.checked && (
         <Icon
           name="check"
-          size={rem(20)}
+          size={20}
           color={props.disabled ? theme.disabledColor : theme.primaryColor}
           position="absolute"
         />
