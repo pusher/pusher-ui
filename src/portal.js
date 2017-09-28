@@ -10,11 +10,12 @@ import { Flex } from './index';
 
 const Container = glamorous(Flex)(
   {
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
-    right: 0,
-    bottom: 0,
     left: 0,
+    width: '100%',
+    height: '100%',
+    overflow: 'auto',
     opacity: 0,
     transition: 'opacity ease-out .18s',
   },

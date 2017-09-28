@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import glamorous from 'glamorous';
 import PropTypes from 'prop-types';
 import { rem } from 'polished';
@@ -51,45 +51,23 @@ Checkmark.defaultProps = {
   disabled: false,
 };
 
-class Checkbox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: props.checked,
-    };
-  }
-
-  onToggle = () => {
-    if (this.props.disabled) {
-      return;
-    }
-
-    const checked = !this.state.checked;
-    this.setState({ checked });
-    this.props.onToggle && this.props.onToggle(checked);
-  };
-
-  render() {
-    return (
-      <Label
-        error={this.props.error}
-        onClick={this.onToggle}
-        display="flex"
-        alignItems="center"
-        flexDirection="row"
-        cursor={this.props.disabled ? 'not-allowed' : 'pointer'}
-        userSelect="none"
-      >
-        <Checkmark
-          checked={this.state.checked}
-          disabled={this.props.disabled}
-          marginRight={rem(12)}
-        />
-        <InlineBlock>{this.props.label}</InlineBlock>
-      </Label>
-    );
-  }
-}
+const Checkbox = props => {
+  const { error, onToggle, checked, disabled, label } = props;
+  return (
+    <Label
+      error={error}
+      onClick={!disabled && onToggle}
+      display="flex"
+      alignItems="center"
+      flexDirection="row"
+      cursor={disabled ? 'not-allowed' : 'pointer'}
+      userSelect="none"
+    >
+      <Checkmark checked={checked} disabled={disabled} marginRight={rem(12)} />
+      <InlineBlock>{label}</InlineBlock>
+    </Label>
+  );
+};
 
 Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
