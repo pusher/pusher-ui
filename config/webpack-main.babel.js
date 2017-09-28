@@ -19,7 +19,7 @@ export default {
   },
   output: {
     path: resolve('./build'),
-    filename: devProd('[name].js', '[name].min.js'),
+    filename: devProd('[name].dev.js', '[name].js'),
     library: 'PusherUI',
     libraryTarget: 'umd',
   },
