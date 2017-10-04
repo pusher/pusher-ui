@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aux should render children without wrapping them with an element 1`] = `
+<div>
+  hello
+</div>
+`;
+
+exports[`Aux should render children without wrapping them with an element 2`] = `
+Array [
+  <div>
+    one
+  </div>,
+  <div>
+    two
+  </div>,
+  <div>
+    three
+  </div>,
+]
+`;
+
+exports[`Aux should render children without wrapping them with an element 3`] = `"Very interesting!"`;

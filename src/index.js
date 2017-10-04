@@ -1,5 +1,6 @@
 export * as theme from './theme';
 export Alert from './alert';
+export Aux from './aux';
 export Button from './button';
 export Card from './card';
 export Checkbox from './checkbox';

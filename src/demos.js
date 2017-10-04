@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import {
   Alert,
+  Aux,
   Block,
   Button,
   Card,
@@ -182,6 +183,18 @@ const App = () => (
           <Alert warning>Warning alert</Alert>
           <Alert danger>Danger alert</Alert>
           <Alert dismiss>Dismissible alert</Alert>
+        </Demo>
+
+        <Demo component="Aux">
+          <P>
+            Aux enables you to wrap a list of elements without rendering a
+            wrapping element.
+          </P>
+          <Aux>
+            <Block>1</Block>
+            <Block>2</Block>
+            <Block>3</Block>
+          </Aux>
         </Demo>
 
         <Demo component="Button">

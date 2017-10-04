@@ -24,7 +24,7 @@ describe('Card', () => {
   it('should take any props that the underlying component takes', () => {
     createSnapshot({
       ...defaultProps,
-      children: [<div>first</div>, <div>second</div>],
+      children: [<div key="a">first</div>, <div key="b">second</div>],
       gutter: 24,
     });
   });

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Block, Flex, Inline, InlineBlock } from './layout';
+import { Block, Flex, Inline, InlineBlock } from './index';
 
 describe('Layout', () => {
   const generateTestsFor = (Component, otherTests = () => {}) => {
@@ -47,7 +47,7 @@ describe('Layout', () => {
     it('should take a gutter prop to determine a gutter between items', () => {
       // Note: it appears that the CSS for selecting the child items is not
       // being applied to the snapshots, so this test doesn't do anything.
-      const children = [<Block />, <Block />];
+      const children = [<Block key="a" />, <Block key="b" />];
       createSnapshot({ gutter: 24, children });
 
       createSnapshot({ flexDirection: 'column', gutter: 24, children });
