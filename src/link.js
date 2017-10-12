@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link as ReactRouterLink } from 'react-router';
+import { Link as ReactRouterLink } from 'react-router-dom';
 import glamorous from 'glamorous';
 import PropTypes from 'prop-types';
 
 const RouterLink = glamorous(ReactRouterLink, {
   propsAreCssOverrides: true,
-  filterProps: ['external'],
+  filterProps: ['external', 'activeStyle', 'activeClassName'],
 })(
   {
     textDecoration: 'none',
