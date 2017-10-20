@@ -62,6 +62,7 @@ exports[`Input should pass on any css props 1`] = `
 
 <input
   className="glamor-0"
+  value=""
 />
 `;
 
@@ -126,6 +127,7 @@ exports[`Input should render a disabled input 1`] = `
 <input
   className="glamor-0"
   disabled={true}
+  value=""
 />
 `;
 
@@ -189,6 +191,7 @@ exports[`Input should render a raised input 1`] = `
 
 <input
   className="glamor-0"
+  value=""
 />
 `;
 
@@ -252,6 +255,7 @@ exports[`Input should render an input 1`] = `
 
 <input
   className="glamor-0"
+  value=""
 />
 `;
 
@@ -315,6 +319,7 @@ exports[`Input should render an input with a validation error 1`] = `
 
 <input
   className="glamor-0"
+  value=""
 />
 `;
 
@@ -382,6 +387,7 @@ exports[`Input should render inside a label, passing error props if present 1`] 
   This is a good input
   <input
     className="glamor-0"
+    value=""
   />
 </Label>
 `;
@@ -450,6 +456,71 @@ exports[`Input should render inside a label, passing error props if present 2`] 
   This is a good input
   <input
     className="glamor-0"
+    value=""
   />
 </Label>
+`;
+
+exports[`Input should take a value prop 1`] = `
+.glamor-0,
+[data-glamor-0] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  padding-right: 1.125rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.125rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .18s ease, color .18s ease;
+  color: #2b303b;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #eff4f7;
+  -webkit-transition: border-color .18s ease, color .18s ease;
+  -moz-transition: border-color .18s ease, color .18s ease;
+}
+
+.glamor-0::-webkit-input-placeholder,
+[data-glamor-0]::-webkit-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-moz-placeholder,
+[data-glamor-0]::-moz-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::-ms-input-placeholder,
+[data-glamor-0]::-ms-input-placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::placeholder,
+[data-glamor-0]::placeholder {
+  font-family: inherit;
+  color: #95979d;
+}
+
+.glamor-0::selection,
+[data-glamor-0]::selection {
+  color: #fff;
+  background-color: #006eff;
+}
+
+.glamor-0:focus,
+[data-glamor-0]:focus {
+  caret-color: #006eff;
+  box-shadow: 0 0 0 2px rgba(0,110,255,0.3);
+}
+
+<input
+  className="glamor-0"
+  value="hello!"
+/>
 `;

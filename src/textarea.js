@@ -7,7 +7,7 @@ import { inputStyles } from './input';
 
 const Container = glamorous('textarea', {
   propsAreCssOverrides: true,
-  filterProps: ['error', 'raised'],
+  filterProps: ['error', 'raised', 'label'],
 })(inputStyles, {
   height: 'inherit',
 });
@@ -17,16 +17,19 @@ function Textarea(props) {
     return (
       <Label error={props.error}>
         {props.label}
-        <Container {...props} />
+        <Container {...props} value={props.value == null ? '' : props.value} />
       </Label>
     );
   }
-  return <Container {...props} />;
+  return (
+    <Container {...props} value={props.value == null ? '' : props.value} />
+  );
 }
 
 Textarea.propTypes = {
   error: PropTypes.bool,
   label: PropTypes.string,
+  value: PropTypes.string.isRequired,
 };
 
 Textarea.defaultProps = {

@@ -2,12 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'glamorous';
 
-import Checkbox from './input';
+import Checkbox from './checkbox';
 import * as theme from './theme';
 
 jest.mock('./label', () => 'Label');
 
-describe('Input', () => {
+describe('Checkbox', () => {
   const createSnapshot = (passedProps = {}) => {
     const defaultProps = {
       checked: false,

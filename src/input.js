@@ -58,7 +58,7 @@ export const inputStyles = [
 
 const InputContainer = glamorous('input', {
   propsAreCssOverrides: true,
-  filterProps: ['error', 'raised'],
+  filterProps: ['error', 'raised', 'label'],
 })(...inputStyles);
 
 function Input(props) {
@@ -66,16 +66,22 @@ function Input(props) {
     return (
       <Label error={props.error}>
         {props.label}
-        <InputContainer {...props} />
+        <InputContainer
+          {...props}
+          value={props.value == null ? '' : props.value}
+        />
       </Label>
     );
   }
-  return <InputContainer {...props} />;
+  return (
+    <InputContainer {...props} value={props.value == null ? '' : props.value} />
+  );
 }
 
 Input.propTypes = {
   error: PropTypes.bool,
   label: PropTypes.string,
+  value: PropTypes.string.isRequired,
 };
 
 Input.defaultProps = {

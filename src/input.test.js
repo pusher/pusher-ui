@@ -8,7 +8,15 @@ import * as theme from './theme';
 jest.mock('./label', () => 'Label');
 
 describe('Input', () => {
-  const createSnapshot = (props = {}) => {
+  const defaultProps = {
+    value: '',
+  };
+
+  const createSnapshot = (passedProps = {}) => {
+    const props = {
+      ...defaultProps,
+      ...passedProps,
+    };
     expect(
       renderer
         .create(
@@ -44,5 +52,9 @@ describe('Input', () => {
 
   it('should pass on any css props', () => {
     createSnapshot({ padding: 24, margin: 12, color: 'hotpink' });
+  });
+
+  it('should take a value prop', () => {
+    createSnapshot({ value: 'hello!' });
   });
 });
