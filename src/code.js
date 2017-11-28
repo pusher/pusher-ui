@@ -9,6 +9,7 @@ import swift from 'highlight.js/lib/languages/swift';
 import xml from 'highlight.js/lib/languages/xml';
 import ruby from 'highlight.js/lib/languages/ruby';
 import bash from 'highlight.js/lib/languages/bash';
+import kotlin from 'highlight.js/lib/languages/kotlin';
 import githubGist from 'react-syntax-highlighter/dist/styles/github-gist';
 import glamorous from 'glamorous';
 import { rem } from 'polished';
@@ -25,6 +26,7 @@ registerLanguage('javascript', javascript);
 registerLanguage('swift', swift);
 registerLanguage('bash', bash);
 registerLanguage('ruby', ruby);
+registerLanguage('kotlin', kotlin);
 
 const CodeContainer = glamorous(Block)(
   {
@@ -72,6 +74,7 @@ const languageMap = {
   swift: 'Swift',
   ruby: 'Ruby',
   bash: 'Bash',
+  kotlin: 'Kotlin',
 };
 
 class Code extends Component {
@@ -92,6 +95,7 @@ class Code extends Component {
       'swift',
       'ruby',
       'bash',
+      'kotlin',
     ]),
     menu: PropTypes.bool,
     style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
