@@ -8354,6 +8354,185 @@ module.exports = function(hljs) {
 
 /***/ }),
 
+/***/ "./node_modules/highlight.js/lib/languages/kotlin.js":
+/***/ (function(module, exports) {
+
+module.exports = function(hljs) {
+  var KEYWORDS = {
+    keyword:
+      'abstract as val var vararg get set class object open private protected public noinline ' +
+      'crossinline dynamic final enum if else do while for when throw try catch finally ' +
+      'import package is in fun override companion reified inline lateinit init' +
+      'interface annotation data sealed internal infix operator out by constructor super ' +
+      // to be deleted soon
+      'trait volatile transient native default',
+    built_in:
+      'Byte Short Char Int Long Boolean Float Double Void Unit Nothing',
+    literal:
+      'true false null'
+  };
+  var KEYWORDS_WITH_LABEL = {
+    className: 'keyword',
+    begin: /\b(break|continue|return|this)\b/,
+    starts: {
+      contains: [
+        {
+          className: 'symbol',
+          begin: /@\w+/
+        }
+      ]
+    }
+  };
+  var LABEL = {
+    className: 'symbol', begin: hljs.UNDERSCORE_IDENT_RE + '@'
+  };
+
+  // for string templates
+  var SUBST = {
+    className: 'subst',
+    begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]
+  };
+  var VARIABLE = {
+    className: 'variable', begin: '\\$' + hljs.UNDERSCORE_IDENT_RE
+  };
+  var STRING = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"""', end: '"""',
+        contains: [VARIABLE, SUBST]
+      },
+      // Can't use built-in modes easily, as we want to use STRING in the meta
+      // context as 'meta-string' and there's no syntax to remove explicitly set
+      // classNames in built-in modes.
+      {
+        begin: '\'', end: '\'',
+        illegal: /\n/,
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        begin: '"', end: '"',
+        illegal: /\n/,
+        contains: [hljs.BACKSLASH_ESCAPE, VARIABLE, SUBST]
+      }
+    ]
+  };
+
+  var ANNOTATION_USE_SITE = {
+    className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
+  };
+  var ANNOTATION = {
+    className: 'meta', begin: '@' + hljs.UNDERSCORE_IDENT_RE,
+    contains: [
+      {
+        begin: /\(/, end: /\)/,
+        contains: [
+          hljs.inherit(STRING, {className: 'meta-string'})
+        ]
+      }
+    ]
+  };
+
+  return {
+    keywords: KEYWORDS,
+    contains : [
+      hljs.COMMENT(
+        '/\\*\\*',
+        '\\*/',
+        {
+          relevance : 0,
+          contains : [{
+            className : 'doctag',
+            begin : '@[A-Za-z]+'
+          }]
+        }
+      ),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      KEYWORDS_WITH_LABEL,
+      LABEL,
+      ANNOTATION_USE_SITE,
+      ANNOTATION,
+      {
+        className: 'function',
+        beginKeywords: 'fun', end: '[(]|$',
+        returnBegin: true,
+        excludeEnd: true,
+        keywords: KEYWORDS,
+        illegal: /fun\s+(<.*>)?[^\s\(]+(\s+[^\s\(]+)\s*=/,
+        relevance: 5,
+        contains: [
+          {
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
+            relevance: 0,
+            contains: [hljs.UNDERSCORE_TITLE_MODE]
+          },
+          {
+            className: 'type',
+            begin: /</, end: />/, keywords: 'reified',
+            relevance: 0
+          },
+          {
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            endsParent: true,
+            keywords: KEYWORDS,
+            relevance: 0,
+            contains: [
+              {
+                begin: /:/, end: /[=,\/]/, endsWithParent: true,
+                contains: [
+                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE},
+                  hljs.C_LINE_COMMENT_MODE,
+                  hljs.C_BLOCK_COMMENT_MODE
+                ],
+                relevance: 0
+              },
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              ANNOTATION_USE_SITE,
+              ANNOTATION,
+              STRING,
+              hljs.C_NUMBER_MODE
+            ]
+          },
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        className: 'class',
+        beginKeywords: 'class interface trait', end: /[:\{(]|$/, // remove 'trait' when removed from KEYWORDS
+        excludeEnd: true,
+        illegal: 'extends implements',
+        contains: [
+          {beginKeywords: 'public protected internal private constructor'},
+          hljs.UNDERSCORE_TITLE_MODE,
+          {
+            className: 'type',
+            begin: /</, end: />/, excludeBegin: true, excludeEnd: true,
+            relevance: 0
+          },
+          {
+            className: 'type',
+            begin: /[,:]\s*/, end: /[<\(,]|$/, excludeBegin: true, returnEnd: true
+          },
+          ANNOTATION_USE_SITE,
+          ANNOTATION
+        ]
+      },
+      STRING,
+      {
+        className: 'meta',
+        begin: "^#!/usr/bin/env", end: '$',
+        illegal: '\n'
+      },
+      hljs.C_NUMBER_MODE
+    ]
+  };
+};
+
+/***/ }),
+
 /***/ "./node_modules/highlight.js/lib/languages/ruby.js":
 /***/ (function(module, exports) {
 
@@ -41537,7 +41716,7 @@ var Alert = function (_Component) {
         _react2.default.createElement(_index.Icon, { name: iconName, color: 'inherit', size: 18 }),
         _react2.default.createElement(
           _index.Block,
-          null,
+          { flex: 1 },
           children
         ),
         dismiss && _react2.default.createElement(_index.Icon, { name: 'close', size: '18', color: 'inherit', onClick: this.dismiss })
@@ -41958,6 +42137,10 @@ var _bash = __webpack_require__("./node_modules/highlight.js/lib/languages/bash.
 
 var _bash2 = _interopRequireDefault(_bash);
 
+var _kotlin = __webpack_require__("./node_modules/highlight.js/lib/languages/kotlin.js");
+
+var _kotlin2 = _interopRequireDefault(_kotlin);
+
 var _githubGist = __webpack_require__("./node_modules/react-syntax-highlighter/dist/styles/github-gist.js");
 
 var _githubGist2 = _interopRequireDefault(_githubGist);
@@ -41992,6 +42175,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 (0, _light.registerLanguage)('swift', _swift2.default);
 (0, _light.registerLanguage)('bash', _bash2.default);
 (0, _light.registerLanguage)('ruby', _ruby2.default);
+(0, _light.registerLanguage)('kotlin', _kotlin2.default);
 
 var CodeContainer = (0, _glamorous2.default)(_index.Block).withConfig({
   displayName: 'code__CodeContainer'
@@ -42040,7 +42224,8 @@ var languageMap = {
   javascript: 'JavaScript',
   swift: 'Swift',
   ruby: 'Ruby',
-  bash: 'Bash'
+  bash: 'Bash',
+  kotlin: 'Kotlin'
 };
 
 var Code = function (_Component) {
@@ -42130,7 +42315,7 @@ Code.defaultProps = {
 Code.propTypes = {
   children: _propTypes2.default.string.isRequired,
   // eslint-disable-next-line react/require-default-props
-  language: _propTypes2.default.oneOf(['plaintext', 'html', 'java', 'javascript', 'swift', 'ruby', 'bash']),
+  language: _propTypes2.default.oneOf(['plaintext', 'html', 'java', 'javascript', 'swift', 'ruby', 'bash', 'kotlin']),
   menu: _propTypes2.default.bool,
   style: _propTypes2.default.object, // eslint-disable-line react/forbid-prop-types
   copyText: _propTypes2.default.string,
