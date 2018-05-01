@@ -66,7 +66,7 @@ class Alert extends Component {
     return (
       <Container {...other}>
         <Icon name={iconName} color="inherit" size={18} />
-        <Block>{children}</Block>
+        <Block flex={1}>{children}</Block>
         {dismiss && (
           <Icon name="close" size="18" color="inherit" onClick={this.dismiss} />
         )}
