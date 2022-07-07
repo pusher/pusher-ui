@@ -34,6 +34,8 @@ exports[`Alert should have a dismiss button if so configured 1`] = `
 .glamor-1,
 [data-glamor-1] {
   display: block;
+  flex: 1;
+  -webkit-flex: 1;
 }
 
 .glamor-2,
@@ -88,6 +90,8 @@ exports[`Alert should have a primary color variant 1`] = `
 .glamor-1,
 [data-glamor-1] {
   display: block;
+  flex: 1;
+  -webkit-flex: 1;
 }
 
 .glamor-2,
@@ -145,6 +149,8 @@ exports[`Alert should pass on any css props as usual 1`] = `
 .glamor-1,
 [data-glamor-1] {
   display: block;
+  flex: 1;
+  -webkit-flex: 1;
 }
 
 .glamor-2,
@@ -225,6 +231,8 @@ exports[`Alert should render an element with text inside 1`] = `
 .glamor-1,
 [data-glamor-1] {
   display: block;
+  flex: 1;
+  -webkit-flex: 1;
 }
 
 <div
